@@ -1,9 +1,14 @@
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap'
+import { MyVerticallyCenteredModal } from './ModalLogin'
+import { useState } from 'react';
 
 export const Navigation = () => {
+    
+    const [modalShow, setModalShow] = useState(false);
 
     return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            
         <Container>
             <Navbar.Brand href="#home">Cross Ft. Ajusco</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,11 +24,15 @@ export const Navigation = () => {
             <Nav.Link href="#features">Próximos eventos</Nav.Link>
             <Nav.Link href="#pricing">Recomendaciones de salud</Nav.Link>
             </Nav>
+            <Button variant="link" onClick={() => setModalShow(true)}>
+            Inicia Sesión
+            </Button>
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
             <Nav>
-            {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-            <Nav.Link eventKey={2} href="#memes">
-                Inicia sesión
-            </Nav.Link>
+                        {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
             </Nav>
             </Navbar.Collapse>
         </Container>
