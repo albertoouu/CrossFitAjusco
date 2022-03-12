@@ -1,3 +1,4 @@
+//------------Estas son las credenciales de Firebase ------------------------
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -21,6 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app)
+//Se exporta app para la auth con Google (se puede usar para otros fines de interacción con FB)
 export default app
 
 

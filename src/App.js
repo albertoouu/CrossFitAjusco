@@ -5,7 +5,7 @@ import {Navigation} from './components/NavBar'
 function App() {
   return (
     <div>
-      <Navigation/>
+      <Navigation/> {/*NavBar */}
       <Prueba/>
     </div>
   );

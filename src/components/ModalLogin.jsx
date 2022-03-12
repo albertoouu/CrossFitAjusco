@@ -1,7 +1,8 @@
+// Este es el modal que aparece al darle click en "Iniciar sesión"
 import { Button, Modal } from 'react-bootstrap'
 import { Login } from './Login'
 import './ModalLogin.css'
-  
+  //Extraido de 'react-bootstrap'
 export const MyVerticallyCenteredModal = (props) => {
   return (
     <div>
@@ -18,6 +19,7 @@ export const MyVerticallyCenteredModal = (props) => {
         </Modal.Header>
         <Modal.Body>
           <h4>Inicia sesión:</h4>
+          {/* Aquí inicimos sesión */}
           <Login/>
         </Modal.Body>
         <Modal.Footer>

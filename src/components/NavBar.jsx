@@ -1,3 +1,4 @@
+// -------------------NabBar by Bootstrap, NavBar en landing page------------------
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap'
 import { MyVerticallyCenteredModal } from './ModalLogin'
 import { useState } from 'react';
@@ -11,7 +12,7 @@ export const Navigation = () => {
             
         <Container>
             <Navbar.Brand href="#home">Cross Ft. Ajusco</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             <NavDropdown title="¿Quienes somos?" id="collasible-nav-dropdown">
