@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# CrossFt Website Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+Index
 
-In the project directory, you can run:
+    1. Description
+    2. User Definition & User Stories (UX)
+    3. Workflow Process
+    4. Prototype Design
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 1. Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In this project our team work for develop a web application available for mobile and desktop devices.
 
-### `npm test`
+The website is built with React JS and firestore database.
+Our client is a CrossFit teacher who lives in Ajusco, and requires a tool to help him improve his business and interaction with his users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. User Stories
 
-### `npm run build`
+**For the teacher of CrossFt Ajusco:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The user wishes to view the dates, names and payment status of each of his clients.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The user requires a simple and friendly way to interact with their clients, share exercise routines and events related to their discipline.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**For the customers:**
 
-### `npm run eject`
+The interface should allow the customers:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Log-in
+  - With Google or Facebook
+  - Email
+- See the news Feed of the Social Network
+- Showing at least the title, date of published, Content (img & text), for each publication.
+- Show the list of all the users registered with profile picture and name
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Publish
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 3. Workflow process
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The agile methodology is used to distribute the tasks of the project
 
-## Learn More
+![Kanban Board](./assets/SDLC.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Kanban Board](./assets/SDLC2.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 4. UX/UI Interface
 
-### Code Splitting
+Landing page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![prototype](./assets/landing_page.png)
 
-### Analyzing the Bundle Size
+![prototype](./assets/login.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![prototype](./assets/LP_2.png)
 
-### Making a Progressive Web App
+![prototype](./assets/footer.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Administration Interface
 
-### Advanced Configuration
+![prototype](./assets/dashboard.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![prototype](./assets/calendar.png)
 
-### Deployment
+![prototype](./assets/modal.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![prototype](./assets/UsersRegister.png)
 
-### `npm run build` fails to minify
+![prototype](./assets/table.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Users Interface
+
+![prototype](./assets/CrossFtCommunity.png)
+
+![prototype](./assets/UserProfile.png)
+
+![prototype](./assets/UserWorkout.png)
