@@ -1,12 +1,11 @@
-import './App.css';
-import Prueba from "./components/Prueba.jsx"
-import {Navigation} from './components/NavBar'
+import Prueba from "./components/Prueba.jsx";
+import { Navigation } from "./components/NavBar";
 
 function App() {
   return (
     <div>
-      <Navigation/> {/*NavBar */}
-      <Prueba/>
+      <Navigation /> {/*NavBar */}
+      <Prueba />
     </div>
   );
 }
