@@ -2,33 +2,20 @@ import React, { useState } from "react";
 import Home from "./components/Home.jsx";
 import  {Navigation} from "./components/NavBar.jsx";
 import Dashboard from "./components/Dashboard.jsx";
-import app from './components/firebase'
+import app from './components/firebase.js'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-const auth = getAuth(app)
+import { Routes, Route } from 'react-router-dom'
+import { AuthProvider } from "./Context/authContext.js";
+import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
 
-function App() {
-
-  const[GlobalUser, setGlobalUser] = useState(null);
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setGlobalUser(user);
-      console.log(GlobalUser)
-    } else {
-      setGlobalUser(null);
-      console.log(GlobalUser)
-    }
-  });
-
+const App = () => {
   return (
-    <>
-      {GlobalUser ? (
-        <Dashboard/>
-      ) : (
-        <Navigation/>
-      )}
-    </>
-  );
+    <AuthProvider>
+      <Routes>
+          <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/" element={ <Home/> } />
+      </Routes>
+    </AuthProvider>
+  )
 }
-
 export default App;

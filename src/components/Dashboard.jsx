@@ -22,10 +22,8 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import Button from '@mui/material/Button'
-import { getAuth, signOut } from "firebase/auth";
-import app from './firebase'
+import { useAuth } from '../Context/authContext';
 
-const auth = getAuth(app)
 
 function Copyright(props) {
     return (
@@ -93,7 +91,15 @@ function Copyright(props) {
     const toggleDrawer = () => {
       setOpen(!open);
     };
-  
+    
+    const { user, logout, loading } = useAuth();
+
+    const handleLogout = async () => {
+      await logout();
+    };
+
+    if (loading) return <h2>Cargando...</h2>
+    
     return (
       <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }}>
@@ -125,7 +131,7 @@ function Copyright(props) {
               >
                 CrossFt Ajusco (Dashboard) 
               </Typography>
-              <Button variant="contained" color="primary" onClick={() => signOut(auth)}>
+              <Button variant="contained" color="primary" onClick={handleLogout}>
                 LogOut
               </Button>
               <IconButton color="inherit">
@@ -211,6 +217,15 @@ function Copyright(props) {
     );
   }
   
-  export default function Dashboard() {
-    return <DashboardContent />;
+export default function Dashboard() {
+  const { user } = useAuth()
+  // console.log(user);
+  return (
+    <>
+      <img src={user.photoURL} alt='Perfil' />
+      <p>Bienvenido: {user.displayName || user.email}</p>
+      <DashboardContent />;
+      </>
+  )
+  
   }
