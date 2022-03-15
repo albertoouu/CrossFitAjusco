@@ -2,8 +2,13 @@
 import { Button, Modal } from 'react-bootstrap'
 import { Login } from './Login'
 import './ModalLogin.css'
+import { ModalRegister } from './ModalRegister'
+import { useState } from 'react'
+
   //Extraido de 'react-bootstrap'
 export const MyVerticallyCenteredModal = (props) => {
+
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div>
       <Modal
@@ -20,7 +25,16 @@ export const MyVerticallyCenteredModal = (props) => {
         <Modal.Body>
           <h4>Inicia sesión:</h4>
           {/* Aquí inicimos sesión */}
-          <Login/>
+          <Login />
+          <Button variant="link" onClick={() => setModalShow(true)}>
+            ¿Aún no tienes cuenta?
+            <ModalRegister
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+            </Button>
+          <br />
+          {/* Login con las redes */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="warning" onClick={props.onHide}>Close</Button>
