@@ -1,6 +1,6 @@
 import { Carousel } from "react-bootstrap";
 
-export const carrousel = () => {
+export const Carrousel = () => {
   return (
     <Carousel fade>
       <Carousel.Item>
