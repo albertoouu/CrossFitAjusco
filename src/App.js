@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext.js";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import "./App.css";
-import Footer from "./components/footer/Footer.jsx";
+import Footer from "./components/footer/footer.jsx";
 
 const App = () => {
   return (
@@ -26,7 +26,6 @@ const App = () => {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/" element={<Home />} />
             </Routes>
           </div>
         </div>
