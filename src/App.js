@@ -7,13 +7,15 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from "./Context/authContext.js";
 import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
+import { Login } from './components/Login'
 
 const App = () => {
   return (
     <AuthProvider>
       <Routes>
           <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/" element={ <Home/> } />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element = {<Login/>} />
       </Routes>
     </AuthProvider>
   )

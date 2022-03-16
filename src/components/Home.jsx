@@ -1,5 +1,5 @@
 import { Navigation } from "./NavBar";
-import { Carrousel } from "./carrousel/Carrousel";
+import { Carrousel } from '../components/carrousel/carrousel';
 
 function Home() {
   return (

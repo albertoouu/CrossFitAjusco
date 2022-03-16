@@ -9,6 +9,7 @@ export const authContext = createContext();
 export const useAuth = ( ) => {
     const context = useContext(authContext)
     if (!context) throw new Error ('There is not an auth provider')
+    // console.log(context)
     return context
 }
 
@@ -49,7 +50,7 @@ export const AuthProvider = ({ children }) => {
         });
         return () => unsubscribe
     }, []); 
-
+    // console.log(user)
     return (
         <authContext.Provider value={{ signup, login, user, logout, loading, loginWithGoogle, resetPassword }} >
             {children}
