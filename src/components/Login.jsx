@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useAuth } from '../Context/authContext'
 import { useNavigate } from 'react-router-dom'
 import { Alert } from "./Alert"
+
+import { collection, getDoc, getDocs, doc} from "firebase/firestore";
+import db from "./firebase"
 
 export const Login = () => {
     //aparecen en blanco cada campo
@@ -25,7 +28,7 @@ export const Login = () => {
         try {
             await login(user.email, user.password)
             //Si todo sale bien lo envía a la página en navigate
-            navigate('/admin')
+            //navigate('/admin')
         } catch (error) {
             //sino sale bien lanza un error
             // console.log(error.message);
@@ -39,10 +42,31 @@ export const Login = () => {
         }
     }
 
-    const handleWithGoogleSignin = async() => {
+
+
+
+
+    const handleWithGoogleSignin = async(user) => {
         await loginWithGoogle()
-        navigate('/admin')
+        //console.log(user)
+        //const docRef = doc(db, "Users", id);
+        //const docSnap = await getDoc(docRef);
+        //console.log("Document data:", docSnap.data());
     }
+
+    /*const handleWithGoogleSignin = async(id) => {
+        await loginWithGoogle()
+        const docRef = doc(db, "Users", id);
+        const docSnap = await getDoc(docRef);
+        console.log(id)
+
+        //if(doc(db, "Users", id)) {
+            //navigate('/admin')
+            console.log("Document data:", docSnap.data());
+        //} else {
+        //    navigate('/user')
+        //}
+    }*/
 
     const handleResetPassword = async() => {
         if (!user.email) return setError("Por favor, ingresa un email")

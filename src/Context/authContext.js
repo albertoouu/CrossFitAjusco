@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../components/firebase";
+import { useNavigate } from 'react-router-dom'
 
 export const authContext = createContext();
 
@@ -40,12 +41,19 @@ export const AuthProvider = ({ children }) => {
         sendPasswordResetEmail(auth, email)
     }
     
+    const navigate = useNavigate();
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             //Permite ver los datos del usuario "logueado"
-            // console.log(currentUser)
+            console.log(currentUser.email)
             setUser(currentUser)
             setLoading(false)
+            //if(currentUser.email == "delias16.hernandez@gmail.com"){
+            //    navigate('/admin')
+            //} else {
+            //    navigate('/user')
+            //}
         });
         return () => unsubscribe
     }, []); 
