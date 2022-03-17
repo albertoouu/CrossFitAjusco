@@ -48,25 +48,7 @@ export const Login = () => {
 
     const handleWithGoogleSignin = async(user) => {
         await loginWithGoogle()
-        //console.log(user)
-        //const docRef = doc(db, "Users", id);
-        //const docSnap = await getDoc(docRef);
-        //console.log("Document data:", docSnap.data());
     }
-
-    /*const handleWithGoogleSignin = async(id) => {
-        await loginWithGoogle()
-        const docRef = doc(db, "Users", id);
-        const docSnap = await getDoc(docRef);
-        console.log(id)
-
-        //if(doc(db, "Users", id)) {
-            //navigate('/admin')
-            console.log("Document data:", docSnap.data());
-        //} else {
-        //    navigate('/user')
-        //}
-    }*/
 
     const handleResetPassword = async() => {
         if (!user.email) return setError("Por favor, ingresa un email")
