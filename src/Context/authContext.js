@@ -47,11 +47,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             //Permite ver los datos del usuario "logueado"
-<<<<<<< HEAD
-            console.log(currentUser)
-=======
-            console.log(currentUser.email)
->>>>>>> f7055ab16ec488387d9449ab41c62cc4f49cce59
+            //console.log(currentUser.email)
             setUser(currentUser)
             setLoading(false)
             //if(currentUser.email == "delias16.hernandez@gmail.com"){
