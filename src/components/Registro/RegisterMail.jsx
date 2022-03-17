@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useAuth } from '../Context/authContext'
+import { useAuth } from '../../Context/authContext'
 import { useNavigate } from 'react-router-dom'
-import { Alert } from './Alert'
+import { Alert } from '../Alerts/Alert'
 
 export const Register = () => {
     //aparecen en blanco cada campo
@@ -11,7 +11,7 @@ export const Register = () => {
     });
 
     const { signup } = useAuth();
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const [error, setError] = useState();
     
     const handleChange = ({target: {name, value}}) => 
@@ -24,8 +24,8 @@ export const Register = () => {
         setError('')
         try {
             await signup(user.email, user.password)
-            //Si todo sale bien lo envía a la página en navigate
-            navigate('/admin')
+            //Si todo sale bien lo envía a la página en navigate (opcional)
+            //navigate('/admin') 
         } catch (error) {
             //sino sale bien lanza un error
             // console.log(error.message);
@@ -33,8 +33,9 @@ export const Register = () => {
             //personalización de los mensajes de error
             if (error.code === "auth/internal-error") {
                 setError('Correo invalido')
+            } else {
+            setError(error.message)
             }
-            // setError(error.message)
         }
     }
 
