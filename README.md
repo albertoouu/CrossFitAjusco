@@ -43,38 +43,38 @@ The interface should allow the customers:
 
 The agile methodology is used to distribute the tasks of the project
 
-![Kanban Board](./assets/SDLC.png)
+![Kanban Board](./assets/readmeImg/SDLC.png)
 
-![Kanban Board](./assets/SDLC2.png)
+![Kanban Board](./assets/readmeImg/SDLC2.png)
 
 ## 4. UX/UI Interface
 
 Landing page
 
-![prototype](./assets/landing_page.png)
+![prototype](./assets/readmeImg/landing_page.png)
 
-![prototype](./assets/login.png)
+![prototype](./assets/readmeImg/login.png)
 
-![prototype](./assets/LP_2.png)
+![prototype](./assets/readmeImg/LP_2.png)
 
-![prototype](./assets/footer.png)
+![prototype](./assets/readmeImg/footer.png)
 
 Administration Interface
 
-![prototype](./assets/dashboard.png)
+![prototype](./assets/readmeImg/dashboard.png)
 
-![prototype](./assets/calendar.png)
+![prototype](./assets/readmeImg/calendar.png)
 
-![prototype](./assets/modal.png)
+![prototype](./assets/readmeImg/modal.png)
 
-![prototype](./assets/UsersRegister.png)
+![prototype](./assets/readmeImg/UsersRegister.png)
 
-![prototype](./assets/table.png)
+![prototype](./assets/readmeImg/table.png)
 
 Users Interface
 
-![prototype](./assets/CrossFtCommunity.png)
+![prototype](./assets/readmeImg/CrossFtCommunity.png)
 
-![prototype](./assets/UserProfile.png)
+![prototype](./assets/readmeImg/UserProfile.png)
 
-![prototype](./assets/UserWorkout.png)
+![prototype](./assets/readmeImg/UserWorkout.png)

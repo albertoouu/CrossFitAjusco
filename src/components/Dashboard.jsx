@@ -78,11 +78,7 @@ function DashboardContent() {
     setOpen(!open);
   };
 
-  const { user, logout, loading } = useAuth();
-
-  const handleLogout = async () => {
-    await logout();
-  };
+  const { user, loading } = useAuth();
 
   if (loading) return <h2>Cargando...</h2>;
 
@@ -172,8 +168,10 @@ export default function Dashboard() {
   // console.log(user);
   return (
     <>
-      <img src={user.photoURL} alt="Perfil" />
-      <p>Bienvenido: {user.displayName || user.email}</p>
+      <div>
+          <img src={user.photoURL} alt="Perfil" />
+          <p>Bienvenido: {user.displayName || user.email}</p>
+      </div>
       <DashboardContent />;
     </>
   );

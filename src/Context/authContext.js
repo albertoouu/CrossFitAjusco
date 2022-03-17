@@ -3,12 +3,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../components/firebase";
+import { useNavigate } from 'react-router-dom'
 
 export const authContext = createContext();
 
 export const useAuth = ( ) => {
     const context = useContext(authContext)
     if (!context) throw new Error ('There is not an auth provider')
+    // console.log(context)
     return context
 }
 
@@ -40,16 +42,27 @@ export const AuthProvider = ({ children }) => {
         sendPasswordResetEmail(auth, email)
     }
     
+    const navigate = useNavigate();
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             //Permite ver los datos del usuario "logueado"
+<<<<<<< HEAD
             console.log(currentUser)
+=======
+            console.log(currentUser.email)
+>>>>>>> f7055ab16ec488387d9449ab41c62cc4f49cce59
             setUser(currentUser)
             setLoading(false)
+            //if(currentUser.email == "delias16.hernandez@gmail.com"){
+            //    navigate('/admin')
+            //} else {
+            //    navigate('/user')
+            //}
         });
         return () => unsubscribe
     }, []); 
-
+    
     return (
         <authContext.Provider value={{ signup, login, user, logout, loading, loginWithGoogle, resetPassword }} >
             {children}

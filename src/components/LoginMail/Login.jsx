@@ -1,7 +1,10 @@
 import { useState } from "react"
-import { useAuth } from '../Context/authContext'
+import { useAuth } from "../../Context/authContext"
 import { useNavigate } from 'react-router-dom'
-import { Alert } from "./Alert"
+import { Alert } from "../Alerts/Alert"
+
+import { collection, getDoc, getDocs, doc} from "firebase/firestore";
+import db from "../firebase"
 
 export const Login = () => {
     //aparecen en blanco cada campo
@@ -11,7 +14,7 @@ export const Login = () => {
     });
 
     const { login, loginWithGoogle, resetPassword } = useAuth();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [error, setError] = useState();
     
     const handleChange = ({target: {name, value}}) => 
@@ -25,7 +28,7 @@ export const Login = () => {
         try {
             await login(user.email, user.password)
             //Si todo sale bien lo envía a la página en navigate
-            navigate('/admin')
+            //navigate('/admin')
         } catch (error) {
             //sino sale bien lanza un error
             // console.log(error.message);
@@ -37,15 +40,14 @@ export const Login = () => {
                 setError(error.message)
             }
         }
-    }
+    };
 
-    const handleWithGoogleSignin = async() => {
+    const handleWithGoogleSignin = async(user) => {
         await loginWithGoogle()
-        navigate('/admin')
     }
 
     const handleResetPassword = async() => {
-        if (!user.email) return setError("Por favor, ingresa un email")
+        if (!user.email) return setError("Por favor, ingresa un email.")
         try {
             await resetPassword(user.email)
             setError('Hemos enviado un correo con el enlace para reestablecer tu contraseña :D')
@@ -53,6 +55,7 @@ export const Login = () => {
             setError(error.message)
         }
     }
+    // console.log(user)
 
     return (
         //formulario para el registro

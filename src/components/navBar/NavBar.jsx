@@ -1,15 +1,31 @@
 // -------------------NabBar by Bootstrap, NavBar en landing page------------------
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
-import { MyVerticallyCenteredModal } from "../ModalLogin";
-import { useState } from "react";
+import { useAuth } from "../../Context/authContext";
+import { useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
-  const [modalShow, setModalShow] = useState(false);
+  //para mostrar el modal
+  //const [modalShow, setModalShow] = useState(false);
+  //cerrar sesión desde navBar
+  const { user, logout } = useAuth()
+  //const para la redirección del usuario
+  const navigate = useNavigate()
+  //una vez que cierra sesión se va navigate('direccón')
+
+  const handleLogin = () => {
+    navigate('/login')
+  }
+
+  const handleLogout = async () => {
+    await logout()
+    navigate('/')
+  }
+
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Cross Ft. Ajusco</Navbar.Brand>
+        <Navbar.Brand href="/">Cross Ft. Ajusco</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -23,13 +39,13 @@ export const Navigation = () => {
             <Nav.Link href="#features">Próximos eventos</Nav.Link>
             <Nav.Link href="#pricing">Recomendaciones de salud</Nav.Link>
           </Nav>
-          <Button variant="link" onClick={() => setModalShow(true)}>
+          {/* Botones de inicio de sesión */}
+          <Button variant="link" onClick={handleLogin}>
             Inicia Sesión
           </Button>
-          <MyVerticallyCenteredModal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
+          <Button variant="link" onClick={handleLogout}>
+            Cerrar Sesión
+          </Button>
           <Nav>{/* <Nav.Link href="#deets">More deets</Nav.Link> */}</Nav>
         </Navbar.Collapse>
       </Container>
