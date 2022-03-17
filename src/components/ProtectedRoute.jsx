@@ -1,24 +1,22 @@
 import { useAuth } from "../Context/authContext"
-
-import { Dashboard } from "@mui/icons-material"
-import { Usuario } from "./Usuario"
-import { Home } from "../Home"
+import { Navigate, useNavigate } from "react-router-dom"
+import Dashboard from "./Dashboard.jsx";
+import { User } from "./User"; 
 
 // Garantiza la proteccion de la ruta para que nadie que no esté logueado lo vea
 export const ProtectedRoute = ({children}) => {
     const { user, loading } = useAuth()
+    const navigate = useNavigate();
     if (loading) return <h2>Cargando...</h2>
-
-    if (user.email === "crossftajuscoweb@gmail.com") {
-        return <Dashboard />
-    } else if (user.email !== "crossftajuscoweb@gmail.com") {
-        return <Usuario />
-    } else {
-        if (!user) {
-            return <Home/>
-        }
-            
-    }
+    if (!user) return <Navigate to='/' />
+    if (user.email === "crossftajuscoweb@gmail.com") { 
+        return <Dashboard/>
+    } else if (user.email !== "crossftajuscoweb@gmail.com") { 
+        return <User/>
+    }  
+    console.log(!user)
+    console.log(user.email)
+    console.log(children)
     return <>{children}</>
     
 }
