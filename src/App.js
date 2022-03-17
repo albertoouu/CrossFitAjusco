@@ -1,23 +1,36 @@
-import React, { useState } from "react";
-import Home from "./components/Home.jsx";
-import  {Navigation} from "./components/NavBar.jsx";
+import React from "react";
+import { Navigation } from "./components/navBar/NavBar.jsx";
 import Dashboard from "./components/Dashboard.jsx";
-import app from './components/firebase.js'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext.js";
-import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
-import { Login } from './components/Login'
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import "./App.css";
+import Footer from "./components/footer/footer";
+import {Usuario} from './components/Usuario'
+import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
+import { Home } from "./Home";
 
 const App = () => {
+  
   return (
     <AuthProvider>
-      <Routes>
-          <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element = {<Login/>} />
-      </Routes>
+      <div className="App">
+        <div className="navBar">
+          <Navigation />
+          <div className="middle-component">
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/user" element={<ProtectedRoute><Usuario /></ProtectedRoute>} />
+              <Route path="*" element={<NotFoundPage/>}/>
+            </Routes>
+          </div>
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
     </AuthProvider>
-  )
-}
+  );
+};
 export default App;

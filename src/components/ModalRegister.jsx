@@ -1,5 +1,5 @@
 import {Modal, Button} from 'react-bootstrap'
-import { Register } from './RegisterMail';
+import { Register } from './Registro/RegisterMail';
 
 
 export const ModalRegister = (props) => {
@@ -28,3 +28,14 @@ export const ModalRegister = (props) => {
         </div>
       );
 }
+
+//const [modalShow, setModalShow] = useState(false);
+
+// Boton para activar modal:
+// <Button variant="link" onClick={() => setModalShow(true)}>
+// ¿Aún no tienes cuenta?
+// <ModalRegister
+//     show={modalShow}
+//     onHide={() => setModalShow(false)}
+// />
+// </Button>
