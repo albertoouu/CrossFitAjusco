@@ -9,6 +9,7 @@ import { AuthProvider } from "./Context/authContext.js";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import "./App.css";
 import Footer from "./components/footer/Footer.jsx";
+import Carrousel from "./components/carrousel/Carrousel.jsx";
 
 const App = () => {
   return (
@@ -16,19 +17,21 @@ const App = () => {
       <div className="App">
         <div className="navBar">
           <Navigation />
-          <div className="middle-component">
-            <Routes>
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
         </div>
+        <div className="middle-component">
+          <Carrousel />
+          <Routes>
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
+
         <div className="footer">
           <Footer />
         </div>

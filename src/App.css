@@ -1,1 +1,23 @@
 /* Grid structure*/
+.App {
+  text-align: center;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 0.25fr 4fr 0.25fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "navBar navBar navBar "
+    "middle-component middle-component middle-component "
+    "footer footer footer ";
+}
+.navBar {
+  grid-area: navBar;
+}
+.middle-component {
+  grid-area: middle-component;
+  /*padding: 2em;*/
+}
+
+.footer {
+  grid-area: footer;
+}
