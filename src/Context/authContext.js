@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             //Permite ver los datos del usuario "logueado"
-            // console.log(currentUser)
+            console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
         });
