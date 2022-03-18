@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/crossfit_ajusco/static/css/main.073c9b0a.css",
-    "main.js": "/crossfit_ajusco/static/js/main.9b8b5321.js",
+    "main.css": "/crossfit_ajusco/static/css/main.5bf843cb.css",
+    "main.js": "/crossfit_ajusco/static/js/main.12b04c2f.js",
     "static/js/787.8ccd671b.chunk.js": "/crossfit_ajusco/static/js/787.8ccd671b.chunk.js",
-    "static/media/logo.svg": "/crossfit_ajusco/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/crossfit_ajusco/index.html",
-    "main.073c9b0a.css.map": "/crossfit_ajusco/static/css/main.073c9b0a.css.map",
-    "main.9b8b5321.js.map": "/crossfit_ajusco/static/js/main.9b8b5321.js.map",
+    "main.5bf843cb.css.map": "/crossfit_ajusco/static/css/main.5bf843cb.css.map",
+    "main.12b04c2f.js.map": "/crossfit_ajusco/static/js/main.12b04c2f.js.map",
     "787.8ccd671b.chunk.js.map": "/crossfit_ajusco/static/js/787.8ccd671b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.9b8b5321.js"
+    "static/css/main.5bf843cb.css",
+    "static/js/main.12b04c2f.js"
   ]
 }
