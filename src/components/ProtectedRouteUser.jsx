@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../Context/authContext";
 import { Navigate } from "react-router-dom";
+import { UserView } from "./userView/UserView";
 
 const ProtectedRouteUser = ({ children }) => {
   const { user, users, loading } = useAuth();
@@ -13,7 +14,7 @@ const ProtectedRouteUser = ({ children }) => {
   });
 
   if (mails.indexOf(user.email) != -1) return <>{children}</>;
-  return <Navigate to="/" />;
+  return <userView/>;
 };
 
 export default ProtectedRouteUser;

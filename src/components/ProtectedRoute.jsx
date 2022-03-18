@@ -16,6 +16,6 @@ export const ProtectedRoute = ({ children }) => {
   });
 
   if (user.email === "crossftajuscoweb@gmail.com") return <>{children}</>;
-  if (mails.indexOf(user.email) != -1) return <Navigate to="/user" />;
+  if (mails.indexOf(user.email) != -1) return <UserView/>;
   return <Navigate to="/" />;
 };
