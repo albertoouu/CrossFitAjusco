@@ -12,6 +12,8 @@ import { Home } from "./Home";
 import { UserView } from "./components/userView/UserView.jsx";
 import { Login } from "./components/LoginMail/Login";
 import Facebook from "./components/userView/SocialMedia.jsx";
+import Profile from "./components/userView/Profile.jsx";
+import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
 
 const App = () => {
   return (
@@ -33,12 +35,13 @@ const App = () => {
                 }
               />
               <Route
-                path="/user"
+                path="/userView"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRouteUser>
                     <UserView />
-                    <Facebook />
-                  </ProtectedRoute>
+                    <Facebook /> 
+                    <Profile/>
+                  </ProtectedRouteUser>
                 }
               />
               <Route path="*" element={<NotFoundPage />} />
