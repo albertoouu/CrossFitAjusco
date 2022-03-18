@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { useAuth } from "../../Context/authContext"
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import { Alert } from "../Alerts/Alert"
 
-import { collection, getDoc, getDocs, doc} from "firebase/firestore";
-import db from "../firebase"
+//import { collection, getDoc, getDocs, doc} from "firebase/firestore";
+//import db from "../firebase"
 
 export const Login = () => {
     //aparecen en blanco cada campo
