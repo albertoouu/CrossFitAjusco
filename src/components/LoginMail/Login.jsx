@@ -39,7 +39,7 @@ export const Login = () => {
             } else if (error.code === "auth/invalid-email") {
                 setError('Por favor, verifica que el correo ingresado sea correcto')
             } else if (error.code === "auth/wrong-password") {
-                setError('Contraseña invalida, vuelve a intentarlo')
+                setError('El usuario o la contraseña es invalida, vuelve a intentarlo')
             } else if (error.code === "auth/too-many-requests") {
                 setError('El acceso a esta cuenta ha sido temporalmente deshabilitado debido a muchos intentos fallidos de inicio de sesión. Puedes restaurarlo inmediatamente reestableciendo tu contraseña o puedes intentarlo más tarde')
             } else if (error.code === "auth/user-not-found") {
