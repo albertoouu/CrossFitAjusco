@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { useAuth } from "../../Context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Alert } from "../Alerts/Alert";
-import "./login.css";
+
 import { collection, getDoc, getDocs, doc } from "firebase/firestore";
 import db from "../firebase";
 
 export const Login = () => {
   //aparecen en blanco cada campo
-  const [user, setUser] = useState({
+  const [user1, setUser] = useState({
     email: "",
     password: "",
   });
 
-  const { login, loginWithGoogle, resetPassword } = useAuth();
+  const { login, loginWithGoogle, resetPassword, user } = useAuth();
   // const navigate = useNavigate();
   const [error, setError] = useState();
-
+  const navigate = useNavigate();
   const handleChange = ({ target: { name, value } }) =>
     // console.log(e.target.name, e.target.value);
     //console.log(name, value)
-    setUser({ ...user, [name]: value });
+    setUser({ ...user1, [name]: value });
   // console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await login(user.email, user.password);
+      await login(user1.email, user1.password);
       //Si todo sale bien lo envía a la página en navigate
       //navigate('/admin')
     } catch (error) {
@@ -43,13 +43,19 @@ export const Login = () => {
   };
 
   const handleWithGoogleSignin = async (user) => {
-    await loginWithGoogle();
+    loginWithGoogle()
+      .then((result) => {
+        navigate("/admin");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleResetPassword = async () => {
-    if (!user.email) return setError("Por favor, ingresa un email.");
+    if (!user1.email) return setError("Por favor, ingresa un email.");
     try {
-      await resetPassword(user.email);
+      await resetPassword(user1.email);
       setError(
         "Hemos enviado un correo con el enlace para reestablecer tu contraseña :D"
       );
@@ -61,7 +67,7 @@ export const Login = () => {
 
   return (
     //formulario para el registro
-    <div className="register">
+    <div>
       {error && <Alert message={error} />}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>

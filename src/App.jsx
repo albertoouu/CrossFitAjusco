@@ -11,6 +11,7 @@ import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
 import { Home } from "./Home";
 import { User } from "./components/User.jsx";
 import { Login } from "./components/LoginMail/Login";
+import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
 
 const App = () => {
   return (
@@ -34,9 +35,9 @@ const App = () => {
               <Route
                 path="/user"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRouteUser>
                     <User />
-                  </ProtectedRoute>
+                  </ProtectedRouteUser>
                 }
               />
               <Route path="*" element={<NotFoundPage />} />
