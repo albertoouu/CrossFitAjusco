@@ -39,7 +39,7 @@ const App = () => {
                 element={
                   <ProtectedRouteUser>
                     <UserView />
-                    <Facebook /> 
+                   {/*  <Facebook />  */}
                     <Profile/>
                   </ProtectedRouteUser>
                 }
