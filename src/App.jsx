@@ -9,8 +9,10 @@ import "./App.css";
 import Footer from "./components/footer/Footer";
 import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
 import { Home } from "./Home";
-import { User } from "./components/User.jsx";
+import { UserView } from "./components/userView/UserView.jsx";
 import { Login } from "./components/LoginMail/Login";
+import Facebook from "./components/userView/SocialMedia.jsx";
+import Profile from "./components/userView/Profile.jsx";
 import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
 
 const App = () => {
@@ -33,10 +35,12 @@ const App = () => {
                 }
               />
               <Route
-                path="/user"
+                path="/userView"
                 element={
                   <ProtectedRouteUser>
-                    <User />
+                    <UserView />
+                   {/*  <Facebook />  */}
+                    <Profile/>
                   </ProtectedRouteUser>
                 }
               />
