@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../Context/authContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Alert } from "../Alerts/Alert";
-
+import "./login.css";
 import { collection, getDoc, getDocs, doc } from "firebase/firestore";
 import db from "../firebase";
 
@@ -35,18 +35,20 @@ export const Login = () => {
       console.log(error.code);
       //personalización de los mensajes de error
       if (error.code === "auth/internal-error") {
-        setError('Correo invalido')
-    } else if (error.code === "auth/invalid-email") {
-        setError('Por favor, verifica que el correo ingresado sea correcto')
-    } else if (error.code === "auth/wrong-password") {
-        setError('El usuario o la contraseña es invalida, vuelve a intentarlo')
-    } else if (error.code === "auth/too-many-requests") {
-        setError('El acceso a esta cuenta ha sido temporalmente deshabilitado debido a muchos intentos fallidos de inicio de sesión. Puedes restaurarlo inmediatamente reestableciendo tu contraseña o puedes intentarlo más tarde')
-    } else if (error.code === "auth/user-not-found") {
-        setError('Usuario no registrado')
-    } else {
-        setError(error.message)
-    }
+        setError("Correo invalido");
+      } else if (error.code === "auth/invalid-email") {
+        setError("Por favor, verifica que el correo ingresado sea correcto");
+      } else if (error.code === "auth/wrong-password") {
+        setError("El usuario o la contraseña es invalida, vuelve a intentarlo");
+      } else if (error.code === "auth/too-many-requests") {
+        setError(
+          "El acceso a esta cuenta ha sido temporalmente deshabilitado debido a muchos intentos fallidos de inicio de sesión. Puedes restaurarlo inmediatamente reestableciendo tu contraseña o puedes intentarlo más tarde"
+        );
+      } else if (error.code === "auth/user-not-found") {
+        setError("Usuario no registrado");
+      } else {
+        setError(error.message);
+      }
     }
   };
 
@@ -75,7 +77,7 @@ export const Login = () => {
 
   return (
     //formulario para el registro
-    <div>
+    <div className="register">
       {error && <Alert message={error} />}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
