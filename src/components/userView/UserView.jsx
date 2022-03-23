@@ -1,6 +1,6 @@
 export const UserView = () => {
   return <>
-      <h1>Soy el contenido del usuario</h1>
+      <h1>Soy la vista del usuario </h1>
   </>
 }
 
