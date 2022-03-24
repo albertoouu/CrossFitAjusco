@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const Navigation = () => {
   //para mostrar el modal
   //const [modalShow, setModalShow] = useState(false);
+
   //cerrar sesión desde navBar
   const { user, logout } = useAuth()
   //const para la redirección del usuario
@@ -21,6 +22,11 @@ export const Navigation = () => {
     navigate('/')
   }
 
+  // if (!user) {
+  //   handleLogin()
+  // } else {
+  //   handleLogin()
+  // }
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
