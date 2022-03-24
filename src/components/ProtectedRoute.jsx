@@ -9,7 +9,7 @@ export const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
 
   if (loading) return <h2>Cargando...</h2>;
-  if (!user) return <Navigate to="/userView" />;
+  if (!user) return <Navigate to="/" />;
 
   const mails = users.map((elem) => {
     return elem.email;
@@ -17,5 +17,5 @@ export const ProtectedRoute = ({ children }) => {
 
   if (user.email === "crossftajuscoweb@gmail.com") return <>{children}</>;
   if (mails.indexOf(user.email) != -1) return <Navigate to="/userView" />;
-  return <Navigate to="/userView" />;
+  return <Navigate to="/" />;
 };

@@ -40,8 +40,8 @@ const App = () => {
                 element={
                   <ProtectedRouteUser>
                     <UserView />
-                   {/*  <Facebook />  */}
-                    <Profile/>
+                    {/*  <Facebook />  */}
+                    <Profile />
                   </ProtectedRouteUser>
                 }
               />

@@ -15,6 +15,7 @@
 }
 .middle-component {
   grid-area: middle-component;
+
   /*padding: 2em;*/
 }
 
