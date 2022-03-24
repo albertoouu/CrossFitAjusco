@@ -22,7 +22,7 @@ import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
 import Button from "@mui/material/Button";
-import { useAuth } from "../Context/authContext";
+import { useAuth } from "../../Context/authContext";
 
 function Copyright(props) {
   return (
@@ -169,8 +169,8 @@ export default function Dashboard() {
   return (
     <>
       <div>
-          <img src={user.photoURL} alt="Perfil" />
-          <p>Bienvenido: {user.displayName || user.email}</p>
+        <img src={user.photoURL} alt="Perfil" />
+        <p>Bienvenido: {user.displayName || user.email}</p>
       </div>
       <DashboardContent />;
     </>
