@@ -1,7 +1,12 @@
-import { useAuth } from "../Context/authContext";
+import { useAuth } from "../../Context/authContext";
 import { Navigate, useNavigate } from "react-router-dom";
+<<<<<<< HEAD:src/components/ProtectedRoute.jsx
 import Dashboard from "./Dashboard.jsx";
 import { UserView } from "./UserView/UserView";
+=======
+import Dashboard from "../Dashboard.jsx";
+import { UserView } from "../userView/UserView";
+>>>>>>> dbcffcc2eee5079cea8fe05a2da4173cad9aeba1:src/components/ProtectedRoute/ProtectedRoute.jsx
 
 // Garantiza la proteccion de la ruta para que nadie que no esté logueado lo vea
 export const ProtectedRoute = ({ children }) => {
