@@ -326,7 +326,7 @@ export const Register = (valores) => {
                                 <div>
                                     <label htmlFor="frequency">¿Con qué frecuencia realiza ejercicio a la semana?</label>
                                     <Field
-                                        type="range"
+                                        type="3"
                                         name="frequency"
                                         id="frequency"
                                         min={1} max ={7} step={1}
