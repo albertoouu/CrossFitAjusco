@@ -3,7 +3,7 @@ import { Navigation } from "./components/navBar/NavBar.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext.js";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import "./App.css";
 import Footer from "./components/footer/Footer";
 import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";

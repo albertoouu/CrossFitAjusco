@@ -63,7 +63,7 @@ export const Register = (valores) => {
                     }
 
                     if (!valores.phone_contact) {
-                        errores.phone_contact = 'Para caso de emergencias, por favor, ingresa número de teléfono de algun contacto'
+                        errores.phone_contact = 'Para caso de emergencias, por favor, ingresa número de teléfono de algún contacto'
                     } else if (/\D/.test(valores.phone_contact)) {
                         errores.phone_contact = 'Ingresa sólo números'
                     }
