@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../Context/authContext";
 import { Navigate } from "react-router-dom";
-import { userView } from "./userView/UserView";
+import { UserView } from "./UserView/UserView";
 
 const ProtectedRouteUser = ({ children }) => {
   const { user, users, loading } = useAuth();

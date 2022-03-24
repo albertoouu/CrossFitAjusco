@@ -9,10 +9,10 @@ import "./App.css";
 import Footer from "./components/footer/Footer";
 import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
 import { Home } from "./Home";
-import { UserView } from "./components/userView/UserView.jsx";
+import { UserView } from "./components/UserView/UserView.jsx";
 import { Login } from "./components/LoginMail/Login";
-import Facebook from "./components/userView/SocialMedia.jsx";
-import Profile from "./components/userView/Profile.jsx";
+import Facebook from "./components/UserView/SocialMedia.jsx";
+import Profile from "./components/UserView/Profile.jsx";
 import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
                 }
               />
               <Route
-                path="/userView"
+                path="/UserView"
                 element={
                   <ProtectedRouteUser>
                     <UserView />
