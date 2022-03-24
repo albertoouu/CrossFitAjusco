@@ -3,8 +3,6 @@ import { useAuth } from "../../Context/authContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Alert } from "../Alerts/Alert";
 import "./login.css";
-import { collection, getDoc, getDocs, doc } from "firebase/firestore";
-import db from "../firebase";
 
 export const Login = () => {
   //aparecen en blanco cada campo
