@@ -1,19 +1,17 @@
 import React from "react";
-import { Navigation } from "./components/navBar/NavBar.jsx";
-import Dashboard from "./components/Dashboard.jsx";
+import { Navigation } from "./LandingPage/navBar/NavBar.jsx";
+import Dashboard from "./AdminPage/Dashboard/Dashboard.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext.js";
-import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import "./App.css";
-import Footer from "./components/footer/Footer";
-import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
-import { Home } from "./Home";
-import { UserView } from "./components/userView/UserView.jsx";
-import { Login } from "./components/LoginMail/Login";
-import Facebook from "./components/userView/SocialMedia.jsx";
-import Profile from "./components/userView/Profile.jsx";
-import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
-import { Register } from './components/Register/RegisterMail'
+import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+import { Home } from "./LandingPage/Home/Home.jsx";
+import Footer from "./LandingPage/Footer/Footer";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage.jsx";
+import { UserView } from "./UserPage/userView/UserView.jsx";
+import { Login } from "./LandingPage/LoginMail/Login.jsx";
+import Profile from "./UserPage/userView/Profile.jsx";
+import ProtectedRouteUser from "./ProtectedRoute/ProtectedRouteUser.jsx";
+import { Register } from "./AdminPage/Register/RegisterMail";
 
 const App = () => {
   return (
@@ -34,7 +32,7 @@ const App = () => {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/register" element={<Register/>}/>
+              <Route path="/register" element={<Register />} />
               <Route
                 path="/userView"
                 element={

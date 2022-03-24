@@ -11,8 +11,8 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
-import app from "../Components/firebase";
-import { auth } from "../Components/firebase";
+import app from "../firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 const firestore = getFirestore(app);
