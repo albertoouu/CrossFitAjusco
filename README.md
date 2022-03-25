@@ -26,7 +26,7 @@ PyME:CrossFT Ajusco SA. de CV.
 
 Contact: [Social Media](https://www.facebook.com/YETIS14Ajusco12)
 
-![](./src/assets/readmeImg/Eduardo.jpeg)
+![Profesor](./src/assets/readmeImg/Eduardo.jpeg)
 
 ## 2. User Stories
 
@@ -57,11 +57,13 @@ The agile methodology is used to distribute the tasks of the project
 
 ![Kanban Board](./src/assets/readmeImg/SDLC2.png)
 
+![prototype](./src/assets/readmeImg/CrossFitApp.png)
+
 ## 4. UX/UI Interface
 
 Landing page
 
-![prototype](./src/assets/readmeImg/CrossFitApp.png)
+![prototype](./src/assets/readmeImg/landing_page.png)
 
 ![prototype](./src/assets/readmeImg/login.png)
 

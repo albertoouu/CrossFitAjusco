@@ -1,24 +1,21 @@
 import { Carousel } from "react-bootstrap";
 import img1 from "../../assets/lp_imgs/p1.jpg";
+import img2 from "../../assets/lp_imgs/p2.jpg";
 const Carrousel = () => {
   return (
     <Carousel fade>
       <Carousel.Item>
         <img className="d-block w-100" src={img1} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
+          <h3>Carrera Power Ade</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://images.pexels.com/photos/4720827/pexels-photo-4720827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Second slide"
-        />
+        <img className="d-block w-100" src={img2} alt="Second slide" />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
+          <h3>Entrenamiento en el centro recreativo "El Arenal"</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
