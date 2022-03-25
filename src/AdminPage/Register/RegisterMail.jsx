@@ -3,9 +3,11 @@ import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import './Register.css'
 
 export const Register = (valores) => {
   const [sendForm, changeSendForm] = useState(false);
+  const [fem] = useState(false);
   return (
     <>
       <Formik //Contenedor Formik, para el formulario
@@ -13,6 +15,7 @@ export const Register = (valores) => {
         initialValues={{
           email: "",
           payment_days: "",
+          next_payment: "",
           name: "",
           lastname: "",
           phone: "",
@@ -38,6 +41,7 @@ export const Register = (valores) => {
         validate={(valores) => {
           console.log(valores); //muestra el objeto del registro
           let errores = {};
+
           if (!valores.email) {
             errores.email = "Ingresa un email";
           } else if (
@@ -118,13 +122,12 @@ export const Register = (valores) => {
         {({ errors }) => (
           //formulario para el registro
           <>
-            <h2>Registro de nuevos usuarios:</h2>
-            <br />
+            <h2 className="title">Registro de nuevos usuarios:</h2>
             {/* {error && <Alert message={error} />} */}
 
-            <Form>
+            <Form className="formulario">
               <div>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Email: </label>
                 <Field
                   type="mail"
                   name="email"
@@ -143,6 +146,14 @@ export const Register = (valores) => {
                   type="datetime-local"
                   name="payment_days"
                   id="payment_days"
+                />
+              </div>
+              <div>
+                <label htmlFor="next_payment">Siguiente fecha de pago:</label>
+                <Field
+                  type="datetime-local"
+                  name="next_payment"
+                  id="next_payment"
                 />
               </div>
               <div>
@@ -200,10 +211,10 @@ export const Register = (valores) => {
                 />
               </div>
               <div>
-                <div>
+                <div className="sexo" >
                   Sexo:
                   <label>
-                    <Field type="radio" name="gender" value="femenino" />{" "}
+                    <Field type="radio" name="gender" value="femenino" />
                     femenino
                   </label>
                   <label>
@@ -211,6 +222,8 @@ export const Register = (valores) => {
                     masculino
                   </label>
                 </div>
+              </div>
+              <div className="general">
                 <label htmlFor="age">Edad:</label>
                 <Field
                   type="number"
@@ -225,62 +238,62 @@ export const Register = (valores) => {
                   type="number"
                   name="heigth"
                   id="height"
+                  placeholder="metros"
                   step={0.01}
                   precision={0.02}
                   min={0.5}
                   max={2.5}
                 />
-                m.
                 <label htmlFor="weigth">Peso:</label>
                 <Field
                   type="number"
                   name="weigth"
-                  id="weight"
+                  id="weigth"
+                  placeholder="kilogramos"
                   step={0.01}
                   precision={2}
                   min={10}
                   max={180}
                 />
-                kg.
               </div>
-              <div>
+              <div className="particular">
                 <label htmlFor="neck">Cuello:</label>
                 <Field
                   type="number"
                   name="neck"
+                  placeholder="centimetros"
                   id="neck"
                   step={0.1}
                   precision={2}
                   min={10}
                   max={70}
                 />
-                cm.
                 <label htmlFor="waist">Cintura:</label>
                 <Field
                   type="number"
                   name="waist"
                   id="waist"
+                  placeholder="centimetros"
                   step={0.1}
                   precision={2}
                   min={20}
                   max={200}
                 />
-                cm.
                 {/* Solo para el caso de mujeres */}
-                <label htmlFor="hip">Cadera:</label>
-                <Field
-                  type="number"
-                  name="hip"
-                  id="hip"
-                  step={0.1}
-                  precision={2}
-                  min={20}
-                  max={200}
-                />
-                cm.
+                    <label htmlFor="hip">Cadera:</label>
+                      <Field
+                        type="number"
+                        name="hip"
+                        id="hip"
+                        placeholder="centimetros"
+                        step={0.1}
+                        precision={2}
+                        min={20}
+                        max={200}
+                      />
               </div>
               <div>
-                <div>
+                <div className="check">
                   ¿Padece alguna enfermedad?:
                   <label>
                     <Field type="radio" name="ill" value="no" />
@@ -292,16 +305,17 @@ export const Register = (valores) => {
                   </label>
                 </div>
                 {/* En caso de padecer enfermedades */}
-                <label htmlFor="kind_of_ill">¿Qué enfermedades padece?</label>
+                <label htmlFor="kind_of_ill">¿Qué enfermedades padece?</label><br/>
                 <Field
                   as="textarea"
                   name="kind_of_ill"
                   id="kind_of_ill"
+                  className="explain"
                   placeholder="Especifica las enfermedades que padece"
                 />
               </div>
               <div>
-                <div>
+                <div className="check">
                   ¿Padece alguna lesión?:
                   <label>
                     <Field type="radio" name="injuries" value="no" />
@@ -313,16 +327,17 @@ export const Register = (valores) => {
                   </label>
                 </div>
                 {/* En caso de padecer lesiones */}
-                <label htmlFor="kind_of_injuries">¿Qué lesiones padece?</label>
+                <label htmlFor="kind_of_injuries">¿Qué lesiones padece?</label><br/>
                 <Field
                   as="textarea"
                   name="kind_of_injuries"
                   id="kind_of_injuries"
+                  className="explain"
                   placeholder="Especifica las lesiones que padece"
                 />
               </div>
               <div>
-                <div>
+                <div className="check">
                   ¿Padece alguna alergia?:
                   <label>
                     <Field type="radio" name="allergies" value="no" />
@@ -334,17 +349,18 @@ export const Register = (valores) => {
                   </label>
                 </div>
                 {/* En caso de padecer alergias */}
-                <label htmlFor="kind_of_allergies">Alergias:</label>
+                <label htmlFor="kind_of_allergies">Alergias:</label><br/>
                 <Field
                   as="textarea"
                   name="kind_of_allergies"
                   id="kind_of_allergies"
+                  className="explain"
                   placeholder="Incluye medicamentos, alimentos, ambiente, etc."
                 />
               </div>
               <div>
-                <div>
-                  ¿Realiza ejercicio cotidianamente?:
+                <div className="check">
+                  ¿Realiza ejercicio cotidianamente?
                   <label>
                     <Field type="radio" name="excercise" value="no" />
                     no
@@ -368,17 +384,19 @@ export const Register = (valores) => {
                     step={1}
                   />
                 </div>
+                <label htmlFor="kind_of_excersises">¿Ha practicado algún deporte o ejercicio anteriormente?</label><br/>
                 <Field
-                  type="text"
+                  as="textarea"
                   name="kind_of_excercises"
                   id="kind_of_excercises"
-                  placeholder="¿Qué tipo de ejercicio o actividad física practíca diariamente?"
+                  placeholder="Especifica"
+                  className="explain"
                 />
               </div>
-              <div>
-                <button type="submit"> Registrar </button>
+              <div><center>
+                <button className="send" type="submit"> Registrar </button>
                 {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
-              </div>
+                </center></div>
             </Form>
           </>
         )}
