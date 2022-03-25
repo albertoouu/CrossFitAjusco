@@ -2,6 +2,7 @@
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
+import {ImageAvatar} from "../../UserPage/userView/UserNavBar.jsx" //Imagen de Perfil de Us
 
 export const Navigation = () => {
   //para mostrar el modal
