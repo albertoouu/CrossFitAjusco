@@ -34,12 +34,12 @@ const App = () => {
               />
               <Route path="/register" element={<Register />} />
               <Route
-                path="/userView"
+                path="/UserView"
                 element={
                   <ProtectedRouteUser>
                     <UserView />
                     {/*  <Facebook />  */}
-                    <Profile />
+                   
                   </ProtectedRouteUser>
                 }
               />
