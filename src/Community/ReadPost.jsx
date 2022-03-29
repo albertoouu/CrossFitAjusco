@@ -26,9 +26,7 @@ export const ReadPost = () => {
       {posts.map(post => {
         return(
           <div key={post.id}>
-            <h1>post: {post.post}</h1>
-            <p>Picture: {post.picture}</p>
-            <p>Kind of: {post.kind}</p>
+            <h1>input: {post.input}</h1>
           </div>
         )
       })}
