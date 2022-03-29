@@ -86,7 +86,7 @@ Media.propTypes = {
   loading: PropTypes.bool,
 };
 
-export default function Facebook() {
+export default function SocialMedia() {
   return (
     <div>
       <Media loading />
