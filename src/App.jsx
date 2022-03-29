@@ -9,7 +9,6 @@ import Footer from "./LandingPage/Footer/Footer";
 import { NotFoundPage } from "./NotFoundPage/NotFoundPage.jsx";
 import { UserView } from "./UserPage/userView/UserView.jsx";
 import { Login } from "./LandingPage/LoginMail/Login.jsx";
-import Profile from "./UserPage/userView/Profile.jsx";
 import ProtectedRouteUser from "./ProtectedRoute/ProtectedRouteUser.jsx";
 import { Register } from "./AdminPage/Register/RegisterMail";
 
@@ -38,8 +37,6 @@ const App = () => {
                 element={
                   <ProtectedRouteUser>
                     <UserView />
-                    {/*  <Facebook />  */}
-                   
                   </ProtectedRouteUser>
                 }
               />
