@@ -1,6 +1,7 @@
 import "./Post.css";
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from "react";
+import { db } from "../firebase"
 
 const Post = () => {
   const [input, setInput] = useState("");
