@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "";
+//import Container from "@material-ui/core/Container";
+//import Grid from "";
 
 const Footer = () => {
   return (
