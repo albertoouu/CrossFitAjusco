@@ -1,12 +1,12 @@
 import Carrousel from "../Carrousel/Carrousel";
-import { Community } from "../../Community/Community"
+import { ReadPost } from "../../Community/ReadPost"
 
 export const Home = () => {
   return (
     <>
       <h2>Soy la página de inicio</h2>
       <Carrousel />
-      <Community/>
+      <ReadPost/>
     </>
   );
 };
