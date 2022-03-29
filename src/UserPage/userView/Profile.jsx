@@ -1,21 +1,34 @@
-import * as React from 'react';
-import { collection } from "firebase/firestore";
-import { db } from "../../firebase"
+import React, { useEffect } from "react";
+import { collection, getDoc } from "firebase/firestore";
+import db from "../../firebase";
 
 
 export const Profile = () => {
-  const usersRef = collection(db, "Users");
- 
 
+  async function loadData(){
+    const usersRef = collection(db,'Users');
+
+     try {
+      const data = await getDoc(usersRef);
+       console.log(data)
+             
+     } catch (err) {
+       console.log(err)
+     }
+  }
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <div>
-          <div key={usersRef.id}>
-            <h3>Nombre: {usersRef.name}</h3>
-            <p>Edad: {usersRef.age}</p>
-            <p>Correo: {usersRef.email}</p>
+          <div >
+            <h3>Nombre: </h3>
+            <p>Edad: </p>
+            <p>Correo: </p>
           </div>
       
     </div>
   )    
-    };
+};

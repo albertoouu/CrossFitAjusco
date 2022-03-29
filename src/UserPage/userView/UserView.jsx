@@ -21,8 +21,6 @@ import {Profile} from "./Profile.jsx"
 
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
 
-
-
 export const UserView = () => {
   const { user } = useAuth();
   return (
