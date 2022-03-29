@@ -1,5 +1,5 @@
 import "./Post.css";
-import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+//import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from "react";
 
 const Post = () => {
