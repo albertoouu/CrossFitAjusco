@@ -1,9 +1,11 @@
 import React from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "";
 
 const Footer = () => {
   return (
     <div>
-      <h5>© CrossFT Ajusco 2022 Copyright:</h5>
+      <footer className="text-white py-4 bg-dark"></footer>
     </div>
   );
 };
