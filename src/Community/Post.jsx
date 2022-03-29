@@ -1,6 +1,7 @@
 import "./Post.css";
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from "react";
+import { PhotoLibrary } from "@mui/icons-material";
 
 const Post = () => {
   const [input, setInput] = useState("");
@@ -21,12 +22,14 @@ const Post = () => {
           />
           <input />
           <button onClick={handleSubmit} type="submit">
-            enviar
+            Enviar
           </button>
         </form>
       </div>
-      <div className="messageSender">
-        <div className="messageSender1"></div>
+      <div className="messageSender_bottom">
+              <div className="messageSender_option">
+                  <PhotoLibrary style={{color:"blue"}}/>
+              
       </div>
     </div>
   );
