@@ -1,4 +1,3 @@
-import React from "react";
 import "./Post.css";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from "react";
@@ -14,7 +13,13 @@ const Post = () => {
     <div className="message">
       <div>
         <form>
-          <input placeholder={"Escribe tu mensaje"} type="text" />
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.ariaValueMin)}
+            className="messageSender_input"
+            placeholder={"Escribe tu mensaje"}
+            type="text"
+          />
           <input />
           <button onClick={handleSubmit} type="submit">
             enviar
