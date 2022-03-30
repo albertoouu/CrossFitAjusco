@@ -1,38 +1,34 @@
 import "./UserView.css";
 
-import { useAuth } from "../../Context/authContext";
 import * as React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
-import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Link from "@mui/material/Link";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-
-
+import { useAuth } from "../../Context/authContext";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Carrousel from "../../LandingPage/Carrousel/Carrousel.jsx";
+import {Profile} from "./Profile.jsx"
 
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
-
-
 
 export const UserView = () => {
   const { user } = useAuth();
   return (
     <>
       <div>
-        <img src={user.photoURL} alt="Perfil" />
+       <Stack direction="row" spacing={2}>
+        <Avatar alt="Perfil" src={user.photoURL} sx={{ width: 76, height: 76 }} />
+       </Stack>
         <p>Bienvenido: {user.displayName || user.email}</p>
       </div>
       <UserContent />;
@@ -76,7 +72,7 @@ function UserContent() {
     setOpen(!open);
   };
 
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
 
   if (loading) return <h2>Cargando...</h2>;
 
@@ -130,7 +126,7 @@ function UserContent() {
                     height: 240,
                   }}
                 >
-                  {/* <Chart /> */}
+                   <Carrousel sx={{ width: 176, height: 276 }} />
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
@@ -143,7 +139,7 @@ function UserContent() {
                     height: 240,
                   }}
                 >
-                  {/*<Deposits /> */}
+                  <Profile /> {/*Perfil del usuario */}
                 </Paper>
               </Grid>
               {/* Recent Orders */}

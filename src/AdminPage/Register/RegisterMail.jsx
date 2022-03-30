@@ -7,7 +7,16 @@ import './Register.css'
 
 export const Register = (valores) => {
   const [sendForm, changeSendForm] = useState(false);
-  const [fem] = useState(false);
+  const [gender, setGender] = useState(false);
+
+  const renderGender = () => {
+    //male 
+      if(gender === false ){
+       return (<h1>Es hombre</h1>)
+    } else {
+      return (<h1>Es mujer</h1>)
+      }
+  }
   return (
     <>
       <Formik //Contenedor Formik, para el formulario
@@ -44,13 +53,8 @@ export const Register = (valores) => {
 
           if (!valores.email) {
             errores.email = "Ingresa un email";
-          } else if (
-            !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-              valores.email
-            )
-          ) {
-            errores.email =
-              "El correo sólo puede contener letras, números, puntos, guiones y guión bajo";
+          } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
+            errores.email = "El correo sólo puede contener letras, números, puntos, guiones y guión bajo";
           }
 
           if (!valores.name) {
@@ -79,10 +83,35 @@ export const Register = (valores) => {
             errores.phone_contact = "Ingresa sólo números";
           }
 
+          if (!valores.next_payment) {
+            errores.next_payment = 
+              "Ingresa el próximo pago correspondiente"
+          }
+
+          if (!valores.gender) {
+            errores.gender =
+              "Selecciona una opción"
+          }
+
+          if (!valores.age) {
+            errores.age = 
+                "Ingresa un valor"
+          }
+
+          if (!valores.heigth) {
+            errores.heigth = 
+                "Ingresa un valor"
+          }
+
+          if (!valores.weigth) {
+            errores.weigth = 
+                "Ingresa un valor"
+          }
+
           return errores;
         }}
         // "valores" ingresados desde el formulario
-        onSubmit={(valores, { resetForm }) => {
+        onSubmit={(valores, { resetForm, values }) => {
           resetForm();
           // console.log(valores);
           // console.log('send form');
@@ -119,25 +148,26 @@ export const Register = (valores) => {
         //     }
         // }
       >
-        {({ errors }) => (
+        {({ errors, values }) => (
           //formulario para el registro
           <>
+            {console.log(values)}
             <h2 className="title">Registro de nuevos usuarios:</h2>
             {/* {error && <Alert message={error} />} */}
 
             <Form className="formulario">
               <div>
                 <label htmlFor="email">Email: </label>
+                {/* //componente del mensaje de error debajo del actual campo*/}
+                <ErrorMessage
+                  name="email"
+                  component={() => <div className="error">{errors.email}</div>}
+                />
                 <Field
                   type="mail"
                   name="email"
                   id="email"
                   placeholder="ejemplo_123@mail.com"
-                />
-                {/* //componente del mensaje de error debajo del actual campo*/}
-                <ErrorMessage
-                  name="email"
-                  component={() => <div className="error">{errors.email}</div>}
                 />
               </div>
               <div>
@@ -150,6 +180,10 @@ export const Register = (valores) => {
               </div>
               <div>
                 <label htmlFor="next_payment">Siguiente fecha de pago:</label>
+                <ErrorMessage
+                  name="name"
+                  component={() => <div className="error">{errors.next_payment}</div>}
+                />
                 <Field
                   type="datetime-local"
                   name="next_payment"
@@ -158,61 +192,64 @@ export const Register = (valores) => {
               </div>
               <div>
                 <label htmlFor="name">Nombre:</label>
+                <ErrorMessage
+                  name="name"
+                  component={() => <div className="error">{errors.name}</div>}
+                />
                 <Field
                   type="text"
                   name="name"
                   id="name"
                   placeholder="nombre(s)"
                 />
-                <ErrorMessage
-                  name="name"
-                  component={() => <div className="error">{errors.name}</div>}
-                />
-
                 <label htmlFor="lastname">Apellido:</label>
-                <Field
-                  type="text"
-                  name="lastname"
-                  id="lastname"
-                  placeholder="apellido(s)"
-                />
                 <ErrorMessage
                   name="lastname"
                   component={() => (
                     <div className="error">{errors.lastname}</div>
                   )}
                 />
+                <Field
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  placeholder="apellido(s)"
+                />
               </div>
               <div>
                 <label htmlFor="phone">Teléfono:</label>
+                <ErrorMessage
+                  name="phone"
+                  component={() => <div className="error">{errors.phone}</div>}
+                />
                 <Field
                   type="tel"
                   name="phone"
                   id="phone"
                   placeholder="teléfono móvil o local"
                 />
-                <ErrorMessage
-                  name="phone"
-                  component={() => <div className="error">{errors.phone}</div>}
-                />
-
                 <label htmlFor="phone_contact">Teléfono de contacto:</label>
-                <Field
-                  type="tel"
-                  name="phone_contact"
-                  id="phone_contact"
-                  placeholder="contacto móvil o local"
-                />
                 <ErrorMessage
                   name="phone_contact"
                   component={() => (
                     <div className="error">{errors.phone_contact}</div>
                   )}
                 />
+                <Field
+                  type="tel"
+                  name="phone_contact"
+                  id="phone_contact"
+                  placeholder="contacto móvil o local"
+                />
               </div>
               <div>
-                <div className="sexo" >
-                  Sexo:
+                <div className="sexo" id="radio-gender">Sexo:</div>
+                <ErrorMessage
+                  name="gender"
+                  component={() => (
+                    <div className="error">{errors.gender}</div>
+                  )}
+                />
                   <label>
                     <Field type="radio" name="gender" value="femenino" />
                     femenino
@@ -220,11 +257,16 @@ export const Register = (valores) => {
                   <label>
                     <Field type="radio" name="gender" value="masculino" />
                     masculino
-                  </label>
-                </div>
+                </label>
               </div>
               <div className="general">
                 <label htmlFor="age">Edad:</label>
+                <ErrorMessage
+                  name="age"
+                  component={() => (
+                    <div className="error">{errors.age}</div>
+                  )}
+                />
                 <Field
                   type="number"
                   name="age"
@@ -234,6 +276,12 @@ export const Register = (valores) => {
                   max={99}
                 />
                 <label htmlFor="heigth">Estatura:</label>
+                <ErrorMessage
+                  name="heigth"
+                  component={() => (
+                    <div className="error">{errors.heigth}</div>
+                  )}
+                />
                 <Field
                   type="number"
                   name="heigth"
@@ -245,6 +293,12 @@ export const Register = (valores) => {
                   max={2.5}
                 />
                 <label htmlFor="weigth">Peso:</label>
+                <ErrorMessage
+                  name="weigth"
+                  component={() => (
+                    <div className="error">{errors.weigth}</div>
+                  )}
+                />
                 <Field
                   type="number"
                   name="weigth"
@@ -278,45 +332,46 @@ export const Register = (valores) => {
                   precision={2}
                   min={20}
                   max={200}
-                />
+                />             
                 {/* Solo para el caso de mujeres */}
-                    <label htmlFor="hip">Cadera:</label>
-                      <Field
-                        type="number"
-                        name="hip"
-                        id="hip"
-                        placeholder="centimetros"
-                        step={0.1}
-                        precision={2}
-                        min={20}
-                        max={200}
-                      />
+                <div> {( values.gender === "femenino" &&
+                  <><label htmlFor="hip">Cadera:</label>
+                    <Field
+                      type="number"
+                      name="hip"
+                      id="hip"
+                      placeholder="centimetros"
+                      step={0.1}
+                      precision={2}
+                      min={20}
+                      max={200} /></>
+                    )}          
+                </div>
               </div>
               <div>
-                <div className="check">
-                  ¿Padece alguna enfermedad?:
-                  <label>
+                <div className="check" id="radio-ill">¿Padece alguna enfermedad?:</div>
+                  <label>      
                     <Field type="radio" name="ill" value="no" />
                     no
                   </label>
                   <label>
-                    <Field type="radio" name="ill" value="sí" />
                     sí
-                  </label>
-                </div>
-                {/* En caso de padecer enfermedades */}
-                <label htmlFor="kind_of_ill">¿Qué enfermedades padece?</label><br/>
-                <Field
-                  as="textarea"
-                  name="kind_of_ill"
-                  id="kind_of_ill"
-                  className="explain"
-                  placeholder="Especifica las enfermedades que padece"
-                />
-              </div>
+                    <Field type="radio" name="ill" value="sí" />
+                </label>
+                <div>{ 
+                    (values.ill === "no" &&
+                      <><label htmlFor="kind_of_ill">¿Qué enfermedades padece?</label><br /><>
+                      <Field
+                        as="textarea"
+                        name="kind_of_ill"
+                        id="kind_of_ill"
+                        className="explain"
+                        placeholder="Especifica las enfermedades que padece" />
+                    </></>)}
+                    </div>
+                </div>            
               <div>
-                <div className="check">
-                  ¿Padece alguna lesión?:
+                <div className="check" id="radio-injuries">¿Padece alguna lesión?:</div>
                   <label>
                     <Field type="radio" name="injuries" value="no" />
                     no
@@ -324,21 +379,21 @@ export const Register = (valores) => {
                   <label>
                     <Field type="radio" name="injuries" value="sí" />
                     sí
-                  </label>
+                </label>
+                <div>{
+                  (values.injuries === "sí" &&
+                    <><label htmlFor="kind_of_injuries">¿Qué lesiones padece?</label><br /><>
+                      <Field
+                      as="textarea"
+                      name="kind_of_injuries"
+                      id="kind_of_injuries"
+                      className="explain"
+                        placeholder="Especifica las lesiones que padece" />
+                    </></>)}
                 </div>
-                {/* En caso de padecer lesiones */}
-                <label htmlFor="kind_of_injuries">¿Qué lesiones padece?</label><br/>
-                <Field
-                  as="textarea"
-                  name="kind_of_injuries"
-                  id="kind_of_injuries"
-                  className="explain"
-                  placeholder="Especifica las lesiones que padece"
-                />
               </div>
               <div>
-                <div className="check">
-                  ¿Padece alguna alergia?:
+                <div className="check" id="radio-allergies">¿Padece alguna alergia?:</div>
                   <label>
                     <Field type="radio" name="allergies" value="no" />
                     no
@@ -347,20 +402,20 @@ export const Register = (valores) => {
                     <Field type="radio" name="allergies" value="sí" />
                     sí
                   </label>
+                <div>{
+                  (values.allergies === "sí" &&
+                    <><label htmlFor="kind_of_allergies">Alergias:</label><br />
+                      <Field
+                      as="textarea"
+                      name="kind_of_allergies"
+                      id="kind_of_allergies"
+                      className="explain"
+                      placeholder="Incluye medicamentos, alimentos, ambiente, etc." /></>
+                )}
                 </div>
-                {/* En caso de padecer alergias */}
-                <label htmlFor="kind_of_allergies">Alergias:</label><br/>
-                <Field
-                  as="textarea"
-                  name="kind_of_allergies"
-                  id="kind_of_allergies"
-                  className="explain"
-                  placeholder="Incluye medicamentos, alimentos, ambiente, etc."
-                />
               </div>
               <div>
-                <div className="check">
-                  ¿Realiza ejercicio cotidianamente?
+                <div className="check" id="radio-excercise">¿Realiza ejercicio cotidianamente?</div>
                   <label>
                     <Field type="radio" name="excercise" value="no" />
                     no
@@ -368,31 +423,21 @@ export const Register = (valores) => {
                   <label>
                     <Field type="radio" name="excercise" value="sí" />
                     sí
-                  </label>
+                </label>
+                <div>{
+                  (values.excercise === "sí" && 
+                  <><label htmlFor="frequency">
+                      ¿Con qué frecuencia realiza ejercicio a la semana?
+                    </label><Field
+                        type="range"
+                        name="frequency"
+                        id="frequency"
+                        min={1}
+                        max={7}
+                        step={1} /></>
+                  )
+                }</div>
                 </div>
-                {/* En caso de practicar ejercicio */}
-                <div>
-                  <label htmlFor="frequency">
-                    ¿Con qué frecuencia realiza ejercicio a la semana?
-                  </label>
-                  <Field
-                    type="range"
-                    name="frequency"
-                    id="frequency"
-                    min={1}
-                    max={7}
-                    step={1}
-                  />
-                </div>
-                <label htmlFor="kind_of_excersises">¿Ha practicado algún deporte o ejercicio anteriormente?</label><br/>
-                <Field
-                  as="textarea"
-                  name="kind_of_excercises"
-                  id="kind_of_excercises"
-                  placeholder="Especifica"
-                  className="explain"
-                />
-              </div>
               <div><center>
                 <button className="send" type="submit"> Registrar </button>
                 {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
