@@ -11,6 +11,7 @@ import { UserView } from "./UserPage/userView/UserView.jsx";
 import { Login } from "./LandingPage/LoginMail/Login.jsx";
 import ProtectedRouteUser from "./ProtectedRoute/ProtectedRouteUser.jsx";
 import { Register } from "./AdminPage/Register/RegisterMail";
+import Graph from "./AdminPage/Graph/Graph.jsx";
 
 const App = () => {
   return (
@@ -32,9 +33,10 @@ const App = () => {
                   </ProtectedRoute>
                 }
               >
-                <Route path="graph" element={<p>grafica</p>} />
-                <Route path="form" element={<p>formulario</p>} />
-                <Route path="usuarios" element={<p>usuarios</p>} />
+                <Route path="graph" element={<Graph />} />
+                <Route path="calendar" element={<p>Calendar</p>} />
+                <Route path="form" element={<p>Formulario</p>} />
+                <Route path="usuarios" element={<p>Usuarios</p>} />
                 <Route path="community" element={<p>Red social</p>} />
               </Route>
               <Route path="/register" element={<Register />} />
