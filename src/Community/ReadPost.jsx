@@ -11,11 +11,13 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { Post } from "./Post";
+import { useAuth } from "../Context/authContext";
 
 export const ReadPost = () => {
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, "Posts");
 
+  //Leer data y actualizar DOM al cambio
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
@@ -25,6 +27,12 @@ export const ReadPost = () => {
     getPosts();
   }, [posts]);
 
+  //Eliminar Post
+  const deletePost = async (id) => {
+    console.log(id)
+    await deleteDoc(doc(db, "Posts", id));
+  }
+
   return (
     <div>
       <div>
@@ -32,9 +40,15 @@ export const ReadPost = () => {
         <Post />
       </div>
       {posts.map((post) => {
+        console.log(useAuth)
         return (
           <div key={post.id}>
             <h1>input: {post.input}</h1>
+              { useAuth ? (
+                <div>
+                  <button onClick={()=> deletePost(post.id)}>Eliminar</button>
+                </div>
+              ): (null)}
           </div>
         );
       })}
