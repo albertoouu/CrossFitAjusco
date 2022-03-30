@@ -1,14 +1,17 @@
 import "./Post.css";
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from "react";
+import { useAuth } from "../Context/authContext";
 import { PhotoLibrary } from "@mui/icons-material";
 
 const Post = () => {
+  const { user } = useAuth();
+
   const [input, setInput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
+  console.log(user);
   return (
     <div className="message">
       <div>
@@ -27,9 +30,9 @@ const Post = () => {
         </form>
       </div>
       <div className="messageSender_bottom">
-              <div className="messageSender_option">
-                  <PhotoLibrary style={{color:"blue"}}/>
-              
+        <div className="messageSender_option">
+          <PhotoLibrary style={{ color: "black" }} />
+        </div>
       </div>
     </div>
   );
