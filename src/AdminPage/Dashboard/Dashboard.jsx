@@ -23,6 +23,7 @@ import Deposits from "./Deposits";
 import Orders from "./Orders";
 import Button from "@mui/material/Button";
 import { useAuth } from "../../Context/authContext";
+import { Outlet } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -172,6 +173,7 @@ export default function Dashboard() {
         <img src={user.photoURL} alt="Perfil" />
         <p>Bienvenido: {user.displayName || user.email}</p>
       </div>
+      <Outlet />
       <DashboardContent />;
     </>
   );

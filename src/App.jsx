@@ -24,13 +24,19 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route
-                path="/admin"
+                path="/admin/*"
                 element={
                   <ProtectedRoute>
+                    {" "}
                     <Dashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="graph" element={<p>grafica</p>} />
+                <Route path="form" element={<p>formulario</p>} />
+                <Route path="usuarios" element={<p>usuarios</p>} />
+                <Route path="community" element={<p>Red social</p>} />
+              </Route>
               <Route path="/register" element={<Register />} />
               <Route
                 path="/UserView"
