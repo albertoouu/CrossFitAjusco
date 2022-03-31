@@ -25,7 +25,7 @@ export const ReadPost = () => {
     };
     console.log(setPosts);
     getPosts();
-  }, [posts]);
+  }, []);
 
   //Eliminar Post
   const deletePost = async (id) => {
