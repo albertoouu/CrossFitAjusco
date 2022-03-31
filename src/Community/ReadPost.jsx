@@ -28,7 +28,6 @@ export const ReadPost = () => {
   return (
     <div>
       <div>
-        {" "}
         <Post />
       </div>
       {posts.map((post) => {
