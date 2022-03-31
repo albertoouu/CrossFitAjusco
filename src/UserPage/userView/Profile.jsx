@@ -5,13 +5,13 @@ import {db} from "../../firebase";
 //import { useAuth } from "../../Context/authContext";
 
 
-/*
+
 
 export const Profile = () => {
   // Se declara una variable para guardar el id del usuario para
   //const { user } = useAuth();
   //configuración de los hoocks para
-  const [users, setUsers] = useState([Users])
+  const [users, setUsers] = useState([])
 
   //referencia de la base de datos
   const usersRef = collection(db,"Users")
@@ -20,9 +20,7 @@ export const Profile = () => {
   const getUsers = async () => {
   const data = await getDocs(usersRef)
   console.log(data.docs)
-  setUsers(
-    data.docs.map((doc) => ({...doc.data(), id:doc.id}))
-  )
+  setUsers(usersRef.docs)
   }
   
   //Encendido de la función para traer datos en useEffect
@@ -41,16 +39,20 @@ export const Profile = () => {
    
   )
   }; 
+
 /*
 
 
 export const Profile = () => {
+  
+   const [data, setData] = useState
 
   async function loadData(){
-    const usersRef = collection(db,'Users');
+    
 
      try {
-      const data = await getDoc(usersRef);
+      const dataUsers = await firestore.collection('Users').get();
+      setData(dataUsers.docs)
       
        console.log(data)
              
@@ -64,12 +66,23 @@ export const Profile = () => {
     loadData();
   }, []);
 
+  function renderItem ({item}){
+    return (
+      <view>
+        <p>
+          {item.data().name}
+        </p>
+      </view>
+    )
+  }
   return (
     <div>
           <div >
             <h3>Nombre: </h3>
-            <p>Edad: </p>
-            <p>Correo: </p>
+            <FlatList 
+            data = {data}
+            renderItem = {renderItem}
+            keyextractor = { item =>item.id }/>
           </div>
       
     </div>
