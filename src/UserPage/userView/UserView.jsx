@@ -17,8 +17,9 @@ import { useAuth } from "../../Context/authContext";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Carrousel from "../../LandingPage/Carrousel/Carrousel.jsx";
-import {Profile} from "./Profile.jsx"
+//import {Profile} from "./Profile.jsx"
 
+//Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
 
 export const UserView = () => {
@@ -139,7 +140,7 @@ function UserContent() {
                     height: 240,
                   }}
                 >
-                  <Profile /> {/*Perfil del usuario */}
+                 {/* <Profile /> Perfil del usuario */}
                 </Paper>
               </Grid>
               {/* Recent Orders */}
@@ -159,4 +160,3 @@ function UserContent() {
 
 
 
-//agregar 
