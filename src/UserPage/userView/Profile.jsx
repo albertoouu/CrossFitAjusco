@@ -44,14 +44,6 @@ export const Profile = () => {
 /*
 
 
-
-
-
-
-
-
-
-
 export const Profile = () => {
 
   async function loadData(){
