@@ -10,7 +10,7 @@ import { NotFoundPage } from "./NotFoundPage/NotFoundPage.jsx";
 import { UserView } from "./UserPage/userView/UserView.jsx";
 import { Login } from "./LandingPage/LoginMail/Login.jsx";
 import ProtectedRouteUser from "./ProtectedRoute/ProtectedRouteUser.jsx";
-import { Register } from "./AdminPage/Register/RegisterMail";
+import { Register } from "./AdminPage/Register/Register";
 import Graph from "./AdminPage/Graph/Graph.jsx";
 import Calendar from "./AdminPage/Calendar/Calendar.jsx";
 import Community from "./AdminPage/Community/Community.jsx";
