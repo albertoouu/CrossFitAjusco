@@ -9,36 +9,54 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PaidIcon from '@mui/icons-material/Paid';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 export const mainListItems = (
   <React.Fragment>
-    <Link to='graph'>
+    <NavLink to='calendar'>
       <ListItemButton>
         <ListItemIcon>
-          <DashboardIcon />
+          <CalendarMonthIcon />
         </ListItemIcon>
-        <ListItemText primary="Registro" />
+        <ListItemText primary="Calendario" />
       </ListItemButton>
-    </Link>
-    <ListItemButton>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Calendario" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Community" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Gráfica" />
-    </ListItemButton>
+    </NavLink>
+    <NavLink to='graph'>
+      <ListItemButton>
+        <ListItemIcon>
+          <PaidIcon />
+        </ListItemIcon>
+        <ListItemText primary="Ingresos" />
+      </ListItemButton>
+    </NavLink>
+    <NavLink to='community'>
+      <ListItemButton>
+        <ListItemIcon>
+          <ConnectWithoutContactIcon />
+        </ListItemIcon>
+        <ListItemText primary="Community" />
+      </ListItemButton>
+    </NavLink>
+    <NavLink to='form'>
+      <ListItemButton>
+        <ListItemIcon>
+          <GroupAddIcon />
+        </ListItemIcon>
+        <ListItemText primary="Nuevo usuario" />
+      </ListItemButton>
+    </NavLink>
+    <NavLink to='usuarios'>
+      <ListItemButton>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Usuarios" />
+      </ListItemButton>
+    </NavLink>
   </React.Fragment>
 );
 
