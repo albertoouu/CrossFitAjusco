@@ -1,17 +1,13 @@
 /* Estilos GoogleFont */
 @import url("https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Saira+Condensed:wght@600&display=swap");
 
-body {
-  background-color: black;
-}
-
 .formulario {
-  background-color: black;
+  background-color: transparent;
 }
 
 .title {
   font-family: "Anton", sans-serif;
-  color: rgb(224, 211, 30);
+  color: rgb(51, 48, 6);
   font-style: italic;
   font-size: 2.3rem;
   max-width: 600px;
@@ -20,7 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
 }
 
 .error {
