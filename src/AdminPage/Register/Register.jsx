@@ -254,7 +254,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     </label>
                     <div>{ 
                       (values.ill === "sí" && <>
-                        <label htmlFor="kind_of_ill">¿Qué enfermedades padece?</label><br />
+                        <label className="subtitles" htmlFor="kind_of_ill">¿Qué enfermedades padece?</label><br />
                         <><Field as="textarea" name="kind_of_ill" id="kind_of_ill" className="explain" placeholder="Especifica las enfermedades que padece" /> </></>)}
                     </div>
                   </div>            
@@ -308,10 +308,10 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                         </label><br/><Field type="range" name="frequency" id="frequency" min={0} max={7} step={1} /></>)}
                     </div>
                   </div>
-              <div><center>
+              <div>
                 <button className="send" type="submit"> Registrar </button>
                 {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
-              </center></div>
+              </div>
             </Form>
           </>
         )}
