@@ -30,19 +30,18 @@ export const ReadPost = () => {
 
   //Eliminar Post
   const deletePost = async (id) => {
-    console.log(id)
+    console.log(id);
     try {
-      //Eliminar 
+      //Eliminar
       await deleteDoc(doc(db, "Posts", id));
       console.log("Document deleted with ID: ", id);
       //Actualizar estado
-      const otherPosts = posts.filter(post => post.id !== id);
-      setPosts(otherPosts)
+      const otherPosts = posts.filter((post) => post.id !== id);
+      setPosts(otherPosts);
     } catch (error) {
       console.error("Error adding document: ", error);
     }
-    
-  }
+  };
 
   return (
     <div>
@@ -50,15 +49,15 @@ export const ReadPost = () => {
         <Post />
       </div>
       {posts.map((post) => {
-        console.log(user.email)
+        console.log(user.email);
         return (
           <div key={post.id}>
             <h1>input: {post.input}</h1>
-              { user.email === post.email ? (
-                <div>
-                  <button onClick={()=> deletePost(post.id)}>Eliminar</button>
-                </div>
-              ): (null)}
+            {user.email === post.email ? (
+              <div>
+                <button onClick={() => deletePost(post.id)}>Eliminar</button>
+              </div>
+            ) : null}
           </div>
         );
       })}

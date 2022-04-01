@@ -2,8 +2,8 @@
 .App {
   text-align: center;
   display: grid;
-  height: 100vh;
-  grid-template-rows: 0.25fr 4fr 0.25fr;
+  height: 100%;
+  grid-template-rows: 0.25fr 8fr 0.25fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "navBar navBar navBar "
