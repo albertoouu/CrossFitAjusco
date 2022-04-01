@@ -1,12 +1,11 @@
 .sticky {
   width: 100%;
-  height: fit-content;
-  position: absolute;
+  height: auto;
+  position: relative;
   bottom: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;
   color: #fff;
-
   font-size: 13px;
   line-height: 20px;
   display: flex;
