@@ -78,6 +78,7 @@ function Media(props) {
           </Typography>
         )}
       </CardContent>
+      
     </Card>
   );
 }

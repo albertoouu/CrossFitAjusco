@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import { useAuth } from "../../Context/authContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Alert } from "../Alerts/Alert";
 import "./login.css";
+import Logo from "../../assets/lp_imgs/Logo.jpg"
 
 export const Login = () => {
   //aparecen en blanco cada campo
@@ -76,9 +78,11 @@ export const Login = () => {
   return (
     //formulario para el registro
     <div className="register">
-      {error && <Alert message={error} />}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+      <img src={ Logo } alt="LogoOfficial" className="imagen"/>
+      <h2 className="titulo">Inicio de sesión</h2>
+      {error && <Alert message={error} className="error"/>}
+      <form onSubmit={handleSubmit} className="form">
+        <label htmlFor="email" className="tittle">Email:</label><br/>
         <input
           type="email"
           name="email"
@@ -86,7 +90,7 @@ export const Login = () => {
           onChange={handleChange}
         ></input>
         <br />
-        <label htmlFor="password">Contraseña:</label>
+        <label htmlFor="password" className="tittle">Contraseña:</label><br/>
         <input
           type="password"
           name="password"
@@ -94,19 +98,21 @@ export const Login = () => {
           onChange={handleChange}
           placeholder="Contraseña"
         />
-        <br />
-        <button style={{ width: 300 }}> Entrar </button>
+        <br /><center>
+            <button className="botn"> Entrar </button>
+          </center>
       </form>
       <br />
+      <center>
       <button
-        style={{ width: 300 }}
+        className="botn2"
         onClick={handleWithGoogleSignin}
-        variant="secundary"
       >
         Inicia sesión con Google
-      </button>
+        </button>
+        </center>
       <br />
-      <a href="#!" onClick={handleResetPassword}>
+      <a href="#!" onClick={handleResetPassword} className="ancla">
         ¿Olvidaste tu contraseña?{" "}
       </a>
     </div>

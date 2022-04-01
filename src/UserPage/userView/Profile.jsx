@@ -35,6 +35,7 @@ export const Profile = () => {
         
         <h5>Correo:</h5>
           <p>{uD.email}</p>
+<<<<<<< HEAD
         
         <h5>Medidas:</h5>
         <p>Altura: {uD.heigth} mts.</p> 
@@ -52,6 +53,12 @@ export const Profile = () => {
     </>
    
   );
+=======
+        </h5>
+      </div>       
+    </>
+  )
+>>>>>>> 403dcc5545fe3bcdddef73ea19505b345ff0f886
   }; 
 
 /*

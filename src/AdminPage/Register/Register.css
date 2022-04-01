@@ -17,21 +17,22 @@ body{
   row-gap: 1px;
   padding: 0 auto;
   width: auto;
-  height: 100vh;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .formulario {
-  background-color: #d2cecefc;
+  background-color: #494747fc;
   grid-area: form;
   align-items: center;
   justify-content: center;
+  margin: auto 10vh;
 }
 
 .title {
   font-family: "Anton", sans-serif;
-  color: rgb(0, 0, 0);
+  color: #ecc510fc;
   font-style: italic;
   font-size: 2rem;
   max-width: 600px;
@@ -49,7 +50,7 @@ body{
   color: rgb(248, 46, 46);
   font-family: "Abel", sans-serif;
   font-size: 1rem;
-  margin-left: 5vh;
+  margin-left: 15vh;
 }
 
 .subtitles {
@@ -57,6 +58,7 @@ body{
   font-size: 1rem;
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 200;
+  padding-left: 5rem;
 }
 
 .fields {
@@ -65,33 +67,33 @@ body{
   justify-content: center;
   align-items: center;
   padding-top: 10px;
-  margin: auto 1vh;
+  margin: auto;
 }
 
 .input{
   max-width: 40%;
   min-width: 33%;
   display: flex;
-  margin-left: 9vh;
+  margin-left: 20vh;
 }
 
 .inputNum{
   max-width: 9%;
   min-width: 5%;
-  margin-left: 1vh;
+  margin-left: 1.2vh;
   margin-right: 1.3vh;
 }
 
 .explain{
   max-width: 40%;
   min-width: 33%;
-  margin-left: 10vh;
+  margin-left: 20vh;
 }
 
 .check{
   max-width: 10%;
   min-width: 5%;
-  margin-left: 9vh;
+  margin-left: 19vh;
 }
 
 .medida {
@@ -108,4 +110,23 @@ body{
 }
 .send {
   grid-area: btn;
+  padding: 1%;
+  border-radius: 7px;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: rgb(108, 108, 40);
+  border: solid 1px rgb(207, 207, 8);
+  color:rgb(243, 239, 236);
+  margin: 3vh 28vh;
+  box-shadow: rgb(221, 227, 32) 1px 2px 1px 1px;
+
+}
+
+.send:hover{
+  background-color: #ecc510fc;
+  color:rgb(41, 41, 40);
+  border: solid 1px black;
+  scale: 0.9;
+  box-shadow: rgb(67, 67, 13) 1px 1px 1px 1px;
 }

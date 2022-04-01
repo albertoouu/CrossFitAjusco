@@ -18,9 +18,13 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import UserCarousel from "./UserCarousel.jsx";
 import { UserRules} from "./UserRules.jsx"
+<<<<<<< HEAD
 import { Outlet } from "react-router-dom";
 
 import ScrollableFeed from 'react-scrollable-feed'
+=======
+import { ReadPost } from "../../Community/ReadPost"
+>>>>>>> 403dcc5545fe3bcdddef73ea19505b345ff0f886
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -36,6 +40,7 @@ export const UserView = () => {
         <h5 id="welcome">Bienvenido: {user.displayName || user.email}</h5>
       </div>
       <UserContent />;
+      <ReadPost/>
     </>
   );
 }

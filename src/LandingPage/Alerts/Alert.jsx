@@ -1,7 +1,9 @@
-export const Alert = ({message}) => {
+import './Alerts.css'
+
+export const Alert = ({ message }) => {
     return ( 
         <>
-            <span>{ message }</span>
+            <span className="alerta">{ message }</span>
         </>
     )
 }
