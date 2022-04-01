@@ -15,11 +15,12 @@ const Post = () => {
     e.preventDefault();
     //traer objeto para mandarlo a firestore
     const input = e.target.input.value;
-    console.log(input);
+    console.log(input, user.email);
     //mandar objeto a firestore
     try {
       const docRef = await addDoc(collection(db, "Posts"), {
         input: input,
+        email: user.email
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {

@@ -7,13 +7,13 @@ export const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
 
   if (loading) return <h2>Cargando...</h2>;
-  // if (!user) return <Navigate to="/" />; //..................................................quitar los comments cuando se arregle la base de datos
+   if (!user) return <Navigate to="/" />; //..................................................quitar los comments cuando se arregle la base de datos
 
-  //const mails = users.map((elem) => {
-  //  return elem.email;
-  //});
+  const mails = users.map((elem) => {
+    return elem.email;
+ });
 
   if (user.email === "crossftajuscoweb@gmail.com") return <>{children}</>;
-  //  if (mails.indexOf(user.email) != -1) return <Navigate to="/UserView" />;
+    if (mails.indexOf(user.email) != -1) return <Navigate to="/UserView" />;
   return <Navigate to="/" />;
 };
