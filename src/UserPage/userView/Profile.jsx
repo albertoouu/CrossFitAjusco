@@ -35,9 +35,8 @@ export const Profile = () => {
         <h5>Correo:
           <p>{uD.email}</p>
         </h5>
-      </div>          
+      </div>       
     </>
-   
   )
   }; 
 

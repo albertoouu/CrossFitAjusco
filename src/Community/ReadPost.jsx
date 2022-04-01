@@ -14,6 +14,7 @@ import { Post } from "./Post";
 import { useAuth } from "../Context/authContext";
 
 export const ReadPost = () => {
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, "Posts");
 
@@ -30,7 +31,17 @@ export const ReadPost = () => {
   //Eliminar Post
   const deletePost = async (id) => {
     console.log(id)
-    await deleteDoc(doc(db, "Posts", id));
+    try {
+      //Eliminar 
+      await deleteDoc(doc(db, "Posts", id));
+      console.log("Document deleted with ID: ", id);
+      //Actualizar estado
+      const otherPosts = posts.filter(post => post.id !== id);
+      setPosts(otherPosts)
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+    
   }
 
   return (
@@ -40,11 +51,11 @@ export const ReadPost = () => {
         <Post />
       </div>
       {posts.map((post) => {
-        console.log(useAuth)
+        console.log(user.email)
         return (
           <div key={post.id}>
             <h1>input: {post.input}</h1>
-              { useAuth ? (
+              { user.email === post.email ? (
                 <div>
                   <button onClick={()=> deletePost(post.id)}>Eliminar</button>
                 </div>

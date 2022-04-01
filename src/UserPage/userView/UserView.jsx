@@ -18,6 +18,7 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Carrousel from "../../LandingPage/Carrousel/Carrousel.jsx";
 import { UserRules} from "./UserRules.jsx"
+import { ReadPost } from "../../Community/ReadPost"
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -33,6 +34,7 @@ export const UserView = () => {
         <p>Bienvenido: {user.displayName || user.email}</p>
       </div>
       <UserContent />;
+      <ReadPost/>
     </>
   );
 }
