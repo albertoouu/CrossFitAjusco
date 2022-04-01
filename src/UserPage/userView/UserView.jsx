@@ -17,7 +17,7 @@ import { useAuth } from "../../Context/authContext";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Carrousel from "../../LandingPage/Carrousel/Carrousel.jsx";
-//import {Profile} from "./Profile.jsx"
+import { UserRules} from "./UserRules.jsx"
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -119,16 +119,9 @@ function UserContent() {
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 240,
-                  }}
-                >
-                   <Carrousel sx={{ width: 176, height: 276 }} />
-                </Paper>
+                
+                   <Carrousel sx={{height: 480}}/>
+
               </Grid>
               {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
@@ -140,15 +133,11 @@ function UserContent() {
                     height: 240,
                   }}
                 >
-                 {/* <Profile /> Perfil del usuario */}
+                  <UserRules /> 
                 </Paper>
               </Grid>
               {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  {/*<Orders /> */}
-                </Paper>
-              </Grid>
+        
             </Grid>
           </Container>
         </Box>
