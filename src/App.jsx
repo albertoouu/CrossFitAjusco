@@ -15,6 +15,8 @@ import Graph from "./AdminPage/Graph/Graph.jsx";
 import Calendar from "./AdminPage/Calendar/Calendar.jsx";
 import Community from "./AdminPage/Community/Community.jsx";
 import Users from "./AdminPage/Users/Users";
+import { Profile } from "./UserPage/userView/Profile.jsx";
+import {UserPayments} from "./UserPage/userView/UserPayments.jsx";
 
 const App = () => {
   return (
@@ -46,10 +48,14 @@ const App = () => {
                 path="/UserView"
                 element={
                   <ProtectedRouteUser>
+                    {" "}
                     <UserView />
                   </ProtectedRouteUser>
                 }
-              />
+              >
+                <Route path="profile" element={<Profile />} />
+                <Route path="pagos" element={<UserPayments />} />
+                </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

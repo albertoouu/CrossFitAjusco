@@ -16,9 +16,15 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useAuth } from "../../Context/authContext";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import Carrousel from "../../LandingPage/Carrousel/Carrousel.jsx";
+import UserCarousel from "./UserCarousel.jsx";
 import { UserRules} from "./UserRules.jsx"
+<<<<<<< HEAD
+import { Outlet } from "react-router-dom";
+
+import ScrollableFeed from 'react-scrollable-feed'
+=======
 import { ReadPost } from "../../Community/ReadPost"
+>>>>>>> 403dcc5545fe3bcdddef73ea19505b345ff0f886
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -28,10 +34,10 @@ export const UserView = () => {
   return (
     <>
       <div>
-       <Stack direction="row" spacing={2}>
+       <Stack direction="row" spacing={6} margin="5">
         <Avatar alt="Perfil" src={user.photoURL} sx={{ width: 76, height: 76 }} />
        </Stack>
-        <p>Bienvenido: {user.displayName || user.email}</p>
+        <h5 id="welcome">Bienvenido: {user.displayName || user.email}</h5>
       </div>
       <UserContent />;
       <ReadPost/>
@@ -121,9 +127,10 @@ function UserContent() {
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
-                
-                   <Carrousel sx={{height: 480}}/>
-
+               <ScrollableFeed>
+                   <Outlet/>
+                   <UserCarousel sx={{height: 480}}/>
+              </ScrollableFeed>     
               </Grid>
               {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
@@ -132,10 +139,12 @@ function UserContent() {
                     p: 2,
                     display: "flex",
                     flexDirection: "column",
-                    height: 240,
+                    height: 635,
                   }}
                 >
-                  <UserRules /> 
+                  <ScrollableFeed> 
+                  <UserRules />
+                  </ScrollableFeed>  
                 </Paper>
               </Grid>
               {/* Recent Orders */}

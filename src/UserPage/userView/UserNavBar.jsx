@@ -7,40 +7,51 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';import PersonIcon 
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import { NavLink } from 'react-router-dom';
 
 
 export const mainListItems = (
   <React.Fragment>
+     <NavLink to='profile'>
     <ListItemButton>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary=" Mi Perfil" />
     </ListItemButton>
+      </NavLink>
+      <NavLink to='training'>
     <ListItemButton>
       <ListItemIcon>
         <AccessibilityNewIcon />
       </ListItemIcon>
       <ListItemText primary="Entrenamiento" />
     </ListItemButton>
+      </NavLink>
+      <NavLink to='community'>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Comunidad" />
     </ListItemButton>
+      </NavLink>
+      <NavLink to='pagos'>
     <ListItemButton>
       <ListItemIcon>
         <AttachMoneyIcon />
       </ListItemIcon>
       <ListItemText primary="Pagos" />
     </ListItemButton>
+     </NavLink>
+     <NavLink to='eventos'>
     <ListItemButton>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Eventos" />
     </ListItemButton>
+     </NavLink>
   </React.Fragment>
 );
 
