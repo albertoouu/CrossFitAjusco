@@ -35,7 +35,6 @@ export const Profile = () => {
         
         <h5>Correo:</h5>
           <p>{uD.email}</p>
-<<<<<<< HEAD
         
         <h5>Medidas:</h5>
         <p>Altura: {uD.heigth} mts.</p> 
@@ -53,60 +52,5 @@ export const Profile = () => {
     </>
    
   );
-=======
-        </h5>
-      </div>       
-    </>
-  )
->>>>>>> 403dcc5545fe3bcdddef73ea19505b345ff0f886
-  }; 
-
-/*
-
-
-export const Profile = () => {
-  
-   const [data, setData] = useState
-
-  async function loadData(){
     
-
-     try {
-      const dataUsers = await firestore.collection('Users').get();
-      setData(dataUsers.docs)
-      
-       console.log(data)
-             
-     } catch (err) {
-       console.log(err)
-     }
-
-  }
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  function renderItem ({item}){
-    return (
-      <view>
-        <p>
-          {item.data().name}
-        </p>
-      </view>
-    )
-  }
-  return (
-    <div>
-          <div >
-            <h3>Nombre: </h3>
-            <FlatList 
-            data = {data}
-            renderItem = {renderItem}
-            keyextractor = { item =>item.id }/>
-          </div>
-      
-    </div>
-  )    
-};
-*/
+  };
