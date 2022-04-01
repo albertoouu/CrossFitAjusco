@@ -18,6 +18,16 @@ In this project our team work for develop a web application available for mobile
 The website is built with React JS and firestore database.
 Our client is a CrossFit teacher who lives in Ajusco, and requires a tool to help him improve his business and interaction with his users.
 
+Client profile
+
+Name: Eduardo Romero Flores
+
+PyME:CrossFT Ajusco SA. de CV.
+
+Contact: [Social Media](https://www.facebook.com/YETIS14Ajusco12)
+
+![Profesor](./src/assets/readmeImg/Eduardo.jpeg)
+
 ## 2. User Stories
 
 **For the teacher of CrossFt Ajusco:**
@@ -43,38 +53,40 @@ The interface should allow the customers:
 
 The agile methodology is used to distribute the tasks of the project
 
-![Kanban Board](./assets/readmeImg/SDLC.png)
+![Kanban Board](./src/assets/readmeImg/SDLC.png)
 
-![Kanban Board](./assets/readmeImg/SDLC2.png)
+![Kanban Board](./src/assets/readmeImg/SDLC2.png)
+
+![prototype](./src/assets/readmeImg/CrossFitApp.png)
 
 ## 4. UX/UI Interface
 
 Landing page
 
-![prototype](./assets/readmeImg/landing_page.png)
+![prototype](./src/assets/readmeImg/landing_page.png)
 
-![prototype](./assets/readmeImg/login.png)
+![prototype](./src/assets/readmeImg/login.png)
 
-![prototype](./assets/readmeImg/LP_2.png)
+![prototype](./src/assets/readmeImg/LP_2.png)
 
-![prototype](./assets/readmeImg/footer.png)
+![prototype](./src/assets/readmeImg/footer.png)
 
 Administration Interface
 
-![prototype](./assets/readmeImg/dashboard.png)
+![prototype](./src/assets/readmeImg/dashboard.png)
 
-![prototype](./assets/readmeImg/calendar.png)
+![prototype](./src/assets/readmeImg/calendar.png)
 
-![prototype](./assets/readmeImg/modal.png)
+![prototype](./src/assets/readmeImg/modal.png)
 
-![prototype](./assets/readmeImg/UsersRegister.png)
+![prototype](./src/assets/readmeImg/UsersRegister.png)
 
-![prototype](./assets/readmeImg/table.png)
+![prototype](./src/assets/readmeImg/table.png)
 
 Users Interface
 
-![prototype](./assets/readmeImg/CrossFtCommunity.png)
+![prototype](./src/assets/readmeImg/CrossFtCommunity.png)
 
-![prototype](./assets/readmeImg/UserProfile.png)
+![prototype](./src/assets/readmeImg/UserProfile.png)
 
-![prototype](./assets/readmeImg/UserWorkout.png)
+![prototype](./src/assets/readmeImg/UserWorkout.png)

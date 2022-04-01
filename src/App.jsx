@@ -1,19 +1,22 @@
 import React from "react";
-import { Navigation } from "./components/navBar/NavBar.jsx";
-import Dashboard from "./components/Dashboard.jsx";
+import { Navigation } from "./LandingPage/navBar/NavBar.jsx";
+import Dashboard from "./AdminPage/Dashboard/Dashboard.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext.js";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import "./App.css";
-
-import Footer from "./components/footer/Footer";
-import { NotFoundPage } from "./components/NotFoundPage/NotFoundPage.jsx";
-import { Home } from "./Home";
-import { UserView } from "./components/userView/UserView.jsx";
-import { Login } from "./components/LoginMail/Login";
-import Facebook from "./components/userView/SocialMedia.jsx";
-import Profile from "./components/userView/Profile.jsx";
-import ProtectedRouteUser from "./components/ProtectedRouteUser.jsx";
+import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+import { Home } from "./LandingPage/Home/Home.jsx";
+import Footer from "./LandingPage/Footer/Footer";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage.jsx";
+import { UserView } from "./UserPage/userView/UserView.jsx";
+import { Login } from "./LandingPage/LoginMail/Login.jsx";
+import ProtectedRouteUser from "./ProtectedRoute/ProtectedRouteUser.jsx";
+import { Register } from "./AdminPage/Register/Register";
+import Graph from "./AdminPage/Graph/Graph.jsx";
+import Calendar from "./AdminPage/Calendar/Calendar.jsx";
+import Community from "./AdminPage/Community/Community.jsx";
+import Users from "./AdminPage/Users/Users";
+import { Profile } from "./UserPage/userView/Profile.jsx";
+import {UserPayments} from "./UserPage/userView/UserPayments.jsx";
 
 const App = () => {
   return (
@@ -27,23 +30,32 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route
-                path="/admin"
+                path="/admin/*"
                 element={
                   <ProtectedRoute>
+                    {" "}
                     <Dashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="graph" element={<Graph />} />
+                <Route path="calendar" element={<Calendar />} />
+                <Route path="form" element={<Register />} />
+                <Route path="usuarios" element={<Users />} />
+                <Route path="community" element={<Community />} />
+              </Route>
               <Route
-                path="/userView"
+                path="/UserView"
                 element={
                   <ProtectedRouteUser>
+                    {" "}
                     <UserView />
-                   {/*  <Facebook />  */}
-                    <Profile/>
                   </ProtectedRouteUser>
                 }
-              />
+              >
+                <Route path="profile" element={<Profile />} />
+                <Route path="pagos" element={<UserPayments />} />
+                </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

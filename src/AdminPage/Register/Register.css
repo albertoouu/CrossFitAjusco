@@ -1,0 +1,132 @@
+/* Estilos GoogleFont:
+    font-family: 'Abel', sans-serif;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Allerta+Stencil&family=Anton&family=Saira+Condensed:wght@600&display=swap');
+
+body{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "title"
+  "form"
+  "btn";
+  row-gap: 1px;
+  padding: 0 auto;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.formulario {
+  background-color: #494747fc;
+  grid-area: form;
+  align-items: center;
+  justify-content: center;
+  margin: auto 10vh;
+}
+
+.title {
+  font-family: "Anton", sans-serif;
+  color: #ecc510fc;
+  font-style: italic;
+  font-size: 2rem;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 1px;
+  grid-area: title;
+}
+
+.error {
+  color: rgb(248, 46, 46);
+  font-family: "Abel", sans-serif;
+  font-size: 1rem;
+  margin-left: 15vh;
+}
+
+.subtitles {
+  color: rgb(41, 41, 40);
+  font-size: 1rem;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-weight: 200;
+  padding-left: 5rem;
+}
+
+.fields {
+  border-radius: 2px;
+  background-color: rgb(243, 239, 236);
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  margin: auto;
+}
+
+.input{
+  max-width: 40%;
+  min-width: 33%;
+  display: flex;
+  margin-left: 20vh;
+}
+
+.inputNum{
+  max-width: 9%;
+  min-width: 5%;
+  margin-left: 1.2vh;
+  margin-right: 1.3vh;
+}
+
+.explain{
+  max-width: 40%;
+  min-width: 33%;
+  margin-left: 20vh;
+}
+
+.check{
+  max-width: 10%;
+  min-width: 5%;
+  margin-left: 19vh;
+}
+
+.medida {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#frequency{
+  max-width: 40%;
+  min-width: 33%;
+  margin-left: 10vh;
+  height: 5vh;
+}
+.send {
+  grid-area: btn;
+  padding: 1%;
+  border-radius: 7px;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: rgb(108, 108, 40);
+  border: solid 1px rgb(207, 207, 8);
+  color:rgb(243, 239, 236);
+  margin: 3vh 28vh;
+  box-shadow: rgb(221, 227, 32) 1px 2px 1px 1px;
+
+}
+
+.send:hover{
+  background-color: #ecc510fc;
+  color:rgb(41, 41, 40);
+  border: solid 1px black;
+  scale: 0.9;
+  box-shadow: rgb(67, 67, 13) 1px 1px 1px 1px;
+}
