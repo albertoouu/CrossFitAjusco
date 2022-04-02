@@ -17,6 +17,7 @@ import Community from "./AdminPage/Community/Community.jsx";
 import Users from "./AdminPage/Users/Users";
 import { Profile } from "./UserPage/userView/Profile.jsx";
 import {UserPayments} from "./UserPage/userView/UserPayments.jsx";
+import { ReadPost } from "./Community/ReadPost"
 
 const App = () => {
   return (
@@ -42,7 +43,7 @@ const App = () => {
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="form" element={<Register />} />
                 <Route path="usuarios" element={<Users />} />
-                <Route path="community" element={<Community />} />
+                <Route path="comunidad" element={<ReadPost/>} />
               </Route>
               <Route
                 path="/UserView"
@@ -55,6 +56,7 @@ const App = () => {
               >
                 <Route path="profile" element={<Profile />} />
                 <Route path="pagos" element={<UserPayments />} />
+                <Route path="comunidad" element={<ReadPost/>} />
                 </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

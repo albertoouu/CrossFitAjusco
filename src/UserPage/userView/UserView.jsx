@@ -19,9 +19,7 @@ import Stack from "@mui/material/Stack";
 import UserCarousel from "./UserCarousel.jsx";
 import { UserRules } from "./UserRules.jsx";
 import { Outlet } from "react-router-dom";
-
 import ScrollableFeed from "react-scrollable-feed";
-import { ReadPost } from "../../Community/ReadPost";
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -41,7 +39,6 @@ export const UserView = () => {
         <h5 id="welcome">Bienvenido: {user.displayName || user.email}</h5>
       </div>
       <UserContent />;
-      <ReadPost />
     </>
   );
 };
