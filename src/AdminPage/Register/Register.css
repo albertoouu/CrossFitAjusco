@@ -6,22 +6,6 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Allerta+Stencil&family=Anton&family=Saira+Condensed:wght@600&display=swap');
 
-body{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 
-  "title"
-  "form"
-  "btn";
-  row-gap: 1px;
-  padding: 0 auto;
-  width: auto;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
 .formulario {
   background-color: #494747fc;
   grid-area: form;
@@ -78,10 +62,10 @@ body{
 }
 
 .inputNum{
-  max-width: 9%;
-  min-width: 5%;
-  margin-left: 1.2vh;
-  margin-right: 1.3vh;
+  max-width: 10%;
+  min-width: 10%;
+  margin-left: 0.7vh;
+  margin-right: 0.3vh;
 }
 
 .explain{
@@ -129,4 +113,15 @@ body{
   border: solid 1px black;
   scale: 0.9;
   box-shadow: rgb(67, 67, 13) 1px 1px 1px 1px;
+}
+
+.success{
+  font-family: 'Saira Condensed', sans-serif;
+  color: #ecc510fc;
+  font-weight: bold;
+  font-size: 2rem;
+  align-items: center;
+  justify-content: center;
+  text-shadow: black 1px 1px 1px;
+  display: flex;
 }

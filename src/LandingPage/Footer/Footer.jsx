@@ -18,11 +18,11 @@ const Footer = () => {
           <h3>Horarios</h3>
           <h5>Lunes a viernes</h5>
           <h6>06:00-06:50</h6>
+          <h6>07:00-08:00</h6>
           <h6>08:10-09:10</h6>
           <h6>18:00-19:00</h6>
           <h6>19:10-20:10</h6>
           <h6>20:10-21:20</h6>
-          <h6>07:00-08:00</h6>
         </div>
         <div className="socialmedia">
           <a href="https://www.facebook.com/YETIS14Ajusco12">

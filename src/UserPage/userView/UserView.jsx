@@ -14,14 +14,13 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useAuth } from "../../Context/authContext";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 import UserCarousel from "./UserCarousel.jsx";
 import { UserRules} from "./UserRules.jsx"
 import { Outlet } from "react-router-dom";
-
 import ScrollableFeed from 'react-scrollable-feed'
-import { ReadPost } from "../../Community/ReadPost"
+
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -31,16 +30,19 @@ export const UserView = () => {
   return (
     <>
       <div>
-       <Stack direction="row" spacing={6} margin="5">
-        <Avatar alt="Perfil" src={user.photoURL} sx={{ width: 76, height: 76 }} />
-       </Stack>
+        <Stack direction="row" spacing={6} margin="5">
+          <Avatar
+            alt="Perfil"
+            src={user.photoURL}
+            sx={{ width: 76, height: 76 }}
+          />
+        </Stack>
         <h5 id="welcome">Bienvenido: {user.displayName || user.email}</h5>
       </div>
       <UserContent />;
-      <ReadPost/>
     </>
   );
-}
+};
 
 const drawerWidth = 240;
 
@@ -122,14 +124,13 @@ function UserContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+
               <Grid item xs={12} md={8} lg={9}>
-               <ScrollableFeed>
-                   <Outlet/>
-                   <UserCarousel sx={{height: 480}}/>
-              </ScrollableFeed>     
-              </Grid>
-              {/* Recent Deposits */}
+                <ScrollableFeed>
+                  <Outlet />
+                  <UserCarousel sx={{ height: 480 }} />
+                </ScrollableFeed>
+              </Grid>           
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -139,13 +140,11 @@ function UserContent() {
                     height: 635,
                   }}
                 >
-                  <ScrollableFeed> 
-                  <UserRules />
-                  </ScrollableFeed>  
+                  <ScrollableFeed>
+                    <UserRules />
+                  </ScrollableFeed>
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
-        
             </Grid>
           </Container>
         </Box>
@@ -153,7 +152,3 @@ function UserContent() {
     </ThemeProvider>
   );
 }
-
-
-
-

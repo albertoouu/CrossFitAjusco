@@ -309,8 +309,8 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     </div>
                   </div>
               <div>
+              {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
                 <button className="send" type="submit"> Registrar </button>
-                {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
               </div>
             </Form>
           </>
