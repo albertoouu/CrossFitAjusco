@@ -28,7 +28,7 @@ export const mainListItems = (
       <ListItemText primary="Entrenamiento" />
     </ListItemButton>
       </NavLink>
-      <NavLink to='community'>
+      <NavLink to='comunidad'>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
