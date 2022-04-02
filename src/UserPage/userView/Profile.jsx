@@ -36,7 +36,7 @@ export const Profile = () => {
         
         <h5>Medidas:</h5>
         <p>Altura: {uD.heigth} mts.</p>
-        <p>Peso: {uD.sizes.weight} kg.</p>
+        <p>Peso: {uD.sizes.weigth} kg.</p>
         <p>Cinura: {uD.sizes.waist} cm.</p>
         <p>Cuello: {uD.sizes.neck} cm.</p>
 
