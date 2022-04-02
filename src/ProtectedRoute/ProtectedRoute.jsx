@@ -13,7 +13,7 @@ export const ProtectedRoute = ({ children }) => {
     return elem.email;
  });
 
-  if (user.email === "crossftajuscoweb@gmail.com" || "axoscoyetizote@gmail.com") return <>{children}</>;
+  if (user.email === "crossftajuscoweb@gmail.com" ) return <>{children}</>;
     if (mails.indexOf(user.email) != -1) return <Navigate to="/UserView" />;
   return <Navigate to="/" />;
 };
