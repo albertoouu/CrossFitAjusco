@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useAuth } from "../../Context/authContext";
 
-export const Profile = () => {
+ const Profile = () => {
   // Se declara una variable para guardar el id del usuario para
   const { user, users } = useAuth();
   console.log(user.email);
@@ -32,11 +32,11 @@ export const Profile = () => {
         <p>{uD.phone}</p>
 
         <h5>Correo:</h5>
-        <p>{uD.email}</p>
-
+          <p>{uD.email}</p>
+        
         <h5>Medidas:</h5>
         <p>Altura: {uD.heigth} mts.</p>
-        <p>Peso: {uD.sizes.weight} kg.</p>
+        <p>Peso: {uD.sizes.weigth} kg.</p>
         <p>Cinura: {uD.sizes.waist} cm.</p>
         <p>Cuello: {uD.sizes.neck} cm.</p>
 
@@ -48,54 +48,7 @@ export const Profile = () => {
       </div>
     </>
   );
-};
-
-/*
-
-
-export const Profile = () => {
-  
-   const [data, setData] = useState
-
-  async function loadData(){
     
-
-     try {
-      const dataUsers = await firestore.collection('Users').get();
-      setData(dataUsers.docs)
-      
-       console.log(data)
-             
-     } catch (err) {
-       console.log(err)
-     }
-
-  }
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  function renderItem ({item}){
-    return (
-      <view>
-        <p>
-          {item.data().name}
-        </p>
-      </view>
-    )
-  }
-  return (
-    <div>
-          <div >
-            <h3>Nombre: </h3>
-            <FlatList 
-            data = {data}
-            renderItem = {renderItem}
-            keyextractor = { item =>item.id }/>
-          </div>
-      
-    </div>
-  )    
 };
-*/
+
+export default Profile; 

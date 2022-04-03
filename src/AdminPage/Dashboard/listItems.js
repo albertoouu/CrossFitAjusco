@@ -33,12 +33,12 @@ export const mainListItems = (
         <ListItemText primary="Ingresos" />
       </ListItemButton>
     </NavLink>
-    <NavLink to='community'>
+    <NavLink to='comunidad'>
       <ListItemButton>
         <ListItemIcon>
           <ConnectWithoutContactIcon />
         </ListItemIcon>
-        <ListItemText primary="Community" />
+        <ListItemText primary="Comunidad" />
       </ListItemButton>
     </NavLink>
     <NavLink to='form'>
