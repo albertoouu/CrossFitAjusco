@@ -124,12 +124,20 @@ function UserContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-
               <Grid item xs={12} md={8} lg={9}>
+              <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 635,
+                  }}
+                >
                 <ScrollableFeed>
                   <Outlet />
                   <UserCarousel sx={{ height: 480 }} />
                 </ScrollableFeed>
+                </Paper>
               </Grid>           
               <Grid item xs={12} md={4} lg={3}>
                 <Paper

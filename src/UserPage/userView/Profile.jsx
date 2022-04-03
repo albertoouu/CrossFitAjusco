@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useAuth } from "../../Context/authContext";
 
-export const Profile = () => {
+ const Profile = () => {
   // Se declara una variable para guardar el id del usuario para
   const { user, users } = useAuth();
   console.log(user.email);
@@ -49,4 +49,6 @@ export const Profile = () => {
     </>
   );
     
-  };
+};
+
+export default Profile; 
