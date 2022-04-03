@@ -40,7 +40,6 @@ const Footer = () => {
           &copy; 2022 <b>CrossFt Ajusco</b>- Todos los derechos reservados.
         </small>
       </div>
-      ;
     </div>
   );
 };
