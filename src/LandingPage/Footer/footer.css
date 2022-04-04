@@ -13,6 +13,7 @@
   justify-content: space-evenly;
   padding-top: 2%;
 }
+
 .box {
   width: fit-content;
 }
@@ -44,8 +45,17 @@
   color: black;
 }
 .img {
-  width: 100px;
-  height: 90px;
+  overflow: hidden;
+  padding-bottom: 56.2%;
+  position: relative;
+  height: 0;
+}
+.img iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 .line {
   width: 80%;
