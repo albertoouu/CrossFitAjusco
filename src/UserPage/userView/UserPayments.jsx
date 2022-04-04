@@ -10,11 +10,6 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
 
-
-
-
-
-
 export const UserPayments = () => {
   // Se declara una variable para guardar el id del usuario para
   const { user, users } = useAuth();
