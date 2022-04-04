@@ -17,9 +17,10 @@ import { useAuth } from "../../Context/authContext";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import UserCarousel from "./UserCarousel.jsx";
-import { UserRules } from "./UserRules.jsx";
+import { UserRules} from "./UserRules.jsx"
 import { Outlet } from "react-router-dom";
-import ScrollableFeed from "react-scrollable-feed";
+import ScrollableFeed from 'react-scrollable-feed'
+
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -123,14 +124,21 @@ function UserContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
+              <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 635,
+                  }}
+                >
                 <ScrollableFeed>
                   <Outlet />
                   <UserCarousel sx={{ height: 480 }} />
                 </ScrollableFeed>
-              </Grid>
-              {/* Recent Deposits */}
+                </Paper>
+              </Grid>           
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -145,7 +153,6 @@ function UserContent() {
                   </ScrollableFeed>
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
             </Grid>
           </Container>
         </Box>

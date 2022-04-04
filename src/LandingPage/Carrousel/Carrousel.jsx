@@ -6,7 +6,7 @@ const Carrousel = () => {
   return (
     <Carousel fade>
       <Carousel.Item>
-        <img className="d-block w-100" src={img1} alt="First slide"/>
+        <img className="d-block w-100" src={img1} alt="First slide" />
         <Carousel.Caption>
           <h3>Carrera Power Ade</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
