@@ -28,6 +28,7 @@ const Post = () => {
     }
     e.target.input.value = "";
   };
+
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div className="message">
