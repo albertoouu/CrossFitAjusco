@@ -41,7 +41,7 @@ import Typography from '@mui/material/Typography';
       }}
     >
       <ListItem>
-        <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+        <ListItemText primary="Edad:" secondary={uD.age} />
       </ListItem>
       <Divider component="li" />
       <li>
@@ -51,11 +51,62 @@ import Typography from '@mui/material/Typography';
           display="block"
           variant="caption"
         >
-          Divider
         </Typography>
       </li>
       <ListItem>
-        <ListItemText primary="Work" secondary="Jan 7, 2014" />
+        <ListItemText primary="Teléfono:" secondary={uD.phone} />
+      </ListItem>
+      <Divider component="li" />
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 2 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+      </li>
+      <ListItem>
+        <ListItemText primary="Email:" secondary={uD.email} />
+      </ListItem>
+      <Divider component="li" />
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 2 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+      </li>
+      <ListItem>
+        <ListItemText primary="Alergias:" secondary={uD.allergies} />
+      </ListItem>
+      <Divider component="li" />
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 2 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+        <ListItem>
+        <ListItemText primary="Condición médica:" secondary={uD.injuries} />
+      </ListItem>
+      <Divider component="li" />
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 2 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+      </li>
+      </li>
+      <ListItem>
+        <ListItemText primary="Medidas:"  />
       </ListItem>
       <Divider component="li" variant="inset" />
       <li>
@@ -65,7 +116,6 @@ import Typography from '@mui/material/Typography';
           display="block"
           variant="caption"
         >
-          Leisure
         </Typography>
       </li>
       <ListItem>
@@ -74,32 +124,43 @@ import Typography from '@mui/material/Typography';
             <BeachAccessIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Vacation" secondary="July 20, 2014" />
+        <ListItemText primary="Altura" secondary={uD.heigth} />
+      </ListItem>
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 9 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+      </li>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <BeachAccessIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Peso" secondary={uD.sizes.weight} />
+      </ListItem>
+      <li>
+        <Typography
+          sx={{ mt: 0.5, ml: 9 }}
+          color="text.secondary"
+          display="block"
+          variant="caption"
+        >
+        </Typography>
+      </li>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <BeachAccessIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Cintura" secondary={uD.sizes.waist} />
       </ListItem>
     </List>      
-      
-        
-       
-        <h5>Edad:</h5>
-        <p>{uD.age}</p>
-
-        <h5>Teléfono:</h5>
-        <p>{uD.phone}</p>
-
-        <h5>Correo:</h5>
-          <p>{uD.email}</p>
-        
-        <h5>Medidas:</h5>
-        <p>Altura: {uD.heigth} mts.</p>
-        <p>Peso: {uD.sizes.weigth} kg.</p>
-        <p>Cinura: {uD.sizes.waist} cm.</p>
-        <p>Cuello: {uD.sizes.neck} cm.</p>
-
-        <h5>Afecciones:</h5>
-        <p>{uD.injuries}</p>
-
-        <h5>Alergias:</h5>
-        <p>{uD.allergies}</p>
       </div>
     </>
   );
