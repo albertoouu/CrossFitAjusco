@@ -10,17 +10,13 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useAuth } from "../../Context/authContext";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import UserCarousel from "./UserCarousel.jsx";
-import { UserRules} from "./UserRules.jsx"
-import { Outlet } from "react-router-dom";
-import ScrollableFeed from 'react-scrollable-feed'
+// 
 
+import { Outlet } from "react-router-dom";
 
 //Perfil del usuario logueado
 import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
@@ -123,37 +119,7 @@ function UserContent() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={8} lg={9}>
-              <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 635,
-                  }}
-                >
-                <ScrollableFeed>
-                  <Outlet />
-                  <UserCarousel sx={{ height: 480 }} />
-                </ScrollableFeed>
-                </Paper>
-              </Grid>           
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 635,
-                  }}
-                >
-                  <ScrollableFeed>
-                    <UserRules />
-                  </ScrollableFeed>
-                </Paper>
-              </Grid>
-            </Grid>
+            <Outlet />
           </Container>
         </Box>
       </Box>
