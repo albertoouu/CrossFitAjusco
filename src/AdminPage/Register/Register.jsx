@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import './Register.css'
+//Formulario de registro de nuevos usuarios
+//Se instaló npm formik "https://formik.org/docs/overview"
 
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
+  //[const, function]
   const [sendForm, changeSendForm] = useState(false); //useState inicia en false
+  
   // const { signup } = useAuth();
-        //     //const navigate = useNavigate();
+        //const navigate = useNavigate();
         // const [error, setError] = useState();
 
         // const handleChange = ({target: {name, value}}) =>
@@ -40,6 +44,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
         //Declaración de las Keys iniciales con Value = ""
         initialValues={{ 
+          birthday: "",
           email: "",
           payment_days: "",
           next_payment: "",
@@ -71,6 +76,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           //Se valora la información ingresada mediante if-else, equivale a "required"
           if (!valores.email) { //Validación para el mail
             errores.email = "Ingresa un email"; //Si no hay valores ingresados aparece mensaje
+            //else if (una expresión regular vs[test] los valores ingresados)
           } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
             errores.email = "El correo sólo puede contener letras, números, puntos, guiones y guión bajo"; //Si no se cumple con los valores para email válidos aparece mensaje.
           }
@@ -86,6 +92,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           } else if (!/^[a-zA-ZÁ-ÿ\s]{1,40}$/.test(valores.lastname)) {
             errores.lastname =
               "El apellido sólo puede contener letras y espacios";
+          }
+          if (!valores.birthday) { //validación de la fecha de cumpleaños
+            errores.birthday = "Ingresa fecha de nacimiento"
           }
 
           if (!valores.phone) { //Validación para el número telefónico ingresado
@@ -161,6 +170,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                   </div>
                   <div className="fields">
                     <label htmlFor="next_payment" className="subtitles">Siguiente fecha de pago:</label>
+                    
                     <ErrorMessage name="name"
                       component={() => <div className="error">{errors.next_payment}</div>}
                     />
@@ -179,6 +189,13 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                       component={() => (
                         <div className="error">{errors.lastname}</div>)} />
                     <Field type="text" name="lastname" id="lastname" placeholder="apellido(s)" className="input"/>
+                  </div>
+                  <div className="fields">
+                    <label htmlFor="birthday" className="subtitles">Fecha de nacimiento:</label>
+                    <ErrorMessage name="birthday"
+                      component={() => (
+                        <div className="error">{errors.birthday}</div>)} />
+                    <Field type="date" name="birthday" id="birthday" placeholder="cumpleaños" className="input"/>
                   </div>
                   <div className="fields">
                     <label htmlFor="phone" className="subtitles">Teléfono:</label>
@@ -309,7 +326,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     </div>
                   </div>
               <div>
-              {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
+                {/* Si todo sale bien aparece el anuncio de "succes" */}
+                {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
+                {/* button submit sólo sí se cumplen los campos requeridos*/}
                 <button className="send" type="submit"> Registrar </button>
               </div>
             </Form>
