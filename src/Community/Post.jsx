@@ -20,7 +20,7 @@ const Post = () => {
     try {
       const docRef = await addDoc(collection(db, "Posts"), {
         input: input,
-        email: user.email
+        email: user.email,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -29,6 +29,7 @@ const Post = () => {
     e.target.input.value = "";
   };
 
+  // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div className="message">
       <div>

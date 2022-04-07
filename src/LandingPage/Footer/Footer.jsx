@@ -4,6 +4,14 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+{
+  /*Este componente se enciende en el componente general app y se muestra
+  en todas la vistas, utiliza la libreria de iconos de MUI, mediante un iframe se coloca
+  el mapa desde Google Maps y se  utiliza la API de Whats App para acceder chatear 
+  directamente al número del establecimiento.
+   */
+}
 const Footer = () => {
   return (
     <div>

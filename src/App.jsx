@@ -17,6 +17,7 @@ import Users from "./AdminPage/Users/Users";
 import Profile from "./UserPage/userView/Profile.jsx";
 import {UserPayments} from "./UserPage/userView/UserPayments.jsx";
 import { ReadPost } from "./Community/ReadPost"
+import { UserDash } from "./UserPage/userView/UserDash.jsx";
 
 const App = () => {
   return (
@@ -53,9 +54,11 @@ const App = () => {
                   </ProtectedRouteUser>
                 }
               >
+                <Route index element={<UserDash />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="pagos" element={<UserPayments />} />
-                <Route path="comunidad" element={<ReadPost/>} />
+                <Route path="comunidad" element={<ReadPost />} />
+                <Route path="eventos" element={<UserDash />} />
                 </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
