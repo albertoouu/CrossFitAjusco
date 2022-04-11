@@ -5,30 +5,32 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import Button from '@mui/material/Button';
+import StraightenIcon from '@mui/icons-material/Straighten';
 
  const Profile = () => {
   // Se declara una variable para guardar el id del usuario para
   const { user, users } = useAuth();
-  console.log(user.email);
+  //console.log(user.email);
   //console.log(users[0])
 
   const userData = users.filter((us) => {
     if (us.email === user.email) return true;
   });
-  console.log(userData[0]);
+  //console.log(userData[0]);
 
   //configuración de los hoocks para
   const uD = userData[0];
 
-  //Función para actualizar datos
-  console.log(uD.allergies);
+  //Función para abrir modal de edit
 
+  
   return (
     <>
-    <div key={uD.id} style={{ height: 500, margin: "50px" }}>
+    <div key={uD.id} style={{ height: 500, margin: "50px", padding:"30px" }}>
     <h2>Mi Perfil</h2>
     <h4>
           {uD.name} {uD.last_name}
@@ -36,12 +38,15 @@ import Typography from '@mui/material/Typography';
     <List
       sx={{
         width: '100%',
-        maxWidth: 500,
+        maxWidth: 800,
         bgcolor: 'background.paper',
       }}
     >
       <ListItem>
         <ListItemText primary="Edad:" secondary={uD.age} />
+        <Button variant="outlined">
+        <EditOutlinedIcon />
+        </Button>
       </ListItem>
       <Divider component="li" />
       <li>
@@ -55,6 +60,9 @@ import Typography from '@mui/material/Typography';
       </li>
       <ListItem>
         <ListItemText primary="Teléfono:" secondary={uD.phone} />
+        <Button variant="outlined">
+        <EditOutlinedIcon />
+        </Button>
       </ListItem>
       <Divider component="li" />
       <li>
@@ -68,6 +76,9 @@ import Typography from '@mui/material/Typography';
       </li>
       <ListItem>
         <ListItemText primary="Email:" secondary={uD.email} />
+        <Button variant="outlined">
+        <EditOutlinedIcon />
+        </Button>
       </ListItem>
       <Divider component="li" />
       <li>
@@ -81,6 +92,9 @@ import Typography from '@mui/material/Typography';
       </li>
       <ListItem>
         <ListItemText primary="Alergias:" secondary={uD.allergies} />
+        <Button variant="outlined">
+        <EditOutlinedIcon />
+        </Button>
       </ListItem>
       <Divider component="li" />
       <li>
@@ -93,6 +107,9 @@ import Typography from '@mui/material/Typography';
         </Typography>
         <ListItem>
         <ListItemText primary="Condición médica:" secondary={uD.injuries} />
+        <Button variant="outlined">
+        <EditOutlinedIcon />
+        </Button>
       </ListItem>
       <Divider component="li" />
       <li>
@@ -121,7 +138,7 @@ import Typography from '@mui/material/Typography';
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Altura" secondary={uD.heigth} />
@@ -138,7 +155,7 @@ import Typography from '@mui/material/Typography';
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+           <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Peso" secondary={uD.sizes.weight} />
@@ -155,7 +172,7 @@ import Typography from '@mui/material/Typography';
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+           <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Cintura" secondary={uD.sizes.waist} />
@@ -163,8 +180,9 @@ import Typography from '@mui/material/Typography';
     </List>      
       </div>
     </>
-  );
-    
+  );    
 };
+
+
 
 export default Profile; 
