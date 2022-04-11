@@ -4,11 +4,27 @@ import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import './Register.css'
+//Formulario de registro de nuevos usuarios
+//Se instaló npm formik "https://formik.org/docs/overview"
 
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
+  //[const, function]
   const [sendForm, changeSendForm] = useState(false); //useState inicia en false
+    //const para definir la fecha de registro
+    const fechaRegistro = new Date();
+    let fecha2 = new Date(); //let que ayuda a calcular la próxima fecha de pago
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
+    const dia = fechaRegistro.getDate();
+    const mes = meses[fechaRegistro.getMonth()];// eleccion del mes en el arr "meses"
+    const anio = fechaRegistro.getFullYear();
+    fecha2.setDate(fecha2.getDate() + 30) //se setea la fecha para agregarle los días 
+
+    const inscripcion = dia + " de " + mes + " del " + anio //fecha del día de inscripción
+    const proxPago = fecha2.getFullYear() + "-" + ('0' + (fecha2.getMonth() + 1)).slice(-2) + "-" + ('0' + fecha2.getDate()).slice(-2)
+    console.log(proxPago) //fecha con formato yyyy-MM-dd
+  
   // const { signup } = useAuth();
-        //     //const navigate = useNavigate();
+        //const navigate = useNavigate();
         // const [error, setError] = useState();
 
         // const handleChange = ({target: {name, value}}) =>
@@ -39,9 +55,10 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
     <>
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
         //Declaración de las Keys iniciales con Value = ""
-        initialValues={{ 
+        initialValues={{
+          birthday: "",
           email: "",
-          payment_days: "",
+          payment_days: new Date(),
           next_payment: "",
           name: "",
           lastname: "",
@@ -71,6 +88,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           //Se valora la información ingresada mediante if-else, equivale a "required"
           if (!valores.email) { //Validación para el mail
             errores.email = "Ingresa un email"; //Si no hay valores ingresados aparece mensaje
+            //else if (una expresión regular vs[test] los valores ingresados)
           } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
             errores.email = "El correo sólo puede contener letras, números, puntos, guiones y guión bajo"; //Si no se cumple con los valores para email válidos aparece mensaje.
           }
@@ -86,6 +104,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           } else if (!/^[a-zA-ZÁ-ÿ\s]{1,40}$/.test(valores.lastname)) {
             errores.lastname =
               "El apellido sólo puede contener letras y espacios";
+          }
+          if (!valores.birthday) { //validación de la fecha de cumpleaños
+            errores.birthday = "Ingresa fecha de nacimiento"
           }
 
           if (!valores.phone) { //Validación para el número telefónico ingresado
@@ -127,7 +148,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           }
 
           return errores;
+
         }}
+
         //Al dar click en el <btn>Registrar</btn> (y pasar los test se activa)
         onSubmit={(valores, { resetForm, values }) => { 
           resetForm();//resetForm Limpia el formulario una vez validado
@@ -144,7 +167,12 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
               {console.log(values)}
               {/* {error && <Alert message={error} />} */}
               <Form className="formulario"> {/* <Form> imprime en el UI */}
-                <h2 className="title">Registro de nuevos usuarios:</h2>
+              <h2 className="title">Registro de nuevos usuarios:</h2>
+                  <div className="fields">
+                    <label htmlFor="payment_days" className="subtitles">Fecha de registro:</label>
+                    {/* <Field type="date" name="payment_days" id="payment_days" className="input" value={  }/> */}
+                    <p className="subtitles">{ inscripcion }</p>
+                  </div>
                   <div className="fields">
                     <label htmlFor="email" className="subtitles">Email: </label>
                     {/* //componente del mensaje de error debajo del titulo*/}
@@ -156,15 +184,8 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     <Field type="mail" name="email" id="email" placeholder="ejemplo_123@mail.com" className="input"/>
                   </div>
                   <div className="fields">
-                    <label htmlFor="payment_days" className="subtitles">Fecha de pago:</label>
-                    <Field type="date" name="payment_days" id="payment_days" className="input"/>
-                  </div>
-                  <div className="fields">
                     <label htmlFor="next_payment" className="subtitles">Siguiente fecha de pago:</label>
-                    <ErrorMessage name="name"
-                      component={() => <div className="error">{errors.next_payment}</div>}
-                    />
-                    <Field type="date" name="next_payment" id="next_payment" className="input"/>
+                <Field type="date" name="next_payment" id="next_payment" className="input" value={proxPago}/>
                   </div>
                   <div className="fields">
                     <label htmlFor="name" className="subtitles">Nombre:</label>
@@ -179,6 +200,13 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                       component={() => (
                         <div className="error">{errors.lastname}</div>)} />
                     <Field type="text" name="lastname" id="lastname" placeholder="apellido(s)" className="input"/>
+                  </div>
+                  <div className="fields">
+                    <label htmlFor="birthday" className="subtitles">Fecha de nacimiento:</label>
+                    <ErrorMessage name="birthday"
+                      component={() => (
+                        <div className="error">{errors.birthday}</div>)} />
+                    <Field type="date" name="birthday" id="birthday" placeholder="cumpleaños" className="input"/>
                   </div>
                   <div className="fields">
                     <label htmlFor="phone" className="subtitles">Teléfono:</label>
@@ -309,7 +337,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     </div>
                   </div>
               <div>
-              {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
+                {/* Si todo sale bien aparece el anuncio de "succes" */}
+                {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
+                {/* button submit sólo sí se cumplen los campos requeridos*/}
                 <button className="send" type="submit"> Registrar </button>
               </div>
             </Form>
