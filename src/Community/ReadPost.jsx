@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   collection,
   addDoc,
@@ -8,15 +8,15 @@ import {
   onSnapshot,
   querySnapshot,
   deleteDoc,
-} from "firebase/firestore";
-import { db } from "../firebase";
-import { Post } from "./Post";
-import { useAuth } from "../Context/authContext";
+} from 'firebase/firestore';
+import { db } from '../firebase';
+import { Post } from './Post';
+import { useAuth } from '../Context/authContext';
 
 export const ReadPost = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
-  const postsCollectionRef = collection(db, "Posts");
+  const postsCollectionRef = collection(db, 'Posts');
 
   //Leer data y actualizar DOM al cambio
   useEffect(() => {
@@ -33,13 +33,13 @@ export const ReadPost = () => {
     console.log(id);
     try {
       //Eliminar
-      await deleteDoc(doc(db, "Posts", id));
-      console.log("Document deleted with ID: ", id);
+      await deleteDoc(doc(db, 'Posts', id));
+      console.log('Document deleted with ID: ', id);
       //Actualizar estado
       const otherPosts = posts.filter((post) => post.id !== id);
       setPosts(otherPosts);
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error('Error adding document: ', error);
     }
   };
 
@@ -52,7 +52,9 @@ export const ReadPost = () => {
         console.log(user.email);
         return (
           <div key={post.id}>
-            <h1>input: {post.input}</h1>
+            <h1>Tu post: {post.input}</h1>
+            <h4>Autor: {post.author}</h4>
+            <h4>Fecha: {post.date}</h4>
             {user.email === post.email ? (
               <div>
                 <button onClick={() => deletePost(post.id)}>Eliminar</button>
