@@ -5,6 +5,7 @@ import { useAuth } from '../Context/authContext';
 import { PhotoLibrary } from '@mui/icons-material';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const Post = () => {
   const { user } = useAuth();
@@ -48,7 +49,11 @@ const Post = () => {
           placeholder="¡Comparte con la comunidad!"
           onChange={handleChange}
         />
-        {input === '' ? null : <button>Publicar</button>}
+        {input === '' ? null : (
+          <button>
+            <AddCircleOutlineIcon color="primary" fontSize="large" />
+          </button>
+        )}
       </form>
 
       <div className="messageSender_bottom">
