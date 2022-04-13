@@ -14,9 +14,9 @@ representativas del negocio, con una pequeña descripción */
 
 const Carrousel = () => {
   return (
-    <Carousel fade>
+    <Carousel className="middle" fade>
       <Carousel.Item>
-        <img className="d-block w-100" src={img1} alt="First slide" />
+        <img className="d-block" src={img1} alt="First slide" />
         <Carousel.Caption>
           <h3>Carrera Power Ade</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -24,7 +24,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img2} alt="Second slide" />
+        <img className="d-block" src={img2} alt="Second slide" />
 
         <Carousel.Caption>
           <h3>Entrenamiento en el centro recreativo "El Arenal"</h3>
@@ -33,7 +33,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img3} alt="Third slide" />
+        <img className="d-block" src={img3} alt="Third slide" />
         <Carousel.Caption>
           <h3>Yo seré tu entrenador</h3>
           <p>
@@ -43,7 +43,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img4} alt="Third slide" />
+        <img className="d-block" src={img4} alt="Third slide" />
         <Carousel.Caption>
           <h3>Entrenamiento en el bosque</h3>
           <p>
@@ -53,7 +53,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img5} alt="Third slide" />
+        <img className="d-block" src={img5} alt="Third slide" />
         <Carousel.Caption>
           <h3>Convivio</h3>
           <p>
@@ -63,7 +63,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img6} alt="Third slide" />
+        <img className="d-block" src={img6} alt="Third slide" />
         <Carousel.Caption>
           <h3>Yo seré tu entrenador</h3>
           <p>
@@ -73,7 +73,7 @@ const Carrousel = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img7} alt="Third slide" />
+        <img className="d-block" src={img7} alt="Third slide" />
         <Carousel.Caption>
           <h3>Carrera</h3>
           <p>

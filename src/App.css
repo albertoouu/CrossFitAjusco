@@ -3,11 +3,12 @@
   text-align: center;
   display: grid;
   height: 100%;
-  grid-template-rows: 0.25fr 8fr 0.25fr;
+  grid-template-rows: 1fr 6fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "navBar navBar navBar "
     "middle-component middle-component middle-component "
+    /*"modal modal modal"*/
     "footer footer footer ";
 }
 .navBar {
@@ -15,10 +16,14 @@
 }
 .middle-component {
   grid-area: middle-component;
-
-  /*padding: 2em;*/
+  width: 100px;
+  height: 100px;
 }
 
+/*.modal {
+  grid-area: modal;
+}
+*/
 .footer {
   grid-area: footer;
 }
