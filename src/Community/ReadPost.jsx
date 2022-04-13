@@ -12,6 +12,10 @@ import {
 import { db } from '../firebase';
 import { Post } from './Post';
 import { useAuth } from '../Context/authContext';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { EditModal } from './Modal';
+import EditIcon from '@mui/icons-material/Edit';
+import './ReadPost.css';
 
 export const ReadPost = () => {
   const { user } = useAuth();
@@ -43,6 +47,11 @@ export const ReadPost = () => {
     }
   };
 
+  //Editar post
+  const handleEdit = (id) => {
+    console.log(id);
+  };
+
   return (
     <div>
       <div>
@@ -57,7 +66,13 @@ export const ReadPost = () => {
             <h4>Fecha: {post.date}</h4>
             {user.email === post.email ? (
               <div>
-                <button onClick={() => deletePost(post.id)}>Eliminar</button>
+                <DeleteIcon
+                  onClick={() => deletePost(post.id)}
+                  className="DeletePost"
+                />
+                <button onClick={() => handleEdit(post.id)}>
+                  <EditModal />
+                </button>
               </div>
             ) : null}
           </div>
