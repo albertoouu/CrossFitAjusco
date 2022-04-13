@@ -48,6 +48,7 @@ const Post = () => {
           type="text"
           placeholder="¡Comparte con la comunidad!"
           onChange={handleChange}
+          autofocus
         />
         {input === '' ? null : (
           <button>
