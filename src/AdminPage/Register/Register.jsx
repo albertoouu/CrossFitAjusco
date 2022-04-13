@@ -1,11 +1,12 @@
+//Formulario de registro de nuevos usuaris
+//Se instaló npm formik "https://formik.org/docs/overview"
 import React, { useState } from "react";
 import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import NuevoUsuario from "./NuevoUsuario";
 import './Register.css'
-//Formulario de registro de nuevos usuarios
-//Se instaló npm formik "https://formik.org/docs/overview"
 
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
   //[const, function]
@@ -16,14 +17,13 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
     const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
     const dia = fechaRegistro.getDate();
     const mes = meses[fechaRegistro.getMonth()];// eleccion del mes en el arr "meses"
-    const anio = fechaRegistro.getFullYear();
+    const año = fechaRegistro.getFullYear();
     fecha2.setDate(fecha2.getDate() + 30) //se setea la fecha para agregarle los días 
 
-    const inscripcion = dia + " de " + mes + " del " + anio //fecha del día de inscripción
+    const inscripcion = dia + " de " + mes + " del " + año //fecha del día de inscripción
     const proxPago = fecha2.getFullYear() + "-" + ('0' + (fecha2.getMonth() + 1)).slice(-2) + "-" + ('0' + fecha2.getDate()).slice(-2)
-    console.log(proxPago) //fecha con formato yyyy-MM-dd
-  
-  
+    // console.log(proxPago) //fecha con formato yyyy-MM-dd
+    
   return (
     <>
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
@@ -31,8 +31,10 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
         initialValues={{
           birthday: "",
           email: "",
-          payment_days: new Date(),
-          next_payment: "",
+          date_start: new Date(),
+          next_payday: new Date(Date.parse(proxPago)),
+          payday: new Date(),
+          payment_days: [],
           name: "",
           lastname: "",
           phone: "",
@@ -52,7 +54,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           kind_of_allergies: "",
           excercise: "",
           frequency: "",
-          kind_of_excercises: "",
+          kind_of_excercises: ""
         }}
         //Validación de el prop "valores" /valores esperados/ vs valores.ingresados
         validate={(valores) => {
@@ -95,11 +97,6 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
             errores.phone_contact = "Ingresa sólo números";
           }
 
-          if (!valores.next_payment) { //Validación para la próxima fecha de pago
-            errores.next_payment = 
-              "Ingresa el próximo pago correspondiente"
-          }
-
           if (!valores.gender) { //Validación para el sexo
             errores.gender =
               "Selecciona una opción"
@@ -124,20 +121,24 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
 
         }}
 
-        //Al dar click en el <btn>Registrar</btn> (y pasar los test se activa)
+        //Al dar click en el <btn>Registrar</btn> (y pasar los test) se activa.
         onSubmit={(valores, { resetForm, values }) => { 
-          resetForm();//resetForm Limpia el formulario una vez validado
-          // console.log(valores);
-          // console.log('send form');
+          const nuevoObjeto = valores
+          console.log(nuevoObjeto);
+          console.log(valores)
+          NuevoUsuario(nuevoObjeto);
           changeSendForm(true); //si el "state" es true aparece 'Registro exitoso'
+          resetForm();//resetForm Limpia el formulario una vez validado
+          // console.log('send form');
           setTimeout(() => changeSendForm(false), 3000); //Tiempo para volver useState a false
         }}
       >
+        
         {/* errors para mensajes \ values  para evaluar nuevos campos en el formulario*/}
-        {({ errors, values }) => (
+        {({ errors, values, isSubmitting }) => (
           //Inicia formulario para el registro
           <>
-              {console.log(values)}
+              {/* {console.log(values)} */}
               {/* {error && <Alert message={error} />} */}
               <Form className="formulario"> {/* <Form> imprime en el UI */}
               <h2 className="title">Registro de nuevos usuarios:</h2>
@@ -157,8 +158,8 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     <Field type="mail" name="email" id="email" placeholder="ejemplo_123@mail.com" className="input"/>
                   </div>
                   <div className="fields">
-                    <label htmlFor="next_payment" className="subtitles">Siguiente fecha de pago:</label>
-                <Field type="date" name="next_payment" id="next_payment" className="input" value={proxPago}/>
+                    <label htmlFor="next_payday" className="subtitles">Siguiente fecha de pago:</label>
+                <Field type="date" name="next_payday" id="next_payday" className="input" value={proxPago}/>
                   </div>
                   <div className="fields">
                     <label htmlFor="name" className="subtitles">Nombre:</label>
@@ -313,7 +314,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                 {/* Si todo sale bien aparece el anuncio de "succes" */}
                 {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
                 {/* button submit sólo sí se cumplen los campos requeridos*/}
-                <button className="send" type="submit"> Registrar </button>
+                <button className="send" type="submit" disabled={isSubmitting}> Registrar </button>
               </div>
             </Form>
           </>
