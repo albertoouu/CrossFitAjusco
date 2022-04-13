@@ -23,34 +23,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
     const proxPago = fecha2.getFullYear() + "-" + ('0' + (fecha2.getMonth() + 1)).slice(-2) + "-" + ('0' + fecha2.getDate()).slice(-2)
     console.log(proxPago) //fecha con formato yyyy-MM-dd
   
-  // const { signup } = useAuth();
-        //const navigate = useNavigate();
-        // const [error, setError] = useState();
-
-        // const handleChange = ({target: {name, value}}) =>
-        //         // console.log(e.target.name, e.target.value);
-        //         //console.log(name, value)
-        //     setUser({...user, [name]: value })
-        //         // console.log(user);
-        // const handleSubmit = async (e) => {
-        //     e.preventDefault()
-        //     setError('')
-        //     try {
-        //         await signup(user.email, user.password)
-        //         //Si todo sale bien lo envía a la página en navigate (opcional)
-        //         //navigate('/admin')
-        //     } catch (error) {
-        //         //sino sale bien lanza un error
-        //         // console.log(error.message);
-        //             console.log(error.code)
-        //         //personalización de los mensajes de error
-        //         if (error.code === "auth/internal-error") {
-        //             setError('Correo invalido')
-        //         } else {
-        //         setError(error.message)
-        //         }
-        //     }
-        // }
+  
   return (
     <>
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
