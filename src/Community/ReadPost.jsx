@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
   collection,
-  addDoc,
-  getDoc,
   getDocs,
   doc,
-  onSnapshot,
-  querySnapshot,
   deleteDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase';
