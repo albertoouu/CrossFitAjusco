@@ -1,0 +1,10 @@
+.editButton {
+    cursor: pointer;
+    color: blue;
+    position: relative;
+}
+
+.checkPostEdited{
+    color: green;
+    cursor: pointer;
+}

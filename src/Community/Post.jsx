@@ -51,8 +51,8 @@ const Post = () => {
           autofocus
         />
         {input === '' ? null : (
-          <button>
-            <AddCircleOutlineIcon color="primary" fontSize="large" />
+          <button className='sendPostButton'>
+            <AddCircleOutlineIcon  color="primary" fontSize="large"/>
           </button>
         )}
       </form>

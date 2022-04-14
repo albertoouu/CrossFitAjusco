@@ -5,7 +5,7 @@ import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import NuevoUsuario from "./NuevoUsuario";
+//import NuevoUsuario from "./NuevoUsuario";
 import './Register.css'
 
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
@@ -126,7 +126,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           const nuevoObjeto = valores
           console.log(nuevoObjeto);
           console.log(valores)
-          NuevoUsuario(nuevoObjeto);
+          //NuevoUsuario(nuevoObjeto);
           changeSendForm(true); //si el "state" es true aparece 'Registro exitoso'
           resetForm();//resetForm Limpia el formulario una vez validado
           // console.log('send form');
