@@ -19,10 +19,11 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-export const EditModal = ({id}) => {
-  //console.log(id)
-  const [open, setOpen] = React.useState(false);
-
+export const EditModal = ({id, setPosts}) => {
+  //console.log(id, setPosts)
+  const [open, setOpen] = useState(false);
+  const [inputEdit, setInputEdit] = useState("");
+    
     //Traer el documento a editar
   const getDocument = async (id) => {
     console.log(id);
@@ -31,7 +32,8 @@ export const EditModal = ({id}) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-     } else {
+        setInputEdit(docSnap.data().input);
+    } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
@@ -47,7 +49,11 @@ export const EditModal = ({id}) => {
 
   const handleSendEdit = (e) => {
     e.preventDefault();
+    
+    
+    
     setOpen(false);
+
   }
 
 const handleClose = () => setOpen(false);
@@ -78,7 +84,7 @@ const style = {
             CrossFt Ajusco
           </Typography>
           <form >
-            <input type="text" name="inputEdit"/>
+            <input type="text" name="inputToEdit" value={setInputEdit.inputToEdit} onChange={((e)=> setInputEdit(e.target.value))}/>
             <CheckCircleOutlineIcon onClick={handleSendEdit} className='checkPostEdited'/>
           </form>
         </Box>

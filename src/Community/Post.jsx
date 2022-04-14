@@ -3,13 +3,14 @@ import './Post.css';
 import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
 import { PhotoLibrary } from '@mui/icons-material';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-const Post = () => {
+const Post = ({setPosts}) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
+  const postsCollectionRef = collection(db, 'Posts');
 
   const handleChange = (e) => {
     console.log(e.target.name);
@@ -21,7 +22,7 @@ const Post = () => {
     e.preventDefault();
     const date = new Date().toString();
     console.log(input, user.email, user.displayName, date);
-    //mandar strings a objeto en firestore
+    //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
         input: input,
@@ -30,14 +31,25 @@ const Post = () => {
         author: user.displayName,
       });
       console.log('Document written with ID: ', docRef.id);
-      e.target.entry.value = '';
+      //Limpiar form
       setInput('');
+      e.target.entry.value = '';
+      //Actualizar estado
+      getAllData()
     } catch (e) {
       console.error('Error adding document: ', e);
       e.target.entry.value = '';
       setInput('');
     }
   };
+
+  //Traer nueva data actualizada
+  const getAllData = async() => {
+    console.log("getting data")
+      const data = await getDocs(postsCollectionRef);
+      //Actualizar estado
+      setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  }
 
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (

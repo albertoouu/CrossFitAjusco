@@ -49,7 +49,7 @@ export const ReadPost = () => {
   return (
     <div>
       <div>
-        <Post />
+        <Post setPosts={setPosts}/>
       </div>
       {posts.map((post) => {
         console.log(user.email);
@@ -60,15 +60,11 @@ export const ReadPost = () => {
             <h4>Fecha: {post.date}</h4>
             {user.email === post.email ? (
               <div>
-
                 <DeleteIcon
                   onClick={() => deletePost(post.id)}
                   className="DeletePost"
                 />
-
-
-                <EditModal id={post.id}/>
- 
+                <EditModal id={post.id} setPosts={setPosts}/>
               </div>
             ) : null}
           </div>
