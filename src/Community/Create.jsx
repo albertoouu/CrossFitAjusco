@@ -1,4 +1,4 @@
-import './Post.css';
+import './Create.css';
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
@@ -7,7 +7,7 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-const Post = ({ setPosts }) => {
+const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -77,4 +77,4 @@ const Post = ({ setPosts }) => {
     </div>
   );
 };
-export { Post };
+export { CreatePost };

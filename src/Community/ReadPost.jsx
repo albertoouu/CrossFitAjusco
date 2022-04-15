@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import {
-  collection,
-  getDocs,
-  doc,
-  deleteDoc,
-} from 'firebase/firestore';
+import { collection, getDocs, doc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { Post } from './Post';
+import { CreatePost } from './Create';
 import { useAuth } from '../Context/authContext';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { EditModal } from './Modal';
+import { EditModal } from './Edit';
 import './ReadPost.css';
+import { PostCard } from './Card';
 
 export const ReadPost = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, 'Posts');
 
-  //Leer data y actualizar DOM al cambio
+  //Leer data y actualizar DOM
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
@@ -27,40 +22,26 @@ export const ReadPost = () => {
     getPosts();
   }, []);
 
-  //Eliminar Post
-  const deletePost = async (id) => {
-    console.log(id);
-    try {
-      //Eliminar
-      await deleteDoc(doc(db, 'Posts', id));
-      console.log('Document deleted with ID: ', id);
-      //Actualizar estado
-      const otherPosts = posts.filter((post) => post.id !== id);
-      setPosts(otherPosts);
-    } catch (error) {
-      console.error('Error adding document: ', error);
-    }
-  };
-
   return (
     <div>
       <div>
-        <Post setPosts={setPosts}/>
+        <CreatePost setPosts={setPosts} />
       </div>
       {posts.map((post) => {
         console.log(user.email);
         return (
           <div key={post.id}>
-            <h1>Tu post: {post.input}</h1>
-            <h4>Autor: {post.author}</h4>
-            <h4>Fecha: {post.date}</h4>
+            <PostCard
+              publication={post.input}
+              author={post.author}
+              date={post.date}
+              id={post.id}
+              email={post.email}
+              setPosts={setPosts}
+            />
             {user.email === post.email ? (
               <div>
-                <DeleteIcon
-                  onClick={() => deletePost(post.id)}
-                  className="DeletePost"
-                />
-                <EditModal id={post.id} setPosts={setPosts}/>
+                <EditModal id={post.id} setPosts={setPosts} />
               </div>
             ) : null}
           </div>
