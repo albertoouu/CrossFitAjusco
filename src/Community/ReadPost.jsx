@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {
   collection,
-  addDoc,
-  getDoc,
   getDocs,
   doc,
-  onSnapshot,
-  querySnapshot,
   deleteDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Post } from './Post';
 import { useAuth } from '../Context/authContext';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { EditModal } from './Modal';
+import './ReadPost.css';
 
 export const ReadPost = () => {
   const { user } = useAuth();
@@ -46,7 +45,7 @@ export const ReadPost = () => {
   return (
     <div>
       <div>
-        <Post />
+        <Post setPosts={setPosts}/>
       </div>
       {posts.map((post) => {
         console.log(user.email);
@@ -57,7 +56,11 @@ export const ReadPost = () => {
             <h4>Fecha: {post.date}</h4>
             {user.email === post.email ? (
               <div>
-                <button onClick={() => deletePost(post.id)}>Eliminar</button>
+                <DeleteIcon
+                  onClick={() => deletePost(post.id)}
+                  className="DeletePost"
+                />
+                <EditModal id={post.id} setPosts={setPosts}/>
               </div>
             ) : null}
           </div>

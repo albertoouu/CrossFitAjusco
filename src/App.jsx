@@ -15,9 +15,12 @@ import Graph from "./AdminPage/Graph/Graph.jsx";
 import Calendar from "./AdminPage/Calendar/Calendar.jsx";
 import Users from "./AdminPage/Users/Users";
 import Profile from "./UserPage/userView/Profile.jsx";
-import {UserPayments} from "./UserPage/userView/UserPayments.jsx";
-import { ReadPost } from "./Community/ReadPost"
+import { UserPayments } from "./UserPage/userView/UserPayments.jsx";
+import { ReadPost } from "./Community/ReadPost";
 import { UserDash } from "./UserPage/userView/UserDash.jsx";
+import InfoGeneral from "./LandingPage/InfoGeneral.jsx";
+import Precios from "./LandingPage/Precios.jsx";
+import Health from "./LandingPage/navBar/Health.jsx";
 
 const App = () => {
   return (
@@ -25,11 +28,16 @@ const App = () => {
       <div className="App">
         <div className="navBar">
           <Navigation />
+
           <div className="middle-component">
             <Routes>
               <Route path="/crossfit_ajusco" element={<Navigate to="/" />} />
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/Acerca_de" element={<InfoGeneral />} />
+              <Route path="/precios" element={<Precios />} />
+              <Route path="/recomendaciones_de_salud" element={<Health />} />
+
               <Route
                 path="/admin/*"
                 element={
@@ -43,7 +51,7 @@ const App = () => {
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="form" element={<Register />} />
                 <Route path="usuarios" element={<Users />} />
-                <Route path="comunidad" element={<ReadPost/>} />
+                <Route path="comunidad" element={<ReadPost />} />
               </Route>
               <Route
                 path="/UserView"
@@ -59,12 +67,11 @@ const App = () => {
                 <Route path="pagos" element={<UserPayments />} />
                 <Route path="comunidad" element={<ReadPost />} />
                 <Route path="eventos" element={<UserDash />} />
-                </Route>
+              </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
         </div>
-
         <div className="footer">
           <Footer />
         </div>

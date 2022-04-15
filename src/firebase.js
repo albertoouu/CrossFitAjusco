@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -17,16 +17,14 @@ const firebaseConfig = {
   storageBucket: "crossftproject.appspot.com",
   messagingSenderId: "80614320870",
   appId: "1:80614320870:web:2ae2bbb78e416411b42927",
-  measurementId: "G-XBS88XHRPB"
+  measurementId: "G-XBS88XHRPB",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const db = getFirestore(app)
-export const auth = getAuth(app)
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 //Se exporta app para la auth con Google (se puede usar para otros fines de interacción con FB)
-export default app
-
-
+export default app;
