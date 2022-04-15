@@ -5,7 +5,7 @@ import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../../LandingPage/Alerts/Alert";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-//import NuevoUsuario from "./NuevoUsuario";
+import NuevoUsuario from "./NuevoUsuarioFB";
 import './Register.css'
 
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
@@ -122,11 +122,11 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
         }}
 
         //Al dar click en el <btn>Registrar</btn> (y pasar los test) se activa.
-        onSubmit={(valores, { resetForm, values }) => { 
+        onSubmit={ (valores, { resetForm, values }) => { 
           const nuevoObjeto = valores
           console.log(nuevoObjeto);
           console.log(valores)
-          //NuevoUsuario(nuevoObjeto);
+          NuevoUsuario(nuevoObjeto);
           changeSendForm(true); //si el "state" es true aparece 'Registro exitoso'
           resetForm();//resetForm Limpia el formulario una vez validado
           // console.log('send form');
@@ -140,7 +140,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
           <>
               {/* {console.log(values)} */}
               {/* {error && <Alert message={error} />} */}
-              <Form className="formulario"> {/* <Form> imprime en el UI */}
+              <Form className="formulario" type= "row"> {/* <Form> imprime en el UI */}
               <h2 className="title">Registro de nuevos usuarios:</h2>
                   <div className="fields">
                     <label htmlFor="payment_days" className="subtitles">Fecha de registro:</label>
@@ -316,10 +316,13 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                 {/* button submit sólo sí se cumplen los campos requeridos*/}
                 <button className="send" type="submit" disabled={isSubmitting}> Registrar </button>
               </div>
+              <button onClick={() =>NuevoUsuario()}>Write</button>
             </Form>
           </>
         )}
+        
       </Formik>
+      
     </>
   );
 };
