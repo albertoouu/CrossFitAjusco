@@ -7,7 +7,7 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-const Post = ({setPosts}) => {
+const Post = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -35,7 +35,7 @@ const Post = ({setPosts}) => {
       setInput('');
       e.target.entry.value = '';
       //Actualizar estado
-      getAllData()
+      getAllData();
     } catch (e) {
       console.error('Error adding document: ', e);
       e.target.entry.value = '';
@@ -44,12 +44,12 @@ const Post = ({setPosts}) => {
   };
 
   //Traer nueva data actualizada
-  const getAllData = async() => {
-    console.log("getting data")
-      const data = await getDocs(postsCollectionRef);
-      //Actualizar estado
-      setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  }
+  const getAllData = async () => {
+    console.log('getting data');
+    const data = await getDocs(postsCollectionRef);
+    //Actualizar estado
+    setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
 
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
@@ -60,11 +60,11 @@ const Post = ({setPosts}) => {
           type="text"
           placeholder="¡Comparte con la comunidad!"
           onChange={handleChange}
-          autofocus
+          autoFocus
         />
         {input === '' ? null : (
-          <button className='sendPostButton'>
-            <AddCircleOutlineIcon  color="primary" fontSize="large"/>
+          <button className="sendPostButton">
+            <AddCircleOutlineIcon color="primary" fontSize="large" />
           </button>
         )}
       </form>

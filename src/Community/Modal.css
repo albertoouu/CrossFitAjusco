@@ -4,7 +4,12 @@
     position: relative;
 }
 
-.checkPostEdited{
+.editButtonSend {
+    width: 0%;
+    height: 0%;
+}
+
+.checkPostEdited {
     color: green;
     cursor: pointer;
 }
