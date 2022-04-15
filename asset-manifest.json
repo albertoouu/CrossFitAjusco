@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/crossfit_ajusco/static/css/main.816d714a.css",
-    "main.js": "/crossfit_ajusco/static/js/main.fea0b3d1.js",
+    "main.css": "/crossfit_ajusco/static/css/main.1dc7e6d5.css",
+    "main.js": "/crossfit_ajusco/static/js/main.12adfe5c.js",
     "static/js/787.8ccd671b.chunk.js": "/crossfit_ajusco/static/js/787.8ccd671b.chunk.js",
     "static/media/Logo.jpg": "/crossfit_ajusco/static/media/Logo.74ce37c375a0e38db1bb.jpg",
     "static/media/Login.jpg": "/crossfit_ajusco/static/media/Login.753fcc053b1eaa4e8ca4.jpg",
     "static/media/p1.jpg": "/crossfit_ajusco/static/media/p1.8adacb8a97435e9b4ebb.jpg",
+    "static/media/spartan.png": "/crossfit_ajusco/static/media/spartan.b390c3d35a4c18ceabdf.png",
     "static/media/p2.jpg": "/crossfit_ajusco/static/media/p2.28c9d785367379ff14eb.jpg",
     "static/media/p5.jpg": "/crossfit_ajusco/static/media/p5.75be0332bf9bcd1385b9.jpg",
     "static/media/p3.jpg": "/crossfit_ajusco/static/media/p3.5769da027fff032ec880.jpg",
+    "static/media/bosque.jpg": "/crossfit_ajusco/static/media/bosque.f786e62af667c3d7b862.jpg",
+    "static/media/tripping.jpg": "/crossfit_ajusco/static/media/tripping.cf396834fe228de2421a.jpg",
+    "static/media/lalostyle.jpg": "/crossfit_ajusco/static/media/lalostyle.8066f045da0c69a134a0.jpg",
     "static/media/p4.jpg": "/crossfit_ajusco/static/media/p4.c0b42b1f16401e7dac09.jpg",
+    "static/media/celebrate.jpg": "/crossfit_ajusco/static/media/celebrate.f443aab7c1e9943c2db6.jpg",
     "index.html": "/crossfit_ajusco/index.html",
-    "main.816d714a.css.map": "/crossfit_ajusco/static/css/main.816d714a.css.map",
-    "main.fea0b3d1.js.map": "/crossfit_ajusco/static/js/main.fea0b3d1.js.map",
+    "main.1dc7e6d5.css.map": "/crossfit_ajusco/static/css/main.1dc7e6d5.css.map",
+    "main.12adfe5c.js.map": "/crossfit_ajusco/static/js/main.12adfe5c.js.map",
     "787.8ccd671b.chunk.js.map": "/crossfit_ajusco/static/js/787.8ccd671b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.816d714a.css",
-    "static/js/main.fea0b3d1.js"
+    "static/css/main.1dc7e6d5.css",
+    "static/js/main.12adfe5c.js"
   ]
 }
