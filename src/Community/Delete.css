@@ -1,0 +1,9 @@
+.DeletePost {
+    cursor: pointer;
+    color: red;
+    position: relative;
+}
+
+.cardPost {
+    padding: 1%;
+}

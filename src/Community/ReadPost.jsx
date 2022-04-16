@@ -1,68 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import {
-  collection,
-  getDocs,
-  doc,
-  deleteDoc,
-} from 'firebase/firestore';
+import { collection, getDocs, doc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { Post } from './Post';
-import { useAuth } from '../Context/authContext';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { EditModal } from './Modal';
+import { CreatePost } from './Create';
+import { EditModal } from './Edit';
+import { PostCard } from './Delete';
 import './ReadPost.css';
 
 export const ReadPost = () => {
-  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, 'Posts');
 
-  //Leer data y actualizar DOM al cambio
+  //Leer data y actualizar DOM
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
       setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    console.log(setPosts);
+    console.log(posts);
     getPosts();
   }, []);
-
-  //Eliminar Post
-  const deletePost = async (id) => {
-    console.log(id);
-    try {
-      //Eliminar
-      await deleteDoc(doc(db, 'Posts', id));
-      console.log('Document deleted with ID: ', id);
-      //Actualizar estado
-      const otherPosts = posts.filter((post) => post.id !== id);
-      setPosts(otherPosts);
-    } catch (error) {
-      console.error('Error adding document: ', error);
-    }
-  };
 
   return (
     <div>
       <div>
-        <Post setPosts={setPosts}/>
+        <CreatePost setPosts={setPosts} />
       </div>
       {posts.map((post) => {
-        console.log(user.email);
         return (
-          <div key={post.id}>
-            <h1>Tu post: {post.input}</h1>
-            <h4>Autor: {post.author}</h4>
-            <h4>Fecha: {post.date}</h4>
-            {user.email === post.email ? (
-              <div>
-                <DeleteIcon
-                  onClick={() => deletePost(post.id)}
-                  className="DeletePost"
-                />
-                <EditModal id={post.id} setPosts={setPosts}/>
-              </div>
-            ) : null}
+          <div className="contentPostCard" key={post.id}>
+            <PostCard
+              publication={post.input}
+              author={post.author}
+              date={post.date}
+              id={post.id}
+              email={post.email}
+              setPosts={setPosts}
+            />
           </div>
         );
       })}

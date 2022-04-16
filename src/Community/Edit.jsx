@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import './Modal.css';
+import './Edit.css';
 
 import {
   collection,
