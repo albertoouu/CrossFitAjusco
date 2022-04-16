@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -20,6 +19,8 @@ import { useAuth } from '../Context/authContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { EditModal } from './Edit';
+import './Delete.css';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -92,8 +93,9 @@ export const PostCard = ({
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        image="http://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2017/03/06/14888247674522.jpg"
+        alt="img post"
+        className="cardPost"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -105,6 +107,9 @@ export const PostCard = ({
         <CardActions disableSpacing>
           <IconButton aria-label="delete your post">
             <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
+          </IconButton>
+          <IconButton>
+            <EditModal id={id} setPosts={setPosts} />
           </IconButton>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />

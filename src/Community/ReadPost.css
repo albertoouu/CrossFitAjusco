@@ -1,5 +1,6 @@
-.DeletePost {
-    cursor: pointer;
-    color: red;
+.contentPostCard {
+    margin: 5%;
     position: relative;
+    display: flex;
+    align-items: center;
 }

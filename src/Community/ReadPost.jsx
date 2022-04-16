@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { collection, getDocs, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { CreatePost } from './Create';
-import { useAuth } from '../Context/authContext';
 import { EditModal } from './Edit';
+import { PostCard } from './Delete';
 import './ReadPost.css';
-import { PostCard } from './Card';
 
 export const ReadPost = () => {
-  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, 'Posts');
 
@@ -18,7 +16,7 @@ export const ReadPost = () => {
       const data = await getDocs(postsCollectionRef);
       setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    console.log(setPosts);
+    console.log(posts);
     getPosts();
   }, []);
 
@@ -28,9 +26,8 @@ export const ReadPost = () => {
         <CreatePost setPosts={setPosts} />
       </div>
       {posts.map((post) => {
-        console.log(user.email);
         return (
-          <div key={post.id}>
+          <div className="contentPostCard" key={post.id}>
             <PostCard
               publication={post.input}
               author={post.author}
@@ -39,11 +36,6 @@ export const ReadPost = () => {
               email={post.email}
               setPosts={setPosts}
             />
-            {user.email === post.email ? (
-              <div>
-                <EditModal id={post.id} setPosts={setPosts} />
-              </div>
-            ) : null}
           </div>
         );
       })}
