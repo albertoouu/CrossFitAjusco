@@ -34,6 +34,7 @@ export const ReadPost = () => {
               date={post.date}
               id={post.id}
               email={post.email}
+              avatar={post.avatar}
               setPosts={setPosts}
             />
           </div>

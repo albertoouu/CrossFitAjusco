@@ -21,7 +21,8 @@ const CreatePost = ({ setPosts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date().toString();
-    console.log(input, user.email, user.displayName, date);
+
+    console.log(input, user.email, user.displayName, date, user.photoURL);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -29,6 +30,7 @@ const CreatePost = ({ setPosts }) => {
         email: user.email,
         date: date,
         author: user.displayName,
+        avatar: user.photoURL,
       });
       console.log('Document written with ID: ', docRef.id);
       //Limpiar form

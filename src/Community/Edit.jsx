@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import Avatar from '@mui/material/Avatar';
 import './Edit.css';
 
 import {
@@ -20,7 +21,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-export const EditModal = ({ id, setPosts }) => {
+export const EditModal = ({ id, setPosts, avatar }) => {
   //console.log(id, setPosts)
   const [open, setOpen] = useState(false);
   const [inputToEdit, setInputToEdit] = useState('');
@@ -106,8 +107,9 @@ export const EditModal = ({ id, setPosts }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            CrossFt Ajusco
+            <Avatar aria-label="recipe" src={avatar}></Avatar>CrossFt Ajusco
           </Typography>
+
           <form onSubmit={handleSendEdit}>
             <input
               type="text"
