@@ -76,10 +76,14 @@ const CreatePost = ({ setPosts }) => {
           <FloatingLabel
             controlId="floatingTextarea1  "
             label="¡Comparte con la comunidad!"
+            style={{ color: 'gray' }}
           >
             <Form.Control
               as="textarea"
-              style={{ height: '100px' }}
+              style={{
+                height: '100px',
+                borderColor: '#5DADE2',
+              }}
               name="entry"
               type="text"
               placeholder="¡Comparte con la comunidad!"
