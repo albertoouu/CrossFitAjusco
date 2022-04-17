@@ -3,7 +3,7 @@ import { collection, getDocs, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { CreatePost } from './Create';
 import { EditModal } from './Edit';
-import { PostCard } from './Delete';
+import { PostCard } from './PostCard';
 import './ReadPost.css';
 
 export const ReadPost = () => {
