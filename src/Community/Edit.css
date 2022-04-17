@@ -5,8 +5,8 @@
 }
 
 .editButtonSend {
-    width: 0%;
-    height: 0%;
+    background: transparent;
+    border-style: none;
 }
 
 .checkPostEdited {
