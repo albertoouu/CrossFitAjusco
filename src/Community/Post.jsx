@@ -1,6 +1,6 @@
 import './Post.css';
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useAuth } from '../Context/authContext';
 import { PhotoLibrary } from '@mui/icons-material';
 import { collection, addDoc } from 'firebase/firestore';
