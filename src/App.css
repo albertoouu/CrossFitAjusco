@@ -3,7 +3,7 @@
   text-align: center;
   display: grid;
   height: 100%;
-  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "navBar navBar navBar "
@@ -16,7 +16,7 @@
 .middle-component {
   grid-area: middle-component;
   width: 100vh;
-  height: 50vh;
+  height: auto;
   align-items: center;
 }
 
