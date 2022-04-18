@@ -30,7 +30,7 @@ const CreatePost = ({ setPosts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const date = new Date().toString();
+    const date = new Date();
 
     console.log(input, user.email, user.displayName, date, user.photoURL);
     //mandar values a objeto en firestore
@@ -57,20 +57,27 @@ const CreatePost = ({ setPosts }) => {
 
   //Traer nueva data actualizada
   const getAllData = async () => {
-    console.log('getting data');
     const data = await getDocs(postsCollectionRef);
-    //Actualizar estado
-    setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //Recuperar nueva data
+    const getData = data.docs
+      .map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+        fecha: doc.data().date.toDate().toDateString(),
+        hora: doc.data().date.toDate().getHours(),
+        minutes: doc.data().date.toDate().getMinutes(),
+      }))
+      .slice()
+      .sort((a, b) => b.date - a.date);
+    console.log(getData);
+    //Actualizar Estado
+    setPosts(getData);
   };
 
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
-      <Avatar
-        aria-label="recipe"
-        src={user.photoURL}
-        className="avatarCreatePost"
-      ></Avatar>
+      <img src={user.photoURL} className="avatarCreatePost" />
       <div className="message">
         <form onSubmit={handleSubmit} className="formCreatePost">
           <FloatingLabel
@@ -103,7 +110,7 @@ const CreatePost = ({ setPosts }) => {
                 <Fab
                   color="primary"
                   aria-label="add"
-                  size="medium"
+                  size="small"
                   className="addPicture"
                 >
                   <AddIcon />

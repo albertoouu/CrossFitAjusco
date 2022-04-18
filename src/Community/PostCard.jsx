@@ -42,6 +42,8 @@ export const PostCard = ({
   id,
   setPosts,
   avatar,
+  hour,
+  minute,
 }) => {
   const [expanded, setExpanded] = React.useState(false);
   const { user } = useAuth();
@@ -51,80 +53,81 @@ export const PostCard = ({
   };
 
   return (
-    <Card
-      sx={{
-        width: '100%',
-        display: 'block',
-        margin: 'auto',
-        height: '90%',
-        padding: '2%',
-      }}
-    >
-      <CardHeader
-        avatar={
-          <Avatar
-            sx={{ bgcolor: red[500] }}
-            aria-label="recipe"
-            src={avatar}
-          ></Avatar>
-        }
-        action={
-          user.email === email ? (
-            <div>
-              <IconButton aria-label="settings">
-                <MenuEditDelete
-                  style={{ position: 'relative' }}
-                  id={id}
-                  setPosts={setPosts}
-                  avatar={avatar}
-                />
-              </IconButton>
-            </div>
-          ) : null
-        }
-        title={author}
-        subheader={date}
-      />
-      <CardMedia
-        component="img"
-        height="70%"
-        image="https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg"
-        alt="img post"
-        className="cardPost"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {publication}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        {/*<IconButton aria-label="delete your post">
+    <div className="contentCardPost">
+      <Card
+        sx={{
+          width: '100%',
+          display: 'block',
+          margin: 'auto',
+          padding: '2%',
+        }}
+      >
+        <CardHeader
+          avatar={
+            <Avatar
+              sx={{ bgcolor: red[500] }}
+              aria-label="recipe"
+              src={avatar}
+            ></Avatar>
+          }
+          action={
+            user.email === email ? (
+              <div>
+                <IconButton aria-label="settings">
+                  <MenuEditDelete
+                    style={{ position: 'relative' }}
+                    id={id}
+                    setPosts={setPosts}
+                    avatar={avatar}
+                  />
+                </IconButton>
+              </div>
+            ) : null
+          }
+          title={author}
+          subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
+        />
+        <CardMedia
+          component="img"
+          height="70%"
+          image="https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg"
+          alt="img post"
+          className="cardPost"
+        />
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            {publication}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          {/*<IconButton aria-label="delete your post">
             <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
           </IconButton>
           <IconButton aria-label="edit your post">
             <EditModal id={id} setPosts={setPosts} avatar={avatar} />
           </IconButton>*/}
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Comentarios:</Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Comentarios:</Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </div>
   );
 };
