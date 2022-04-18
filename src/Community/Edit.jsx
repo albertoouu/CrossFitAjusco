@@ -78,8 +78,20 @@ export const EditModal = ({ id, setPosts, avatar }) => {
   const getAllData = async () => {
     console.log('getting data');
     const data = await getDocs(postsCollectionRef);
-    //Actualizar estado
-    setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //Recuperar nueva data
+    const getData = data.docs
+      .map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+        fecha: doc.data().date.toDate().toDateString(),
+        hora: doc.data().date.toDate().getHours(),
+        minutes: doc.data().date.toDate().getMinutes(),
+      }))
+      .slice()
+      .sort((a, b) => b.date - a.date);
+    console.log(getData);
+    //Actualizar Estado
+    setPosts(getData);
   };
 
   const handleClose = () => setOpen(false);
