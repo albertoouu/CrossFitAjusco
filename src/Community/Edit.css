@@ -1,0 +1,15 @@
+.editButton {
+    cursor: pointer;
+    color: blue;
+    position: relative;
+}
+
+.editButtonSend {
+    background: transparent;
+    border-style: none;
+}
+
+.checkPostEdited {
+    color: green;
+    cursor: pointer;
+}
