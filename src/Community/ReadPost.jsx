@@ -5,6 +5,7 @@ import { CreatePost } from './Create';
 import { EditModal } from './Edit';
 import { PostCard } from './PostCard';
 import './ReadPost.css';
+import { Sites } from './Sites';
 
 export const ReadPost = () => {
   const [posts, setPosts] = useState([]);
@@ -34,27 +35,32 @@ export const ReadPost = () => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="contentCommunity">
+      <div className="createPost">
         <CreatePost setPosts={setPosts} />
       </div>
-      {posts.map((post) => {
-        return (
-          <div className="contentPostCard" key={post.id}>
-            <PostCard
-              publication={post.input}
-              author={post.author}
-              id={post.id}
-              date={post.fecha}
-              hour={post.hora}
-              minute={post.minutes}
-              email={post.email}
-              avatar={post.avatar}
-              setPosts={setPosts}
-            />
-          </div>
-        );
-      })}
+      <main className="postArea">
+        {posts.map((post) => {
+          return (
+            <div className="contentPostCard" key={post.id}>
+              <PostCard
+                publication={post.input}
+                author={post.author}
+                id={post.id}
+                date={post.fecha}
+                hour={post.hora}
+                minute={post.minutes}
+                email={post.email}
+                avatar={post.avatar}
+                setPosts={setPosts}
+              />
+            </div>
+          );
+        })}
+      </main>
+      <aside className="interestArea">
+        <Sites />
+      </aside>
     </div>
   );
 };
