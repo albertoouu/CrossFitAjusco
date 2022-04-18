@@ -7,8 +7,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "navBar navBar navBar "
-    "middle-component middle-component middle-component "
-    /*"modal modal modal"*/
+    "middle-component middle-component middle-component"
     "footer footer footer ";
 }
 .navBar {
@@ -16,14 +15,11 @@
 }
 .middle-component {
   grid-area: middle-component;
-  width: 100px;
-  height: 100px;
+  width: 100vh;
+  height: 50vh;
+  align-items: center;
 }
 
-/*.modal {
-  grid-area: modal;
-}
-*/
 .footer {
   grid-area: footer;
 }
