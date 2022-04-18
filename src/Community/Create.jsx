@@ -114,7 +114,7 @@ const CreatePost = ({ setPosts }) => {
                 <Fab
                   color="primary"
                   aria-label="add"
-                  size="medium"
+                  size="small"
                   className="addPicture"
                 >
                   <AddIcon />
