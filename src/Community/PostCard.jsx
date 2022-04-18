@@ -42,6 +42,8 @@ export const PostCard = ({
   id,
   setPosts,
   avatar,
+  hour,
+  minute,
 }) => {
   const [expanded, setExpanded] = React.useState(false);
   const { user } = useAuth();
@@ -56,7 +58,7 @@ export const PostCard = ({
         width: '100%',
         display: 'block',
         margin: 'auto',
-        height: '90%',
+        height: '80%',
         padding: '2%',
       }}
     >
@@ -83,7 +85,7 @@ export const PostCard = ({
           ) : null
         }
         title={author}
-        subheader={date}
+        subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
       />
       <CardMedia
         component="img"
