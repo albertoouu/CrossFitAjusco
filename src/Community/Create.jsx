@@ -5,7 +5,17 @@ import { useAuth } from '../Context/authContext';
 import { PhotoLibrary } from '@mui/icons-material';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import FormControl, { useFormControl } from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import Avatar from '@mui/material/Avatar';
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -55,26 +65,53 @@ const CreatePost = ({ setPosts }) => {
 
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
-    <div className="message">
-      <form onSubmit={handleSubmit}>
-        <input
-          name="entry"
-          type="text"
-          placeholder="¡Comparte con la comunidad!"
-          onChange={handleChange}
-          autoFocus
-        />
-        {input === '' ? null : (
-          <button className="sendPostButton">
-            <AddCircleOutlineIcon color="primary" fontSize="large" />
-          </button>
-        )}
-      </form>
+    <div>
+      <Avatar
+        aria-label="recipe"
+        src={user.photoURL}
+        className="avatarCreatePost"
+      ></Avatar>
+      <div className="message">
+        <form onSubmit={handleSubmit} className="formCreatePost">
+          <FloatingLabel
+            controlId="floatingTextarea1  "
+            label="¡Comparte con la comunidad!"
+            style={{ color: 'gray' }}
+          >
+            <Form.Control
+              as="textarea"
+              style={{
+                height: '100px',
+                borderColor: '#5DADE2',
+              }}
+              name="entry"
+              type="text"
+              placeholder="¡Comparte con la comunidad!"
+              onChange={handleChange}
+              autoFocus
+            />
+          </FloatingLabel>
 
-      <div className="messageSender_bottom">
-        <div className="messageSender_option">
-          <PhotoLibrary style={{ color: 'black' }} />
-        </div>
+          {input === '' ? null : (
+            <div>
+              <PhotoLibrary
+                style={{ color: 'black' }}
+                fontSize="medium"
+                className="addPicture"
+              />
+              <button className="sendPostButton">
+                <Fab
+                  color="primary"
+                  aria-label="add"
+                  size="medium"
+                  className="addPicture"
+                >
+                  <AddIcon />
+                </Fab>
+              </button>
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );
