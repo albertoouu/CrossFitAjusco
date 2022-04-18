@@ -17,14 +17,13 @@
 
 .postArea {
     grid-area: postArea;
-    margin-top: -14%;
 }
 
 .interestArea {
     grid-area: interestArea;
     text-align: center;
     background-color: #FFF;
-    height: 100vh;
+    height: auto;
     position: sticky;
 }
 

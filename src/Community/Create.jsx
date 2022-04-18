@@ -77,11 +77,7 @@ const CreatePost = ({ setPosts }) => {
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
-      <Avatar
-        aria-label="recipe"
-        src={user.photoURL}
-        className="avatarCreatePost"
-      ></Avatar>
+      <img src={user.photoURL} className="avatarCreatePost" />
       <div className="message">
         <form onSubmit={handleSubmit} className="formCreatePost">
           <FloatingLabel
