@@ -1,13 +1,12 @@
-//import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
-import { PhotoLibrary } from '@mui/icons-material';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import { AdPicture } from './AdPicture';
 
 import Button from '@mui/material/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -107,11 +106,6 @@ const CreatePost = ({ setPosts }) => {
 
           {input === '' ? null : (
             <div>
-              <PhotoLibrary
-                style={{ color: 'black' }}
-                fontSize="medium"
-                style={{ marginTop: '3.5%', marginLeft: '2%' }}
-              />
               <button
                 style={{
                   background: 'transparent',
@@ -132,6 +126,7 @@ const CreatePost = ({ setPosts }) => {
               </button>
             </div>
           )}
+          <AdPicture />
         </form>
       </div>
     </div>
