@@ -123,7 +123,7 @@ export const PostCard = ({
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Comentarios:</Typography>
+            <Typography paragraph>Comentarios</Typography>
           </CardContent>
         </Collapse>
       </Card>
