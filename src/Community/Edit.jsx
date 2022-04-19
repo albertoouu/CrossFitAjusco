@@ -23,7 +23,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-export const EditModal = ({ id, setPosts, avatar }) => {
+export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
   //console.log(id, setPosts)
   const [open, setOpen] = useState(false);
   const [inputToEdit, setInputToEdit] = useState('');
@@ -74,6 +74,8 @@ export const EditModal = ({ id, setPosts, avatar }) => {
     setInputToEdit('');
     //Cerrar modal
     setOpen(false);
+    //Cerrar Menú EditDelete
+    closeMenu();
   };
 
   //Traer nueva data actualizada
