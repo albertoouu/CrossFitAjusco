@@ -10,11 +10,13 @@ export const AdPhoto = () => {
     marginBottom: '2%',
     cursor: 'pointer',
   };
+
   const [photo, setPhoto] = useState('');
 
   const handlePhoto = () => {
     console.log('adding photo');
   };
+
   return (
     <div style={styles}>
       <IconButton>

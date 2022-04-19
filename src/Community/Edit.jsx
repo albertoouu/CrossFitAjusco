@@ -98,8 +98,11 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     setPosts(getData);
   };
 
-  const handleClose = () => setOpen(false);
-
+  const handleClose = () => {
+    setOpen(false);
+    //Cerrar Menú EditDelete
+    closeMenu();
+  };
   const style = {
     position: 'absolute',
     top: '50%',
