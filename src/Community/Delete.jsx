@@ -45,7 +45,7 @@ export const Delete = ({ id, avatar, setPosts }) => {
     <div>
       <DeleteIcon
         onClick={() => deletePost(id)}
-        style={{ cursor: 'pointer', color: 'red' }}
+        style={{ cursor: 'pointer', color: '#FF6961' }}
       />
     </div>
   );

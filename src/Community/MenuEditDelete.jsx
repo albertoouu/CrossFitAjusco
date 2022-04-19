@@ -53,7 +53,7 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
               }}
             >
               <MenuItem>
-                <Delete
+                <EditModal
                   id={id}
                   setPosts={setPosts}
                   avatar={avatar}
@@ -63,7 +63,7 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
               </MenuItem>
 
               <MenuItem>
-                <EditModal
+                <Delete
                   id={id}
                   setPosts={setPosts}
                   avatar={avatar}

@@ -4,10 +4,10 @@ import { db } from '../firebase';
 import { CreatePost } from './Create';
 import { EditModal } from './Edit';
 import { PostCard } from './PostCard';
-import './ReadPost.css';
 import { Sites } from './Sites';
 import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../Context/authContext';
+import './ReadPost.css';
 
 export const ReadPost = () => {
   const [posts, setPosts] = useState([]);

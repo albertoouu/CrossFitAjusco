@@ -60,6 +60,7 @@ export const PostCard = ({
           margin: 'auto',
           padding: '2%',
           boxShadow: '0px 5px 7px -7px',
+          marginBottom: '5%',
         }}
       >
         <CardHeader
@@ -87,25 +88,18 @@ export const PostCard = ({
           title={author}
           subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
         />
+        <CardContent>
+          <Typography variant="body2">{publication}</Typography>
+        </CardContent>
         <CardMedia
           component="img"
           height="70%"
           image="https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg"
           alt="img post"
-          style={{ paddingRight: '1%', paddingLeft: '1%' }}
+          style={{ paddingRight: '1%', paddingLeft: '1%', marginBottom: '1%' }}
         />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {publication}
-          </Typography>
-        </CardContent>
+
         <CardActions disableSpacing>
-          {/*<IconButton aria-label="delete your post">
-            <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
-          </IconButton>
-          <IconButton aria-label="edit your post">
-            <EditModal id={id} setPosts={setPosts} avatar={avatar} />
-          </IconButton>*/}
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
