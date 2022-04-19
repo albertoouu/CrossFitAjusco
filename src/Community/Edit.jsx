@@ -24,7 +24,18 @@ import {
 import { db } from '../firebase';
 
 export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
-  //console.log(id, setPosts)
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '1px solid #000',
+    boxShadow: '0px 5px 7px -7px',
+    p: 4,
+  };
+
   const [open, setOpen] = useState(false);
   const [inputToEdit, setInputToEdit] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -72,10 +83,8 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     await getAllData();
     //Limpiar estado del input
     setInputToEdit('');
-    //Cerrar modal
-    setOpen(false);
-    //Cerrar Menú EditDelete
-    closeMenu();
+    //Cerrar modal y Menú EditDelete
+    handleClose();
   };
 
   //Traer nueva data actualizada
@@ -99,20 +108,10 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
   };
 
   const handleClose = () => {
+    //Cerrar Modal
     setOpen(false);
     //Cerrar Menú EditDelete
     closeMenu();
-  };
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '1px solid #000',
-    boxShadow: '0px 5px 7px -7px',
-    p: 4,
   };
 
   return (
