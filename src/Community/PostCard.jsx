@@ -89,7 +89,12 @@ export const PostCard = ({
           subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
         />
         <CardContent>
-          <Typography variant="body2">{publication}</Typography>
+          <Typography
+            variant="body2"
+            style={{ marginBottom: '1%', marginTop: '-1%' }}
+          >
+            {publication}
+          </Typography>
         </CardContent>
         <CardMedia
           component="img"
