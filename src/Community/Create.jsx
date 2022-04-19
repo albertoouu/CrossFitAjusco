@@ -1,21 +1,17 @@
-import './Create.css';
-//import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
-import { PhotoLibrary } from '@mui/icons-material';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import { AdPicture } from './AdPicture';
+import { AdPhoto } from './AdPhoto';
 
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Avatar from '@mui/material/Avatar';
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -77,9 +73,19 @@ const CreatePost = ({ setPosts }) => {
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
-      <img src={user.photoURL} className="avatarCreatePost" />
-      <div className="message">
-        <form onSubmit={handleSubmit} className="formCreatePost">
+      <div
+        style={{
+          display: 'flex',
+          margin: 'auto',
+          flexDirection: 'column',
+          backgroundColor: 'white',
+          borderRadius: '10px',
+          boxShadow: '0px 5px 7px -7px',
+          padding: '1%',
+          marginRight: '5%',
+        }}
+      >
+        <form onSubmit={handleSubmit}>
           <FloatingLabel
             controlId="floatingTextarea1  "
             label="¡Comparte con la comunidad!"
@@ -98,21 +104,23 @@ const CreatePost = ({ setPosts }) => {
               autoFocus
             />
           </FloatingLabel>
-
+          <media style={{ display: 'flex', flexDirection: 'raw' }}>
+            <AdPicture />
+            <AdPhoto />
+          </media>
           {input === '' ? null : (
             <div>
-              <PhotoLibrary
-                style={{ color: 'black' }}
-                fontSize="medium"
-                className="addPicture"
-              />
-              <button className="sendPostButton">
-                <Fab
-                  color="primary"
-                  aria-label="add"
-                  size="small"
-                  className="addPicture"
-                >
+              <button
+                style={{
+                  background: 'transparent',
+                  borderStyle: 'none',
+                  float: 'right',
+                  padding: '1%',
+                  marginTop: '-60px',
+                  position: 'sticky',
+                }}
+              >
+                <Fab color="primary" aria-label="add" size="small">
                   <AddIcon />
                 </Fab>
               </button>

@@ -18,7 +18,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
     const dia = fechaRegistro.getDate();
     const mes = meses[fechaRegistro.getMonth()];// eleccion del mes en el arr "meses"
     const año = fechaRegistro.getFullYear();
-    fecha2.setDate(fecha2.getDate() + 30) //se setea la fecha para agregarle los días 
+    fecha2.setMonth(fecha2.getMonth() + 1) //se setea la fecha para agregarle los días 
 
     const inscripcion = dia + " de " + mes + " del " + año //fecha del día de inscripción
     const proxPago = fecha2.getFullYear() + "-" + ('0' + (fecha2.getMonth() + 1)).slice(-2) + "-" + ('0' + fecha2.getDate()).slice(-2)
@@ -27,6 +27,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
   return (
     <>
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
+        enableReinitialize={true}
         //Declaración de las Keys iniciales con Value = ""
         initialValues={{
           birthday: "",
@@ -124,8 +125,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
         //Al dar click en el <btn>Registrar</btn> (y pasar los test) se activa.
         onSubmit={ (valores, { resetForm, values }) => { 
           const nuevoObjeto = valores
-          console.log(nuevoObjeto);
-          console.log(valores)
+          nuevoObjeto.next_payday = new Date(Date.parse(nuevoObjeto.next_payday))
           NuevoUsuario(nuevoObjeto);
           changeSendForm(true); //si el "state" es true aparece 'Registro exitoso'
           resetForm();//resetForm Limpia el formulario una vez validado
@@ -316,7 +316,6 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                 {/* button submit sólo sí se cumplen los campos requeridos*/}
                 <button className="send" type="submit" disabled={isSubmitting}> Registrar </button>
               </div>
-              <button onClick={() =>NuevoUsuario()}>Write</button>
             </Form>
           </>
         )}

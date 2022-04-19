@@ -1,6 +1,9 @@
 import React from 'react';
-import './Sites.css';
 
 export const Sites = () => {
-  return <div className="SitesContent">Sitios de interés</div>;
+  return (
+    <div style={{ position: 'relative', marginTop: '5%', fontSize: '90%' }}>
+      Sitios de interés:
+    </div>
+  );
 };
