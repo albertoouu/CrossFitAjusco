@@ -1,11 +1,13 @@
 .icon {
-  height: 12vh;
-  width: 12vh;
-  border-radius: 93px;
+  height: 10vh;
+  width: 10vh;
+  border-radius: 95px;
   box-shadow: rgb(14, 15, 7) 2px 9px 19px 6px;
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
-
+.contenido {
+  font-family: "Allerta Stencil", sans-serif;
+}
 a.nav-link {
   color: white;
 }
