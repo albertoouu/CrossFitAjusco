@@ -60,6 +60,7 @@ export const PostCard = ({
           margin: 'auto',
           padding: '2%',
           boxShadow: '0px 5px 7px -7px',
+          marginBottom: '5%',
         }}
       >
         <CardHeader

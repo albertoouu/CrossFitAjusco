@@ -10,8 +10,6 @@ import FormControl, { useFormControl } from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
@@ -87,7 +85,7 @@ const CreatePost = ({ setPosts }) => {
           marginRight: '5%',
         }}
       >
-        <form onSubmit={handleSubmit} className="formCreatePost">
+        <form onSubmit={handleSubmit}>
           <FloatingLabel
             controlId="floatingTextarea1  "
             label="¡Comparte con la comunidad!"
@@ -112,15 +110,15 @@ const CreatePost = ({ setPosts }) => {
               <PhotoLibrary
                 style={{ color: 'black' }}
                 fontSize="medium"
-                style={{ marginTop: '2.5%', marginLeft: '2%' }}
+                style={{ marginTop: '3.5%', marginLeft: '2%' }}
               />
               <button
                 style={{
                   background: 'transparent',
                   borderStyle: 'none',
                   float: 'right',
-                  marginTop: '0.5%',
                   padding: '1%',
+                  marginTop: '1.5%',
                 }}
               >
                 <Fab
