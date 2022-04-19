@@ -4,7 +4,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { EditModal } from './Edit';
-import './Delete.css';
 import { MenuEditDelete } from './MenuEditDelete';
 
 export const Delete = ({ id, avatar, setPosts }) => {
@@ -44,7 +43,10 @@ export const Delete = ({ id, avatar, setPosts }) => {
 
   return (
     <div>
-      <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
+      <DeleteIcon
+        onClick={() => deletePost(id)}
+        style={{ cursor: 'pointer', color: 'red' }}
+      />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import './Create.css';
 //import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
@@ -15,7 +14,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Avatar from '@mui/material/Avatar';
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -77,8 +75,18 @@ const CreatePost = ({ setPosts }) => {
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
-      <img src={user.photoURL} className="avatarCreatePost" />
-      <div className="message">
+      <div
+        style={{
+          display: 'flex',
+          margin: 'auto',
+          flexDirection: 'column',
+          backgroundColor: 'white',
+          borderRadius: '10px',
+          boxShadow: '0px 5px 7px -7px',
+          padding: '1%',
+          marginRight: '5%',
+        }}
+      >
         <form onSubmit={handleSubmit} className="formCreatePost">
           <FloatingLabel
             controlId="floatingTextarea1  "
@@ -104,9 +112,17 @@ const CreatePost = ({ setPosts }) => {
               <PhotoLibrary
                 style={{ color: 'black' }}
                 fontSize="medium"
-                className="addPicture"
+                style={{ marginTop: '2.5%', marginLeft: '2%' }}
               />
-              <button className="sendPostButton">
+              <button
+                style={{
+                  background: 'transparent',
+                  borderStyle: 'none',
+                  float: 'right',
+                  marginTop: '0.5%',
+                  padding: '1%',
+                }}
+              >
                 <Fab
                   color="primary"
                   aria-label="add"
