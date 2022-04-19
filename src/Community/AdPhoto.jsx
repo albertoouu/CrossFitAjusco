@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-//import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import { PhotoLibrary } from '@mui/icons-material';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 
-export const AdPicture = () => {
+export const AdPhoto = () => {
   const styles = {
     cursor: 'pointer',
     marginTop: '3%',
@@ -11,16 +10,15 @@ export const AdPicture = () => {
     marginBottom: '2%',
     cursor: 'pointer',
   };
-  const [picture, setPicture] = useState('');
+  const [photo, setPhoto] = useState('');
 
-  const handlePicture = () => {
-    console.log('adding picture');
+  const handlePhoto = () => {
+    console.log('adding photo');
   };
-
   return (
     <div style={styles}>
       <IconButton>
-        <PhotoLibrary fontSize="medium" onClick={handlePicture} />
+        <PhotoCameraIcon onClick={handlePhoto} />
       </IconButton>
     </div>
   );

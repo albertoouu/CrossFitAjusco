@@ -56,7 +56,7 @@ export const ReadPost = () => {
               style={{
                 marginTop: '5%',
                 marginRight: '5%',
-                marginBottom: '5%;',
+                marginBottom: '5%',
               }}
             >
               <PostCard

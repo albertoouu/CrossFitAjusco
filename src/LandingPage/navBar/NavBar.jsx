@@ -40,7 +40,7 @@ export const Navigation = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+      <Container className="contenido">
         <img src={Logo} alt="logo" className="icon" />
         <Nav.Link href="/">Cross Ft. Ajusco</Nav.Link>
 

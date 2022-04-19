@@ -7,6 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { AdPicture } from './AdPicture';
+import { AdPhoto } from './AdPhoto';
 
 import Button from '@mui/material/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -103,7 +104,10 @@ const CreatePost = ({ setPosts }) => {
               autoFocus
             />
           </FloatingLabel>
-
+          <media style={{ display: 'flex', flexDirection: 'raw' }}>
+            <AdPicture />
+            <AdPhoto />
+          </media>
           {input === '' ? null : (
             <div>
               <button
@@ -112,21 +116,16 @@ const CreatePost = ({ setPosts }) => {
                   borderStyle: 'none',
                   float: 'right',
                   padding: '1%',
-                  marginTop: '1.5%',
+                  marginTop: '-60px',
+                  position: 'sticky',
                 }}
               >
-                <Fab
-                  color="primary"
-                  aria-label="add"
-                  size="small"
-                  className="addPicture"
-                >
+                <Fab color="primary" aria-label="add" size="small">
                   <AddIcon />
                 </Fab>
               </button>
             </div>
           )}
-          <AdPicture />
         </form>
       </div>
     </div>
