@@ -62,9 +62,14 @@ const Footer = () => {
           <br />
           <a href="https://www.facebook.com/YETIS14Ajusco12">
             <FacebookIcon />
-            <h6>@YETIS14Ajusco12</h6>
           </a>
-          <EmailIcon /> <h6>axoscoyetizote@gmail.com</h6>
+          <h6>@YETIS14Ajusco12</h6>
+
+          <a href="mailto:axoscoyetizote@gmail.com">
+            <EmailIcon />
+          </a>
+          <h6>Mail</h6>
+
           <a href="https://api.whatsapp.com/send?phone=5569083741">
             <WhatsAppIcon />
           </a>

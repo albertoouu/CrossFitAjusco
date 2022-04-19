@@ -6,7 +6,6 @@ import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Avatar from '@mui/material/Avatar';
-import './Edit.css';
 
 import {
   collection,
@@ -110,7 +109,10 @@ export const EditModal = ({ id, setPosts, avatar }) => {
 
   return (
     <div>
-      <EditIcon onClick={handleOpen} className="editButton" />
+      <EditIcon
+        onClick={handleOpen}
+        style={{ cursor: 'pointer', color: 'blue', position: 'relative' }}
+      />
       <Modal
         open={open}
         onClose={handleClose}
@@ -130,8 +132,13 @@ export const EditModal = ({ id, setPosts, avatar }) => {
               defaultValue={inputToEdit}
               autoFocus
             />
-            <button type="submit" className="editButtonSend">
-              <CheckCircleOutlineIcon className="checkPostEdited" />
+            <button
+              type="submit"
+              style={{ background: 'transparent', borderStyle: 'none' }}
+            >
+              <CheckCircleOutlineIcon
+                style={{ color: 'green', cursor: 'pointer' }}
+              />
             </button>
           </form>
         </Box>

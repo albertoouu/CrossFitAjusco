@@ -6,10 +6,13 @@ import { EditModal } from './Edit';
 import { PostCard } from './PostCard';
 import './ReadPost.css';
 import { Sites } from './Sites';
+import Avatar from '@mui/material/Avatar';
+import { useAuth } from '../Context/authContext';
 
 export const ReadPost = () => {
   const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, 'Posts');
+  const { user } = useAuth();
 
   //Leer data y actualizar DOM
   useEffect(() => {
@@ -36,13 +39,26 @@ export const ReadPost = () => {
 
   return (
     <div className="contentCommunity">
+      <div className="avatarAside">
+        <Avatar
+          src={user.photoURL}
+          sx={{ width: 24, height: 24, marginTop: '1%' }}
+        ></Avatar>
+      </div>
       <div className="createPost">
         <CreatePost setPosts={setPosts} />
       </div>
       <main className="postArea">
         {posts.map((post) => {
           return (
-            <div className="contentPostCard" key={post.id}>
+            <div
+              key={post.id}
+              style={{
+                marginTop: '5%',
+                marginRight: '5%',
+                marginBottom: '5%;',
+              }}
+            >
               <PostCard
                 publication={post.input}
                 author={post.author}

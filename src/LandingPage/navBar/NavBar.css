@@ -1,0 +1,14 @@
+.icon {
+  height: 12vh;
+  width: 12vh;
+  border-radius: 93px;
+  box-shadow: rgb(14, 15, 7) 2px 9px 19px 6px;
+  margin-top: 2vh;
+}
+
+a.nav-link {
+  color: white;
+}
+a.nav-link:hover {
+  color: rgb(210, 153, 11);
+}
