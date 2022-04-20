@@ -100,10 +100,10 @@ const CreatePost = ({ setPosts }) => {
               autoFocus
             />
           </FloatingLabel>
-          <media style={{ display: 'flex', flexDirection: 'raw' }}>
+          <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPicture />
             <AdPhoto />
-          </media>
+          </div>
           {input === '' ? null : (
             <div>
               <button

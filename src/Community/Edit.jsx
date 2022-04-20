@@ -111,7 +111,12 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     <div>
       <EditIcon
         onClick={handleOpen}
-        style={{ cursor: 'pointer', color: '#00AAE4', position: 'relative' }}
+        style={{
+          cursor: 'pointer',
+          color: '#00AAE4',
+          position: 'relative',
+          fontSize: 'large',
+        }}
       />
       <Modal
         open={open}
