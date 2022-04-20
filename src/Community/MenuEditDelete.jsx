@@ -41,9 +41,11 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
                 marginLeft: '-15px',
                 borderRadius: '5px',
                 marginTop: '10px',
+                width: '50px',
+                padding: '2px',
               }}
             >
-              <IconButton style={{ marginLeft: '8px', marginRight: '8px' }}>
+              <IconButton>
                 <Edit
                   id={id}
                   setPosts={setPosts}
@@ -53,13 +55,16 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
                   closeMenu={handleClickAway}
                 />
               </IconButton>
-              <IconButton style={{ marginLeft: '8px', marginRight: '8px' }}>
+              <IconButton>
                 <Delete
                   id={id}
                   setPosts={setPosts}
                   avatar={avatar}
                   fontSize="small"
-                  style={{ display: 'block', margin: 'auto' }}
+                  style={{
+                    display: 'block',
+                    margin: 'auto',
+                  }}
                 />
               </IconButton>
             </MenuList>
