@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-//import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import { PhotoLibrary } from '@mui/icons-material';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 
 export const AdPicture = () => {
   const styles = {
@@ -9,7 +8,6 @@ export const AdPicture = () => {
     marginTop: '3%',
     marginLeft: '2%',
     marginBottom: '2%',
-    cursor: 'pointer',
   };
   const [picture, setPicture] = useState('');
 

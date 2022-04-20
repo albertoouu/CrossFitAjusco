@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, doc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { CreatePost } from './Create';
-import { EditModal } from './Edit';
 import { PostCard } from './PostCard';
 import { Sites } from './Sites';
 import Avatar from '@mui/material/Avatar';

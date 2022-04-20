@@ -4,12 +4,8 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
 import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
-
-import Button from '@mui/material/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 

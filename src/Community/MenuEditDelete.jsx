@@ -1,26 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import { SxProps } from '@mui/system';
-
-import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Typography from '@mui/material/Typography';
-import ContentCut from '@mui/icons-material/ContentCut';
-import ContentCopy from '@mui/icons-material/ContentCopy';
-import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import { Edit } from './Edit';
 import { Delete } from './Delete';
-import { Card } from 'react-bootstrap';
 
 export const MenuEditDelete = ({ id, setPosts, avatar }) => {
   const [open, setOpen] = React.useState(false);

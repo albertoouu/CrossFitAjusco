@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Avatar from '@mui/material/Avatar';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-
+import { db } from '../firebase';
 import {
   collection,
-  addDoc,
   getDoc,
   getDocs,
   doc,
-  onSnapshot,
-  querySnapshot,
-  deleteDoc,
   updateDoc,
 } from 'firebase/firestore';
-import { db } from '../firebase';
 
 export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
   const style = {
@@ -146,7 +139,6 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
                 }}
                 type="text"
                 name="inputToEdit"
-                id="inputToEdit"
                 defaultValue={inputToEdit}
                 autoFocus
               />
