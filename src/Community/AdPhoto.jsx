@@ -18,8 +18,8 @@ export const AdPhoto = () => {
 
   return (
     <div style={styles}>
-      <IconButton>
-        <PhotoCameraIcon onClick={handlePhoto} />
+      <IconButton onClick={handlePhoto}>
+        <PhotoCameraIcon />
       </IconButton>
     </div>
   );

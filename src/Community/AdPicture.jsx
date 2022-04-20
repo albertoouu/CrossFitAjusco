@@ -17,8 +17,8 @@ export const AdPicture = () => {
 
   return (
     <div style={styles}>
-      <IconButton>
-        <PhotoLibrary fontSize="medium" onClick={handlePicture} />
+      <IconButton onClick={handlePicture}>
+        <PhotoLibrary fontSize="medium" />
       </IconButton>
     </div>
   );
