@@ -2,38 +2,35 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import  { useState } from 'react';
-import {  updateDoc, doc, collection, getFirestore } from 'firebase/firestore';
+import {  updateDoc, doc, getFirestore } from 'firebase/firestore';
 import app from "../../firebase";
 const db = getFirestore(app);
 
 
-
-const UserModal = ({show, setShow, modalUserData, tipo}) => {
+//creamos la función para traer los datos de la fila seleccionada en un modal
+  
+const UserModal = ({show, setShow, modalUserData, tipo, data}) => {
     const handleClose = () => setShow(false);
-    const [date, setDate] = useState({});
+    const [dataUser, setData] = useState({});
+    
+    
     console.log(tipo)
-    //creamos la funcion para actualizar los datos
-    const update = async (e) =>{
+    //creamos la funcion para actualizar los datos del modal
+    const update = async (e) => {
         e.preventDefault()
+        const age = parseInt(dataUser)
+        console.log(typeof(age))
         let docRef = doc (db, `Users/${modalUserData.id}`);
         await updateDoc(docRef, {
-            edad: modalUserData.age,
-            teléfono: modalUserData.teléfono,
-            email: modalUserData.email, 
-            alergias: modalUserData.alergies,
-            injuries: modalUserData.injuries
-        })
-        setDate({});
+            age: age,
+        }); 
         handleClose();
     };
     
-    //creamos la función para traer los datos de la filaseleccionada
-  
-
     return(
         <>
         <Modal show={show} onHide={handleClose} key={modalUserData.id}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Cambiar Datos:</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -41,20 +38,19 @@ const UserModal = ({show, setShow, modalUserData, tipo}) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>{tipo}</Form.Label>
             <Form.Control
-              type="number"
-              placeholder='j'
+              placeholder={data}
               autoFocus
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(id) => setData (id.target.value)}
             />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-          Close
+          Cancelar
         </Button>
         <Button variant="primary" onClick={update}>
-          Save Changes
+          Guardar cambios
         </Button>
       </Modal.Footer>
     </Modal>

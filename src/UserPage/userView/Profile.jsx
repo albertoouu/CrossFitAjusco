@@ -23,11 +23,8 @@ const db = getFirestore(app);
   // Traemos el id del usuario desde useAuth 
     const [ users, setUsers ] = useState({});
     const [tipo, setTipo] = useState('');
-    //const [edad, setEdad] = useState([]);
-    //const [telefono, setTelefono] = useState([]);
-    //const [email, setEmail] = useState('');
-    //const [alergias, setAlegias] = useState('');
-    //const [injuries, setInjuries] = useState('');
+    const  [data, setData] = useState('');
+
     const [modalUserData, setModalUserData] = useState({});
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -55,7 +52,6 @@ const db = getFirestore(app);
           info = doc.data()
           info.id = doc.id
           console.log('paso')
-
           return true
         }
       });
@@ -77,7 +73,7 @@ const db = getFirestore(app);
   //mostramos en pantalla los datos del usuario  
   return (
     <>
-          <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users}/>
+          <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users} data={data}/>
 
     <div key={modalUserData.id} style={{ height: 500, margin: "50px", padding:"30px" }}>
     <h2>Mi Perfil</h2>
@@ -95,7 +91,8 @@ const db = getFirestore(app);
         <ListItemText primary="Edad:" secondary={users.age}/>
         <Button variant="primary" onClick={()=> {
           handleShow()
-          setTipo('age')
+          setTipo('Edad:')
+          setData(users.age)
         }} 
           onSelectEvent={handleClick}>
          <EditOutlinedIcon />
@@ -113,11 +110,12 @@ const db = getFirestore(app);
         </Typography>
       </li>
       <ListItem>
-        <ListItemText primary="Teléfono:" secondary={modalUserData.phone} />
+        <ListItemText primary="Teléfono:" secondary={users.phone} />
         <Button variant="primary" onClick={()=> {
           handleShow()
           setTipo('Teléfono')
-        }} onSelectEvent={handleClick}>
+          setData(users.phone)
+        }}onSelectEvent={handleClick} >
          <EditOutlinedIcon />
         </Button>
       </ListItem>
@@ -132,11 +130,12 @@ const db = getFirestore(app);
         </Typography>
       </li>
       <ListItem>
-        <ListItemText primary="Email:" secondary={modalUserData.email} />
+        <ListItemText primary="Email:" secondary={users.email} />
         <Button variant="primary" onClick={()=> {
           handleShow()
           setTipo('Emial')
-        }} onSelectEvent={handleClick}>
+          setData(users.email)
+        }}onSelectEvent={handleClick}>
          <EditOutlinedIcon />
         </Button>
       </ListItem>
@@ -151,11 +150,12 @@ const db = getFirestore(app);
         </Typography>
       </li>
       <ListItem>
-        <ListItemText primary="Alergias:" secondary={modalUserData.allergies} />
+        <ListItemText primary="Alergias:" secondary={users.allergies} />
         <Button variant="primary" onClick={()=> {
           handleShow()
           setTipo('Alergias')
-        }}>
+          setData(users.allergies)
+        }}onSelectEvent={handleClick}>
          <EditOutlinedIcon />
         </Button>
       </ListItem>
@@ -169,11 +169,12 @@ const db = getFirestore(app);
         >
         </Typography>
         <ListItem>
-        <ListItemText primary="Condición médica:" secondary={modalUserData.injuries} />
+        <ListItemText primary="Condición médica:" secondary={users.injuries} />
         <Button variant="primary" onClick={()=> {
           handleShow()
           setTipo('Condición Médica')
-        }}>
+          setData(users.injuries)
+        }}onSelectEvent={handleClick}>
          <EditOutlinedIcon />
         </Button>
       </ListItem>
@@ -207,7 +208,7 @@ const db = getFirestore(app);
             <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Altura"  />
+        <ListItemText primary="Altura:"  />
       </ListItem>
       <li>
         <Typography
