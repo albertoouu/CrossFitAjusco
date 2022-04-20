@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 
 const style = {
@@ -24,9 +22,14 @@ export const Zoom = ({ img }) => {
 
   return (
     <div>
-      <Button onClick={handleOpen} style={{ cursor: 'crosshair' }}>
-        <CardMedia component="img" image={img} alt="img post" />
-      </Button>
+      <CardMedia
+        component="img"
+        image={img}
+        alt="img post"
+        onClick={handleOpen}
+        style={{ cursor: 'crosshair' }}
+      />
+
       <Modal
         keepMounted
         open={open}
