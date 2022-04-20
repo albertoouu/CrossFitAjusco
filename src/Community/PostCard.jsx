@@ -38,6 +38,7 @@ export const PostCard = ({
   email,
   id,
   setPosts,
+  picture,
   avatar,
   hour,
   minute,
@@ -94,11 +95,7 @@ export const PostCard = ({
             {publication}
           </Typography>
         </CardContent>
-        <Zoom
-          img={
-            'https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg'
-          }
-        ></Zoom>
+          {picture?<Zoom img={picture}></Zoom>: null}
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
