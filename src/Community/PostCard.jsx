@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
@@ -13,10 +12,9 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import { useAuth } from '../Context/authContext';
 import { MenuEditDelete } from './MenuEditDelete';
+import { Zoom } from './Zoom';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -40,6 +38,7 @@ export const PostCard = ({
   email,
   id,
   setPosts,
+  picture,
   avatar,
   hour,
   minute,
@@ -96,14 +95,7 @@ export const PostCard = ({
             {publication}
           </Typography>
         </CardContent>
-        <CardMedia
-          component="img"
-          height="70%"
-          image="https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg"
-          alt="img post"
-          style={{ paddingRight: '1%', paddingLeft: '1%', marginBottom: '1%' }}
-        />
-
+          {picture?<Zoom img={picture}></Zoom>: null}
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />

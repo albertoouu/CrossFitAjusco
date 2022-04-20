@@ -4,14 +4,18 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import { AdPicture } from './AdPicture';
+//import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
-
-import Button from '@mui/material/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+
+
+import { PhotoLibrary } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from "../firebase"
+
+
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -24,11 +28,43 @@ const CreatePost = ({ setPosts }) => {
     console.log(input);
   };
 
+
+
+
+
+ 
+    const [picture, setPicture] = useState('');
+  
+    const handlePicture = async(e) => {
+      console.log('adding picture');
+      //detectar archivo
+      const localPicture = e.target.files[0]
+      console.log(localPicture)
+      //crear referencia de archivo
+      const archRef = ref(storage, `picturesCommunity/${localPicture.name}`)
+      //cargar archivo a firebase storage
+      await uploadBytes(archRef, localPicture)
+      // obtener url de descarga
+      const urlPicture = await getDownloadURL(archRef)
+      console.log(urlPicture)
+      await setPicture(urlPicture)
+      console.log(picture)
+    };
+  
+  
+  
+
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL);
+    console.log(input, user.email, user.displayName, date, user.photoURL, picture);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -37,17 +73,25 @@ const CreatePost = ({ setPosts }) => {
         date: date,
         author: user.displayName,
         avatar: user.photoURL,
+        picture: picture,
       });
       console.log('Document written with ID: ', docRef.id);
       //Limpiar form
       setInput('');
       e.target.entry.value = '';
+      //Limpiar input file picture
+      setPicture("")
+      e.target.picture.value=""
       //Actualizar estado
       getAllData();
     } catch (e) {
       console.error('Error adding document: ', e);
+      //Limpiar Form
       e.target.entry.value = '';
       setInput('');
+      //Limpiar input file picture
+      setPicture("")
+      e.target.picture.value=""
     }
   };
 
@@ -103,11 +147,19 @@ const CreatePost = ({ setPosts }) => {
               onChange={handleChange}
               autoFocus
             />
+            <Form.Control
+              type='file'
+              name="picture"
+              placeholder='ad picture'
+              onChange={handlePicture}
+            />
+
+
+
           </FloatingLabel>
-          <media style={{ display: 'flex', flexDirection: 'raw' }}>
-            <AdPicture />
+          <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPhoto />
-          </media>
+          </div>
           {input === '' ? null : (
             <div>
               <button

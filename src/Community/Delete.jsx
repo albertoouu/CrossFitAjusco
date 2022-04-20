@@ -1,10 +1,7 @@
 import React from 'react';
-import { useAuth } from '../Context/authContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { EditModal } from './Edit';
-import { MenuEditDelete } from './MenuEditDelete';
 
 export const Delete = ({ id, avatar, setPosts }) => {
   const postsCollectionRef = collection(db, 'Posts');
@@ -45,7 +42,7 @@ export const Delete = ({ id, avatar, setPosts }) => {
     <div>
       <DeleteIcon
         onClick={() => deletePost(id)}
-        style={{ cursor: 'pointer', color: '#FF6961' }}
+        style={{ cursor: 'pointer', color: '#FF6961', fontSize: 'large' }}
       />
     </div>
   );

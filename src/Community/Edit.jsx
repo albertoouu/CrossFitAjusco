@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Avatar from '@mui/material/Avatar';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-
+import { db } from '../firebase';
 import {
   collection,
-  addDoc,
   getDoc,
   getDocs,
   doc,
-  onSnapshot,
-  querySnapshot,
-  deleteDoc,
   updateDoc,
 } from 'firebase/firestore';
-import { db } from '../firebase';
 
-export const EditModal = ({ id, setPosts, avatar }) => {
-  //console.log(id, setPosts)
+export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '1px solid #000',
+    boxShadow: '0px 5px 7px -7px',
+    p: 4,
+  };
+
   const [open, setOpen] = useState(false);
   const [inputToEdit, setInputToEdit] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -72,8 +76,8 @@ export const EditModal = ({ id, setPosts, avatar }) => {
     await getAllData();
     //Limpiar estado del input
     setInputToEdit('');
-    //Cerrar modal
-    setOpen(false);
+    //Cerrar modal y Menú EditDelete
+    handleClose();
   };
 
   //Traer nueva data actualizada
@@ -96,25 +100,23 @@ export const EditModal = ({ id, setPosts, avatar }) => {
     setPosts(getData);
   };
 
-  const handleClose = () => setOpen(false);
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '1px solid #000',
-    boxShadow: '0px 5px 7px -7px',
-    p: 4,
+  const handleClose = () => {
+    //Cerrar Modal
+    setOpen(false);
+    //Cerrar Menú EditDelete
+    closeMenu();
   };
 
   return (
     <div>
       <EditIcon
         onClick={handleOpen}
-        style={{ cursor: 'pointer', color: '#00AAE4', position: 'relative' }}
+        style={{
+          cursor: 'pointer',
+          color: '#00AAE4',
+          position: 'relative',
+          fontSize: 'large',
+        }}
       />
       <Modal
         open={open}
@@ -142,7 +144,6 @@ export const EditModal = ({ id, setPosts, avatar }) => {
                 }}
                 type="text"
                 name="inputToEdit"
-                id="inputToEdit"
                 defaultValue={inputToEdit}
                 autoFocus
               />

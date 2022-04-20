@@ -9,7 +9,6 @@ import {
   getDocs,
   collection,
 } from "firebase/firestore";
-
 const db = getFirestore(app);
 
 const ModalCal = ({ show, setShow, modalUserInfo }) => {
