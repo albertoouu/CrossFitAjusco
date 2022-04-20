@@ -24,9 +24,14 @@ export const Zoom = ({ img }) => {
 
   return (
     <div>
-      <Button onClick={handleOpen} style={{ cursor: 'crosshair' }}>
-        <CardMedia component="img" image={img} alt="img post" />
-      </Button>
+      <CardMedia
+        component="img"
+        image={img}
+        alt="img post"
+        onClick={handleOpen}
+        style={{ cursor: 'crosshair' }}
+      />
+
       <Modal
         keepMounted
         open={open}

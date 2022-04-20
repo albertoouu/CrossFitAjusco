@@ -94,7 +94,6 @@ export const PostCard = ({
             {publication}
           </Typography>
         </CardContent>
-
         <Zoom
           img={
             'https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg'
