@@ -37,6 +37,9 @@
   text-decoration: none;
   color: azure;
 }
+.socialmedia a:hover {
+  color: rgb(210, 153, 11);
+}
 
 .copyright {
   background-color: #ecc510fc;

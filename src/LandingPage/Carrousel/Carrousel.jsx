@@ -18,7 +18,7 @@ const Carrousel = () => {
     <Carousel className="middle" fade>
       <Carousel.Item>
         <img className="picture" src={img1} alt="First slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Carrera Power Ade</h3>
           <p>
             Preparamos a nuestros estudiantes para competir en carreras y
@@ -30,7 +30,7 @@ const Carrousel = () => {
       <Carousel.Item>
         <img className="picture" src={img2} alt="Second slide" />
 
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Entrenamiento en el centro recreativo "El Arenal"</h3>
           <p>
             Algunos de nuestros entrenamientos los realizamos en diversos
@@ -41,7 +41,7 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img3} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Yo seré tu entrenador</h3>
           <p>
             Mi nombre es Eduardo Romero Flores y será un honor ayudarte a lograr
@@ -52,7 +52,7 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img4} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Entrenamiento en el bosque</h3>
           <p>También nos divertimos mucho entrenando al aire libre</p>
         </Carousel.Caption>
@@ -60,7 +60,7 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img5} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>En equipo todo es mejor</h3>
           <p>!Súmate a la mejor comunidad de Crossfit en CDMX!</p>
         </Carousel.Caption>
@@ -68,10 +68,11 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img6} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>
             Cuento con una amplía trayectoria en la enseñanza y capacitacion
-            deportiva
+            deportiva y certificaciones avaladas por CONAE (Colegio Nacional de
+            Entrenadores)
           </h3>
           <p>
             He participado en diversos eventos de Crossfit como el Spartan Race
@@ -81,7 +82,7 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img7} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Carrera</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
@@ -91,7 +92,7 @@ const Carrousel = () => {
 
       <Carousel.Item>
         <img className="picture" src={img8} alt="Third slide" />
-        <Carousel.Caption>
+        <Carousel.Caption className="carousel-caption carousel-label">
           <h3>Visítanos!</h3>
           <p>
             Agenda una cita vía{" "}

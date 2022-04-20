@@ -1,11 +1,7 @@
 import React from 'react';
-import { useAuth } from '../Context/authContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { EditModal } from './Edit';
-import './Delete.css';
-import { MenuEditDelete } from './MenuEditDelete';
 
 export const Delete = ({ id, avatar, setPosts }) => {
   const postsCollectionRef = collection(db, 'Posts');
@@ -26,13 +22,28 @@ export const Delete = ({ id, avatar, setPosts }) => {
   //Traer nueva data actualizada
   const getAllData = async () => {
     const data = await getDocs(postsCollectionRef);
-    //Actualizar estado
-    setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //Recuperar nueva data
+    const getData = data.docs
+      .map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+        fecha: doc.data().date.toDate().toDateString(),
+        hora: doc.data().date.toDate().getHours(),
+        minutes: doc.data().date.toDate().getMinutes(),
+      }))
+      .slice()
+      .sort((a, b) => b.date - a.date);
+    console.log(getData);
+    //Actualizar Estado
+    setPosts(getData);
   };
 
   return (
     <div>
-      <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
+      <DeleteIcon
+        onClick={() => deletePost(id)}
+        style={{ cursor: 'pointer', color: '#FF6961', fontSize: 'large' }}
+      />
     </div>
   );
 };

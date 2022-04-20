@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EditIcon from '@mui/icons-material/Edit';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Avatar from '@mui/material/Avatar';
-import './Edit.css';
-
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import { db } from '../firebase';
 import {
   collection,
-  addDoc,
   getDoc,
   getDocs,
   doc,
-  onSnapshot,
-  querySnapshot,
-  deleteDoc,
   updateDoc,
 } from 'firebase/firestore';
-import { db } from '../firebase';
 
-export const EditModal = ({ id, setPosts, avatar }) => {
-  //console.log(id, setPosts)
+export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '1px solid #000',
+    boxShadow: '0px 5px 7px -7px',
+    p: 4,
+  };
+
   const [open, setOpen] = useState(false);
   const [inputToEdit, setInputToEdit] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -70,35 +76,48 @@ export const EditModal = ({ id, setPosts, avatar }) => {
     await getAllData();
     //Limpiar estado del input
     setInputToEdit('');
-    //Cerrar modal
-    setOpen(false);
+    //Cerrar modal y Menú EditDelete
+    handleClose();
   };
 
   //Traer nueva data actualizada
   const getAllData = async () => {
     console.log('getting data');
     const data = await getDocs(postsCollectionRef);
-    //Actualizar estado
-    setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //Recuperar nueva data
+    const getData = data.docs
+      .map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+        fecha: doc.data().date.toDate().toDateString(),
+        hora: doc.data().date.toDate().getHours(),
+        minutes: doc.data().date.toDate().getMinutes(),
+      }))
+      .slice()
+      .sort((a, b) => b.date - a.date);
+    console.log(getData);
+    //Actualizar Estado
+    setPosts(getData);
   };
 
-  const handleClose = () => setOpen(false);
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+  const handleClose = () => {
+    //Cerrar Modal
+    setOpen(false);
+    //Cerrar Menú EditDelete
+    closeMenu();
   };
 
   return (
     <div>
-      <EditIcon onClick={handleOpen} className="editButton" />
+      <EditIcon
+        onClick={handleOpen}
+        style={{
+          cursor: 'pointer',
+          color: '#00AAE4',
+          position: 'relative',
+          fontSize: 'large',
+        }}
+      />
       <Modal
         open={open}
         onClose={handleClose}
@@ -106,22 +125,56 @@ export const EditModal = ({ id, setPosts, avatar }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            <Avatar aria-label="recipe" src={avatar}></Avatar>CrossFt Ajusco
-          </Typography>
-
+          <Avatar
+            aria-label="recipe"
+            src={avatar}
+            sx={{ marginBottom: '5%' }}
+          ></Avatar>
           <form onSubmit={handleSendEdit}>
-            <input
-              type="text"
-              name="inputToEdit"
-              id="inputToEdit"
-              defaultValue={inputToEdit}
-              autoFocus
-            />
-            <button type="submit" className="editButtonSend">
-              <CheckCircleOutlineIcon className="checkPostEdited" />
+            <FloatingLabel
+              controlId="floatingTextarea1  "
+              label="¡Edita tu post!"
+              style={{ color: 'gray' }}
+            >
+              <Form.Control
+                as="textarea"
+                style={{
+                  height: '100px',
+                  borderColor: '#5DADE2',
+                }}
+                type="text"
+                name="inputToEdit"
+                defaultValue={inputToEdit}
+                autoFocus
+              />
+            </FloatingLabel>
+
+            <button
+              type="submit"
+              style={{
+                background: 'transparent',
+                borderStyle: 'none',
+                float: 'right',
+                marginTop: '8%',
+              }}
+            >
+              <CheckCircleIcon
+                sx={{
+                  color: '#2271B3',
+                  cursor: 'pointer',
+                  fontSize: '40',
+                }}
+              />
             </button>
           </form>
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            sx={{ fontSize: '100%', marginTop: '15%', color: 'lightgray' }}
+          >
+            <small>&copy; CrossFt Ajusco</small>
+          </Typography>
         </Box>
       </Modal>
     </div>

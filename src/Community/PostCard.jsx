@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
@@ -13,11 +12,9 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import { useAuth } from '../Context/authContext';
-import './PostCard.css';
 import { MenuEditDelete } from './MenuEditDelete';
+import { Zoom } from './Zoom';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -41,7 +38,10 @@ export const PostCard = ({
   email,
   id,
   setPosts,
+  picture,
   avatar,
+  hour,
+  minute,
 }) => {
   const [expanded, setExpanded] = React.useState(false);
   const { user } = useAuth();
@@ -51,80 +51,74 @@ export const PostCard = ({
   };
 
   return (
-    <Card
-      sx={{
-        width: '100%',
-        display: 'block',
-        margin: 'auto',
-        height: '90%',
-        padding: '2%',
-      }}
-    >
-      <CardHeader
-        avatar={
-          <Avatar
-            sx={{ bgcolor: red[500] }}
-            aria-label="recipe"
-            src={avatar}
-          ></Avatar>
-        }
-        action={
-          user.email === email ? (
-            <div>
-              <IconButton aria-label="settings">
-                <MenuEditDelete
-                  style={{ position: 'relative' }}
-                  id={id}
-                  setPosts={setPosts}
-                  avatar={avatar}
-                />
-              </IconButton>
-            </div>
-          ) : null
-        }
-        title={author}
-        subheader={date}
-      />
-      <CardMedia
-        component="img"
-        height="70%"
-        image="https://thetribeconcept.com/blog/wp-content/uploads/2019/08/Entrena_crossfit-1024x477.jpg"
-        alt="img post"
-        className="cardPost"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {publication}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        {/*<IconButton aria-label="delete your post">
-            <DeleteIcon onClick={() => deletePost(id)} className="DeletePost" />
-          </IconButton>
-          <IconButton aria-label="edit your post">
-            <EditModal id={id} setPosts={setPosts} avatar={avatar} />
-          </IconButton>*/}
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+    <div>
+      <Card
+        sx={{
+          width: '100%',
+          display: 'block',
+          margin: 'auto',
+          padding: '2%',
+          boxShadow: '0px 5px 7px -7px',
+          marginBottom: '5%',
+        }}
+      >
+        <CardHeader
+          avatar={
+            <Avatar
+              sx={{ bgcolor: red[500] }}
+              aria-label="recipe"
+              src={avatar}
+            ></Avatar>
+          }
+          action={
+            user.email === email ? (
+              <div>
+                <IconButton aria-label="settings">
+                  <MenuEditDelete
+                    style={{ position: 'relative' }}
+                    id={id}
+                    setPosts={setPosts}
+                    avatar={avatar}
+                  />
+                </IconButton>
+              </div>
+            ) : null
+          }
+          title={author}
+          subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
+        />
         <CardContent>
-          <Typography paragraph>Comentarios:</Typography>
+          <Typography
+            variant="body2"
+            style={{ marginBottom: '1%', marginTop: '-1%' }}
+          >
+            {publication}
+          </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+          {picture?<Zoom img={picture}></Zoom>: null}
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Comentarios:</Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </div>
   );
 };
