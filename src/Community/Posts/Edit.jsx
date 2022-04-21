@@ -7,7 +7,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Avatar from '@mui/material/Avatar';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import {
   collection,
   getDoc,
