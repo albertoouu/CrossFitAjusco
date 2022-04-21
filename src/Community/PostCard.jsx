@@ -17,6 +17,8 @@ import { MenuEditDelete } from './MenuEditDelete';
 import { Zoom } from './Zoom';
 import { ViewerPDF } from './ViewerPDF';
 import { Comments } from "./Comments/Comments"
+import { Youtube } from "./Youtube" 
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -72,6 +74,25 @@ export const PostCard = ({
   console.log(pdfPost)
   console.log(imgPost)
 
+  //Diferenciador input
+  let regexVideo = /http/
+  let media;
+  let publicText;
+  const diferInput = () => {
+      console.log(publication)
+      let resultMedia = regexVideo.test(publication);
+      console.log(resultMedia)
+      if(resultMedia === true){ 
+        media = publication
+      } else { 
+        publicText = publication
+      } 
+  }
+  diferInput()
+  console.log(media)
+  console.log(publicText)
+
+
   return (
     <div>
       <Card
@@ -110,12 +131,13 @@ export const PostCard = ({
           subheader={date + ' at ' + hour + ':' + minute + ' hrs.'}
         />
         <CardContent>
-          <Typography
+        { publication === media ? <Youtube media={ media } /> : null }
+        { publication === publicText ? <Typography
             variant="body2"
             style={{ marginBottom: '1%', marginTop: '-1%' }}
           >
             {publication}
-          </Typography>
+          </Typography> : null }
         </CardContent>
           {file === imgPost ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
           {file === pdfPost ? <ViewerPDF pdfPost={pdfPost}/> : null}
