@@ -108,6 +108,7 @@ export const CreatePost = ({ setPosts }) => {
               type="text"
               placeholder="¡Comparte con la comunidad!"
               onChange={handleChange}
+              value={input}
               autoFocus
             />
             </FloatingLabel>
