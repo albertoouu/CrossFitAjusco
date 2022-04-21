@@ -75,7 +75,7 @@ export const PostCard = ({
   console.log(imgPost)
 
   //Diferenciador input
-  let regexVideo = /http/
+  let regexVideo = /^http/
   let media;
   let publicText;
   const diferInput = () => {
