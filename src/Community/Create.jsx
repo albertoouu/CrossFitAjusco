@@ -9,11 +9,14 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from "../firebase"
+//import { AddVideoYouTube } from "./AddVideoYouTube"
 
 export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
+  //const [youtubeInput, setYoutubeInput] = useState(false);
+
 
   const handleChange = (e) => {
     console.log(e.target.name);
@@ -93,6 +96,11 @@ export const CreatePost = ({ setPosts }) => {
     setPosts(getData);
   };
 
+  /*const handleYouTube = () => { 
+      console.log("JJJ")
+   }*/
+
+
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
@@ -132,7 +140,7 @@ export const CreatePost = ({ setPosts }) => {
               name="file"
               placeholder='ad file'
               onChange={handleFile}
-              style={{ color: "gray", marginTop: "0.1%" }}
+              style={{ color: "gray", marginTop: "0.1%", paddingBottom: "4.5%" }}
             />
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPhoto />
@@ -156,6 +164,7 @@ export const CreatePost = ({ setPosts }) => {
             </div>
           )}
         </Form>
+        {/*<button style={{backgroundColor: "red", borderStyle: "none",  margin: "auto", marginTop:"-8%"}} onClick={()=>handleYouTube(setYoutubeInput(true))}><AddVideoYouTube/></button>*/}
       </div>
     </div>
   );
