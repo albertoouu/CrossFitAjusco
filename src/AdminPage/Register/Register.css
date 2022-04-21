@@ -7,34 +7,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Allerta+Stencil&family=Anton&family=Saira+Condensed:wght@600&display=swap');
 
 .formulario {
-  background-color: #494747fc;
-  grid-area: form;
   align-items: center;
   justify-content: center;
-  margin: auto 10vh;
+  margin: auto;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0.5px 10px -5px rgba(0, 0, 0, 0.315);
+  padding: 5em auto;
+  text-align: center;
+  margin-top: -13vh;
 }
 
 .title {
   font-family: "Anton", sans-serif;
   color: #ecc510fc;
+  text-shadow: 2px 3px 3px black;
+  background-color: rgba(0, 0, 0, 0.681);
   font-style: italic;
-  font-size: 2rem;
-  max-width: 600px;
-  margin: 1rem auto;
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  font-size: 1.5rem;
   font-weight: 1px;
-  grid-area: title;
+  padding: 2vh;
 }
 
 .error {
   color: rgb(248, 46, 46);
   font-family: "Abel", sans-serif;
   font-size: 1rem;
-  margin-left: 15vh;
 }
 
 .subtitles {
@@ -42,42 +40,45 @@
   font-size: 1rem;
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 200;
-  padding-left: 5rem;
 }
 
 .fields {
-  border-radius: 2px;
-  background-color: rgb(243, 239, 236);
+  background-color: rgba(208, 205, 205, 0.318);
   justify-content: center;
   align-items: center;
   padding-top: 10px;
   margin: auto;
+  position: relative;
 }
 
 .input{
-  max-width: 40%;
-  min-width: 33%;
-  display: flex;
-  margin-left: 20vh;
+  width: 90%;
+  background: transparent;
+  font-size: 1rem;
+  padding: .6em .3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
 }
 
+
 .inputNum{
-  max-width: 10%;
-  min-width: 10%;
-  margin-left: 0.7vh;
-  margin-right: 0.3vh;
+  width: 20%;
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-bottom: 1.5vh;
 }
 
 .explain{
-  max-width: 40%;
-  min-width: 33%;
-  margin-left: 20vh;
+  width: 85%;
+  height: 10vh;
 }
 
 .check{
-  max-width: 10%;
-  min-width: 5%;
-  margin-left: 19vh;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  margin: auto 3rem;
 }
 
 .medida {
@@ -87,13 +88,9 @@
 }
 
 #frequency{
-  max-width: 40%;
-  min-width: 33%;
-  margin-left: 10vh;
-  height: 5vh;
+  width: 90%;
 }
 .send {
-  grid-area: btn;
   padding: 1%;
   border-radius: 7px;
   font-family: 'Allerta Stencil', sans-serif;
@@ -102,9 +99,8 @@
   background-color: rgb(108, 108, 40);
   border: solid 1px rgb(207, 207, 8);
   color:rgb(243, 239, 236);
-  margin: 3vh 28vh;
   box-shadow: rgb(221, 227, 32) 1px 2px 1px 1px;
-
+  margin-top: 3vh;
 }
 
 .send:hover{
