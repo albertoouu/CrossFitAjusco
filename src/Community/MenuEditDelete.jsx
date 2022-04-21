@@ -38,11 +38,12 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
                 backgroundColor: '#FFF',
                 border: '0.5px solid #D3D3D3',
                 boxShadow: '0px 5px 7px -7px',
-                marginLeft: '-15px',
+                marginLeft: '-45px',
                 borderRadius: '5px',
-                marginTop: '10px',
+                marginTop: '0px',
                 width: '50px',
-                padding: '2px',
+                paddingRight: '2px',
+                paddingLeft: "2px",
               }}
             >
               <IconButton>
@@ -51,7 +52,7 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
                   setPosts={setPosts}
                   avatar={avatar}
                   fontSize="small"
-                  style={{ display: 'block', margin: 'auto' }}
+                  style={{ display: 'absolute', margin:"auto" }}
                   closeMenu={handleClickAway}
                 />
               </IconButton>
@@ -61,10 +62,7 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
                   setPosts={setPosts}
                   avatar={avatar}
                   fontSize="small"
-                  style={{
-                    display: 'block',
-                    margin: 'auto',
-                  }}
+                  style={{ display: 'absolute', margin: 'auto' }}
                 />
               </IconButton>
             </MenuList>

@@ -11,19 +11,22 @@ import './Register.css'
 export const Register = (valores) => { // Props = valores : {objeto conformado por los initialValues y su valor}
   //[const, function]
   const [sendForm, changeSendForm] = useState(false); //useState inicia en false
-    //const para definir la fecha de registro
-    const fechaRegistro = new Date();
-    let fecha2 = new Date(); //let que ayuda a calcular la próxima fecha de pago
-    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
-    const dia = fechaRegistro.getDate();
-    const mes = meses[fechaRegistro.getMonth()];// eleccion del mes en el arr "meses"
-    const año = fechaRegistro.getFullYear();
-    fecha2.setMonth(fecha2.getMonth() + 1) //se setea la fecha para agregarle los días 
+  //const para definir la fecha de registro
+  const fechaRegistro = new Date();
+  let fecha2 = new Date(); //let que ayuda a calcular la próxima fecha de pago
+  const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
+  const dia = ('0' + fechaRegistro.getDate()).slice(-2);
+  const mes = meses[fechaRegistro.getMonth()];// eleccion del mes en el arr "meses"
+  const año = fechaRegistro.getFullYear();
 
-    const inscripcion = dia + " de " + mes + " del " + año //fecha del día de inscripción
-    const proxPago = fecha2.getFullYear() + "-" + ('0' + (fecha2.getMonth() + 1)).slice(-2) + "-" + ('0' + fecha2.getDate()).slice(-2)
-    // console.log(proxPago) //fecha con formato yyyy-MM-dd
-    
+  fecha2.setMonth(fecha2.getMonth() + 1); //se setea la fecha para agregarle los días 
+  const dia2 = ('0' + fecha2.getDate()).slice(-2);
+  const mes2 = (meses[fecha2.getMonth()]);
+  
+  const inscripcion = dia + " de " + mes + " del " + año; //fecha del día de inscripción
+  const proxPago = dia2 + " de " + mes2 + " del " + fecha2.getFullYear() //fecha del próximo pago a partir del registro
+  // console.log(proxPago) //fecha con formato yyyy-MM-dd
+  
   return (
     <>
       <Formik //Contenedor Formik, para el formulario (y funciones propias de Formik)
@@ -144,8 +147,9 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
               <h2 className="title">Registro de nuevos usuarios:</h2>
                   <div className="fields">
                     <label htmlFor="payment_days" className="subtitles">Fecha de registro:</label>
-                    {/* <Field type="date" name="payment_days" id="payment_days" className="input" value={  }/> */}
-                    <p className="subtitles">{ inscripcion }</p>
+                    <p className="subtitles">{inscripcion}</p>
+                    <label htmlFor="next_payday" className="subtitles">Siguiente fecha de pago:</label>
+                    <p className="subtitles">{ proxPago }</p>
                   </div>
                   <div className="fields">
                     <label htmlFor="email" className="subtitles">Email: </label>
@@ -156,11 +160,7 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                     />
                     {/* cada Field es el input de Formik */}
                     <Field type="mail" name="email" id="email" placeholder="ejemplo_123@mail.com" className="input"/>
-                  </div>
-                  <div className="fields">
-                    <label htmlFor="next_payday" className="subtitles">Siguiente fecha de pago:</label>
-                <Field type="date" name="next_payday" id="next_payday" className="input" value={proxPago}/>
-                  </div>
+                  </div>  
                   <div className="fields">
                     <label htmlFor="name" className="subtitles">Nombre:</label>
                     <ErrorMessage name="name"

@@ -4,10 +4,12 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import { AdPicture } from './AdPicture';
+//import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from "../firebase"
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -20,11 +22,29 @@ const CreatePost = ({ setPosts }) => {
     console.log(input);
   };
 
+    const [file, setFile] = useState('');
+  
+    const handleFile = async(e) => {
+      console.log('adding file');
+      //detectar archivo
+      const localFile = e.target.files[0]
+      console.log(localFile)
+      //crear referencia de archivo
+      const archRef = ref(storage, `filesCommunity/${localFile.name}`)
+      //cargar archivo a firebase storage
+      await uploadBytes(archRef, localFile)
+      // obtener url de descarga
+      const urlFile = await getDownloadURL(archRef)
+      console.log(urlFile)
+      await setFile(urlFile)
+      console.log(file)
+    };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL);
+    console.log(input, user.email, user.displayName, date, user.photoURL, file);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -33,17 +53,25 @@ const CreatePost = ({ setPosts }) => {
         date: date,
         author: user.displayName,
         avatar: user.photoURL,
+        file: file,
       });
       console.log('Document written with ID: ', docRef.id);
       //Limpiar form
       setInput('');
       e.target.entry.value = '';
+      //Limpiar input file 
+      setFile("")
+      e.target.file.value=""
       //Actualizar estado
       getAllData();
     } catch (e) {
       console.error('Error adding document: ', e);
+      //Limpiar Form
       e.target.entry.value = '';
       setInput('');
+      //Limpiar input file
+      setFile("")
+      e.target.file.value=""
     }
   };
 
@@ -99,9 +127,17 @@ const CreatePost = ({ setPosts }) => {
               onChange={handleChange}
               autoFocus
             />
+            <Form.Control
+              type='file'
+              name="file"
+              placeholder='ad file'
+              onChange={handleFile}
+            />
+
+
+
           </FloatingLabel>
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
-            <AdPicture />
             <AdPhoto />
           </div>
           {input === '' ? null : (

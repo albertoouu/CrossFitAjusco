@@ -15,17 +15,18 @@ const style = {
   p: 2,
 };
 
-export const Zoom = ({ img }) => {
+export const Zoom = ({ imgPost }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+console.log(imgPost)
 
   return (
     <div>
       <CardMedia
         component="img"
-        image={img}
-        alt="img post"
+        image={imgPost}
         onClick={handleOpen}
         style={{ cursor: 'crosshair' }}
       />
@@ -40,8 +41,7 @@ export const Zoom = ({ img }) => {
         <Box sx={style}>
           <CardMedia
             component="img"
-            image={img}
-            alt="img post"
+            image={imgPost}
             onClick={handleClose}
             style={{ cursor: 'crosshair' }}
           />

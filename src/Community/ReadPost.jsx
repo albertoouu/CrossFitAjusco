@@ -67,6 +67,7 @@ export const ReadPost = () => {
                 minute={post.minutes}
                 email={post.email}
                 avatar={post.avatar}
+                file={post.file}
                 setPosts={setPosts}
               />
             </div>
