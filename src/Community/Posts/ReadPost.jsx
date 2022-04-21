@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { CreatePost } from './Create';
 import { PostCard } from './PostCard';
-import { Sites } from './Sites';
+import { Sites } from '../SitiosInteres/Sites';
 import Avatar from '@mui/material/Avatar';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import './ReadPost.css';
 
 export const ReadPost = () => {

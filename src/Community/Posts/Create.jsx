@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { AdPhoto } from './AdPhoto';

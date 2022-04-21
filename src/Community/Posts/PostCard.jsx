@@ -12,11 +12,11 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import { MenuEditDelete } from './MenuEditDelete';
 import { Zoom } from './Zoom';
 import { ViewerPDF } from './ViewerPDF';
-import { Comments } from "./Comments/Comments"
+import { Comments } from "../Comments/Comments"
 import { CatchLink } from "./CatchLink" 
 
 

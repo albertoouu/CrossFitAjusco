@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import Form from 'react-bootstrap/Form';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from "../firebase"
+import { storage } from "../../firebase"
 import { Typography } from '@mui/material';
 
 const style = {
