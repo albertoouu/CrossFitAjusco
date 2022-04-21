@@ -7,16 +7,18 @@ import AddIcon from '@mui/icons-material/Add';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from "../firebase"
-//import { AddVideoYouTube } from "./AddVideoYouTube"
+import { AdPicture } from "./AdPicture"
+import { AdWebSite } from "./AdWebSite" 
 
 export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
-  const postsCollectionRef = collection(db, 'Posts');
-  //const [youtubeInput, setYoutubeInput] = useState(false);
+  const [file, setFile] = useState('');
+  const [url, setUrl] = useState('');
 
+  const postsCollectionRef = collection(db, 'Posts');
+
+  console.log(url, file)
 
   const handleChange = (e) => {
     console.log(e.target.name);
@@ -24,29 +26,11 @@ export const CreatePost = ({ setPosts }) => {
     console.log(input);
   };
 
-    const [file, setFile] = useState('');
-  
-    const handleFile = async(e) => {
-      console.log('adding file');
-      //detectar archivo
-      const localFile = e.target.files[0]
-      console.log(localFile)
-      //crear referencia de archivo
-      const archRef = ref(storage, `filesCommunity/${localFile.name}`)
-      //cargar archivo a firebase storage
-      await uploadBytes(archRef, localFile)
-      // obtener url de descarga
-      const urlFile = await getDownloadURL(archRef)
-      console.log(urlFile)
-      await setFile(urlFile)
-      console.log(file)
-    };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL, file);
+    console.log(input, user.email, user.displayName, date, user.photoURL, file, url);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -56,24 +40,21 @@ export const CreatePost = ({ setPosts }) => {
         author: user.displayName,
         avatar: user.photoURL,
         file: file,
+        url: url,
       });
       console.log('Document written with ID: ', docRef.id);
       //Limpiar form
-      setInput('');
-      e.target.entry.value = '';
-      //Limpiar input file 
+      setInput(e.target.name=""); 
       setFile("")
-      e.target.file.value=""
+      setUrl("")
       //Actualizar estado
       getAllData();
     } catch (e) {
       console.error('Error adding document: ', e);
       //Limpiar Form
-      e.target.entry.value = '';
-      setInput('');
-      //Limpiar input file
+      setInput(e.target.name="");
       setFile("")
-      e.target.file.value=""
+      setUrl("")
     }
   };
 
@@ -96,11 +77,6 @@ export const CreatePost = ({ setPosts }) => {
     setPosts(getData);
   };
 
-  /*const handleYouTube = () => { 
-      console.log("JJJ")
-   }*/
-
-
   // Agregamos un input desde donde el usuario puede escribir sus mensajes
   return (
     <div>
@@ -110,7 +86,7 @@ export const CreatePost = ({ setPosts }) => {
           margin: 'auto',
           flexDirection: 'column',
           backgroundColor: 'white',
-          borderRadius: '10px',
+          borderRadius: '7px',
           boxShadow: '0px 5px 7px -7px',
           padding: '1%',
           marginRight: '5%',
@@ -135,15 +111,10 @@ export const CreatePost = ({ setPosts }) => {
               autoFocus
             />
             </FloatingLabel>
-            <Form.Control
-              type='file'
-              name="file"
-              placeholder='ad file'
-              onChange={handleFile}
-              style={{ color: "gray", marginTop: "0.1%", paddingBottom: "4.5%" }}
-            />
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
+            <AdPicture setFile={ setFile }/>
             <AdPhoto />
+            <AdWebSite setUrl={ setUrl }/>
           </div>
           {input  === '' & file === '' ? null : (
             <div>
@@ -152,7 +123,7 @@ export const CreatePost = ({ setPosts }) => {
                   background: 'transparent',
                   borderStyle: 'none',
                   float: 'right',
-                  padding: '1%',
+                  padding: '10px',
                   marginTop: '-60px',
                   position: 'sticky',
                 }}
@@ -164,7 +135,6 @@ export const CreatePost = ({ setPosts }) => {
             </div>
           )}
         </Form>
-        {/*<button style={{backgroundColor: "red", borderStyle: "none",  margin: "auto", marginTop:"-8%"}} onClick={()=>handleYouTube(setYoutubeInput(true))}><AddVideoYouTube/></button>*/}
       </div>
     </div>
   );

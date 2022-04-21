@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Youtube = ({ media }) => {
+export const CatchLink = ({ media }) => {
     console.log(media)
   return (
     <a target="_blanck" href={ media }>{ media }</a>

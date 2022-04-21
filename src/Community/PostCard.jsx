@@ -17,7 +17,7 @@ import { MenuEditDelete } from './MenuEditDelete';
 import { Zoom } from './Zoom';
 import { ViewerPDF } from './ViewerPDF';
 import { Comments } from "./Comments/Comments"
-import { Youtube } from "./Youtube" 
+import { CatchLink } from "./CatchLink" 
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -46,6 +46,7 @@ export const PostCard = ({
   avatar,
   hour,
   minute,
+  link
 }) => {
   const [expanded, setExpanded] = useState(false);
   const { user } = useAuth();
@@ -74,13 +75,13 @@ export const PostCard = ({
   console.log(pdfPost)
   console.log(imgPost)
 
-  //Diferenciador input
-  let regexVideo = /^http/
+  //Diferenciador input Link
+  let regexLink = /^http/
   let media;
   let publicText;
   const diferInput = () => {
       console.log(publication)
-      let resultMedia = regexVideo.test(publication);
+      let resultMedia = regexLink.test(publication);
       console.log(resultMedia)
       if(resultMedia === true){ 
         media = publication
@@ -131,13 +132,14 @@ export const PostCard = ({
           subheader={date + ' at ' + hour + ':' + minute + ' hrs.'}
         />
         <CardContent>
-        { publication === media ? <Youtube media={ media } /> : null }
+        { publication === media ? <CatchLink media={ media } /> : null }
         { publication === publicText ? <Typography
             variant="body2"
             style={{ marginBottom: '1%', marginTop: '-1%' }}
           >
             {publication}
           </Typography> : null }
+        {link ? <a target="_blank" href={link}>{link}</a> : null }
         </CardContent>
           {file === imgPost ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
           {file === pdfPost ? <ViewerPDF pdfPost={pdfPost}/> : null}
