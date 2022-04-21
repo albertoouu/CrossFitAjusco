@@ -159,10 +159,10 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
               }}
             >
               <CheckCircleIcon
+              color="primary"
                 sx={{
-                  color: '#2271B3',
-                  cursor: 'pointer',
-                  fontSize: '40px',
+                  fontSize: '35px',
+                  boxShadow: '0px 5px 7px -7px',
                 }}
               />
             </button>
