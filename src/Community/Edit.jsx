@@ -155,14 +155,14 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
                 background: 'transparent',
                 borderStyle: 'none',
                 float: 'right',
-                marginTop: '8%',
+                marginTop: '5%',
               }}
             >
               <CheckCircleIcon
                 sx={{
                   color: '#2271B3',
                   cursor: 'pointer',
-                  fontSize: '40',
+                  fontSize: '40px',
                 }}
               />
             </button>
@@ -171,7 +171,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
             id="modal-modal-title"
             variant="h6"
             component="h2"
-            sx={{ fontSize: '100%', marginTop: '15%', color: 'lightgray' }}
+            sx={{ fontSize: '100%', marginTop: '10%', color: 'lightgray' }}
           >
             <small>&copy; CrossFt Ajusco</small>
           </Typography>

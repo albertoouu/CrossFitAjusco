@@ -108,9 +108,9 @@ export const CreatePost = ({ setPosts }) => {
           marginRight: '5%',
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <FloatingLabel
-            controlId="floatingTextarea1  "
+            controlId="floatingTextarea1"
             label="¡Comparte con la comunidad!"
             style={{ color: 'gray' }}
           >
@@ -126,14 +126,14 @@ export const CreatePost = ({ setPosts }) => {
               onChange={handleChange}
               autoFocus
             />
+            </FloatingLabel>
             <Form.Control
               type='file'
               name="file"
               placeholder='ad file'
               onChange={handleFile}
-              style={{ color: "gray" }}
+              style={{ color: "gray", marginTop: "0.1%" }}
             />
-          </FloatingLabel>
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPhoto />
           </div>
@@ -155,7 +155,7 @@ export const CreatePost = ({ setPosts }) => {
               </button>
             </div>
           )}
-        </form>
+        </Form>
       </div>
     </div>
   );
