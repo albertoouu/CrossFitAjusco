@@ -4,14 +4,13 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-//import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from "../firebase"
 
-const CreatePost = ({ setPosts }) => {
+export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -109,9 +108,9 @@ const CreatePost = ({ setPosts }) => {
           marginRight: '5%',
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <FloatingLabel
-            controlId="floatingTextarea1  "
+            controlId="floatingTextarea1"
             label="¡Comparte con la comunidad!"
             style={{ color: 'gray' }}
           >
@@ -127,20 +126,18 @@ const CreatePost = ({ setPosts }) => {
               onChange={handleChange}
               autoFocus
             />
+            </FloatingLabel>
             <Form.Control
               type='file'
               name="file"
               placeholder='ad file'
               onChange={handleFile}
+              style={{ color: "gray", marginTop: "0.1%" }}
             />
-
-
-
-          </FloatingLabel>
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPhoto />
           </div>
-          {input === '' ? null : (
+          {input  === '' & file === '' ? null : (
             <div>
               <button
                 style={{
@@ -158,9 +155,8 @@ const CreatePost = ({ setPosts }) => {
               </button>
             </div>
           )}
-        </form>
+        </Form>
       </div>
     </div>
   );
 };
-export { CreatePost };

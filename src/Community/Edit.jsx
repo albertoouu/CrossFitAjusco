@@ -22,7 +22,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: "50%",
     bgcolor: 'background.paper',
     border: '1px solid #000',
     boxShadow: '0px 5px 7px -7px',
@@ -139,7 +139,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
               <Form.Control
                 as="textarea"
                 style={{
-                  height: '100px',
+                  height: '30vh',
                   borderColor: '#5DADE2',
                 }}
                 type="text"
@@ -155,14 +155,14 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
                 background: 'transparent',
                 borderStyle: 'none',
                 float: 'right',
-                marginTop: '8%',
+                marginTop: '5%',
               }}
             >
               <CheckCircleIcon
                 sx={{
                   color: '#2271B3',
                   cursor: 'pointer',
-                  fontSize: '40',
+                  fontSize: '40px',
                 }}
               />
             </button>
@@ -171,7 +171,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
             id="modal-modal-title"
             variant="h6"
             component="h2"
-            sx={{ fontSize: '100%', marginTop: '15%', color: 'lightgray' }}
+            sx={{ fontSize: '100%', marginTop: '10%', color: 'lightgray' }}
           >
             <small>&copy; CrossFt Ajusco</small>
           </Typography>

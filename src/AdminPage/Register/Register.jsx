@@ -310,12 +310,12 @@ export const Register = (valores) => { // Props = valores : {objeto conformado p
                         </label><br/><Field type="range" name="frequency" id="frequency" min={0} max={7} step={1} /></>)}
                     </div>
                   </div>
-              <div>
+              <div><center>
                 {/* Si todo sale bien aparece el anuncio de "succes" */}
                 {sendForm && <p className="success">¡¡Registro exitoso!!</p>}
                 {/* button submit sólo sí se cumplen los campos requeridos*/}
                 <button className="send" type="submit" disabled={isSubmitting}> Registrar </button>
-              </div>
+                </center></div>
             </Form>
           </>
         )}

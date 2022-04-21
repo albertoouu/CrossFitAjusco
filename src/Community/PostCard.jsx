@@ -15,6 +15,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useAuth } from '../Context/authContext';
 import { MenuEditDelete } from './MenuEditDelete';
 import { Zoom } from './Zoom';
+import { ViewerPDF } from './ViewerPDF';
+import { Comments } from "./Comments/Comments"
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -50,6 +52,7 @@ export const PostCard = ({
     setExpanded(!expanded);
   };
 
+  //Diferenciador tipos de archivos
   let pdfPost;
   let imgPost
   const checking = () => {
@@ -60,9 +63,9 @@ export const PostCard = ({
     if(result === true){ 
       console.log("eres pdf")
         pdfPost = file
-     }else{ 
-       console.log("eres imagen")
-       imgPost = file
+    }else{ 
+      console.log("eres imagen")
+      imgPost = file
       }
   };
   checking()
@@ -104,7 +107,7 @@ export const PostCard = ({
             ) : null
           }
           title={author}
-          subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
+          subheader={date + ' at ' + hour + ':' + minute + ' hrs.'}
         />
         <CardContent>
           <Typography
@@ -114,8 +117,8 @@ export const PostCard = ({
             {publication}
           </Typography>
         </CardContent>
-          {file === imgPost  ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
-          {file === pdfPost  ? <div>PDF</div>: null}
+          {file === imgPost ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
+          {file === pdfPost ? <ViewerPDF pdfPost={pdfPost}/> : null}
           {!file ? <div></div> : null }
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
@@ -136,7 +139,7 @@ export const PostCard = ({
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Comentarios:</Typography>
+            <Typography paragraph><Comments/></Typography>
           </CardContent>
         </Collapse>
       </Card>
