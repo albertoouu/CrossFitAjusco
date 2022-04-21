@@ -42,8 +42,8 @@ return (
         aria-describedby="modal-modal-description"
     >
         <Box sx={style}>
-        <TextField fullWidth label="Agregar link" id="fullWidth" autoFocus name="link" type="text" placeholder="¡Agrega un link a tu post!" onChange={handleChange} sx={{ marginTop: "5%" }}/>
-        <button style={{backgroundColor: "transparent", borderStyle: "none", float: "right", marginTop: "15px"}}><AddLinkIcon color="primary" sx={{ fontSize: 35, boxShadow: '0px 5px 7px -7px', marginRight: "10%" }} onClick={async() => { await setUrl(link); setOpen(false) }} /></button>
+        <TextField fullWidth label="Agregar link" value={link} id="fullWidth" autoFocus name="link" type="text" placeholder="¡Agrega un link a tu post!" onChange={handleChange} sx={{ marginTop: "5%" }}/>
+        <button style={{backgroundColor: "transparent", borderStyle: "none", float: "right", marginTop: "15px"}}><AddLinkIcon color="primary" sx={{ fontSize: 35, boxShadow: '0px 5px 7px -7px', marginRight: "10%" }} onClick={async() => { await setUrl(link); setLink(""); setOpen(false) }} /></button>
         <Typography
             id="modal-modal-title"
             variant="h6"
