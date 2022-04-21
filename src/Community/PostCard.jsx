@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { useState }  from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -38,17 +38,36 @@ export const PostCard = ({
   email,
   id,
   setPosts,
-  picture,
+  file,
   avatar,
   hour,
   minute,
 }) => {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
   const { user } = useAuth();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  let pdfPost;
+  let imgPost
+  const checking = () => {
+    console.log(file)
+    let regex = /pdf/;
+    let result = regex.test(file);
+    console.log(result)
+    if(result === true){ 
+      console.log("eres pdf")
+        pdfPost = file
+     }else{ 
+       console.log("eres imagen")
+       imgPost = file
+      }
+  };
+  checking()
+  console.log(pdfPost)
+  console.log(imgPost)
 
   return (
     <div>
@@ -95,7 +114,9 @@ export const PostCard = ({
             {publication}
           </Typography>
         </CardContent>
-          {picture?<Zoom img={picture}></Zoom>: null}
+          {file === imgPost  ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
+          {file === pdfPost  ? <div>PDF</div>: null}
+          {!file ? <div></div> : null }
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />

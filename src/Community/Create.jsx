@@ -8,14 +8,8 @@ import AddIcon from '@mui/icons-material/Add';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-
-
-import { PhotoLibrary } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from "../firebase"
-
-
 
 const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -28,43 +22,29 @@ const CreatePost = ({ setPosts }) => {
     console.log(input);
   };
 
-
-
-
-
- 
-    const [picture, setPicture] = useState('');
+    const [file, setFile] = useState('');
   
-    const handlePicture = async(e) => {
-      console.log('adding picture');
+    const handleFile = async(e) => {
+      console.log('adding file');
       //detectar archivo
-      const localPicture = e.target.files[0]
-      console.log(localPicture)
+      const localFile = e.target.files[0]
+      console.log(localFile)
       //crear referencia de archivo
-      const archRef = ref(storage, `picturesCommunity/${localPicture.name}`)
+      const archRef = ref(storage, `filesCommunity/${localFile.name}`)
       //cargar archivo a firebase storage
-      await uploadBytes(archRef, localPicture)
+      await uploadBytes(archRef, localFile)
       // obtener url de descarga
-      const urlPicture = await getDownloadURL(archRef)
-      console.log(urlPicture)
-      await setPicture(urlPicture)
-      console.log(picture)
+      const urlFile = await getDownloadURL(archRef)
+      console.log(urlFile)
+      await setFile(urlFile)
+      console.log(file)
     };
-  
-  
-  
-
-
-
-
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL, picture);
+    console.log(input, user.email, user.displayName, date, user.photoURL, file);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -73,15 +53,15 @@ const CreatePost = ({ setPosts }) => {
         date: date,
         author: user.displayName,
         avatar: user.photoURL,
-        picture: picture,
+        file: file,
       });
       console.log('Document written with ID: ', docRef.id);
       //Limpiar form
       setInput('');
       e.target.entry.value = '';
-      //Limpiar input file picture
-      setPicture("")
-      e.target.picture.value=""
+      //Limpiar input file 
+      setFile("")
+      e.target.file.value=""
       //Actualizar estado
       getAllData();
     } catch (e) {
@@ -89,9 +69,9 @@ const CreatePost = ({ setPosts }) => {
       //Limpiar Form
       e.target.entry.value = '';
       setInput('');
-      //Limpiar input file picture
-      setPicture("")
-      e.target.picture.value=""
+      //Limpiar input file
+      setFile("")
+      e.target.file.value=""
     }
   };
 
@@ -149,9 +129,9 @@ const CreatePost = ({ setPosts }) => {
             />
             <Form.Control
               type='file'
-              name="picture"
-              placeholder='ad picture'
-              onChange={handlePicture}
+              name="file"
+              placeholder='ad file'
+              onChange={handleFile}
             />
 
 
