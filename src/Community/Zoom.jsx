@@ -8,11 +8,9 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '90%',
-  height: 'auto',
   bgcolor: 'background.paper',
   boxShadow: '0px 5px 7px -7px',
-  p: 2,
+  p: 1,
 };
 
 export const Zoom = ({ imgPost }) => {

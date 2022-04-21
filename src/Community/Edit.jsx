@@ -22,7 +22,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: "50%",
     bgcolor: 'background.paper',
     border: '1px solid #000',
     boxShadow: '0px 5px 7px -7px',
@@ -139,7 +139,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
               <Form.Control
                 as="textarea"
                 style={{
-                  height: '100px',
+                  height: '30vh',
                   borderColor: '#5DADE2',
                 }}
                 type="text"

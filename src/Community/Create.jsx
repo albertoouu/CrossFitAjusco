@@ -4,14 +4,13 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-//import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from "../firebase"
 
-const CreatePost = ({ setPosts }) => {
+export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
   const postsCollectionRef = collection(db, 'Posts');
@@ -132,15 +131,13 @@ const CreatePost = ({ setPosts }) => {
               name="file"
               placeholder='ad file'
               onChange={handleFile}
+              style={{ color: "gray" }}
             />
-
-
-
           </FloatingLabel>
           <div style={{ display: 'flex', flexDirection: 'raw' }}>
             <AdPhoto />
           </div>
-          {input === '' ? null : (
+          {input  === '' & file === '' ? null : (
             <div>
               <button
                 style={{
@@ -163,4 +160,3 @@ const CreatePost = ({ setPosts }) => {
     </div>
   );
 };
-export { CreatePost };

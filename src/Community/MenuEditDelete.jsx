@@ -23,7 +23,6 @@ export const MenuEditDelete = ({ id, setPosts, avatar }) => {
     <ClickAwayListener onClickAway={handleClickAway}>
       <Box>
         <MoreVertIcon type="button" onClick={handleClick} />
-
         {open ? (
           <Paper
             sx={{
