@@ -59,30 +59,30 @@ export const PostCard = ({
   let pdfPost;
   let imgPost
   const checking = () => {
-    console.log(file)
+    //console.log(file)
     let regex = /pdf/;
     let result = regex.test(file);
-    console.log(result)
+    //console.log(result)
     if(result === true){ 
-      console.log("eres pdf")
+      //console.log("eres pdf")
         pdfPost = file
     }else{ 
-      console.log("eres imagen")
+      //console.log("eres imagen")
       imgPost = file
       }
   };
   checking()
-  console.log(pdfPost)
-  console.log(imgPost)
+  //console.log(pdfPost)
+  //console.log(imgPost)
 
   //Diferenciador input Link
   let regexLink = /^http/
   let media;
   let publicText;
   const diferInput = () => {
-      console.log(publication)
+      //console.log(publication)
       let resultMedia = regexLink.test(publication);
-      console.log(resultMedia)
+      //console.log(resultMedia)
       if(resultMedia === true){ 
         media = publication
       } else { 
@@ -90,8 +90,8 @@ export const PostCard = ({
       } 
   }
   diferInput()
-  console.log(media)
-  console.log(publicText)
+  //console.log(media)
+  //console.log(publicText)
 
 
   return (

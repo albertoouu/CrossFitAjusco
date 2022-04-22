@@ -35,17 +35,17 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
 
   //Traer el documento a editar
   const getDocument = async (id) => {
-    console.log(id);
+    //console.log(id);
     //Obtener documento a través de su ID con get()
     const docRef = doc(db, 'Posts', id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data());
+      //console.log('Document data:', docSnap.data());
       //Pasar valores a form para editar
       await setInputToEdit(docSnap.data().input);
     } else {
       // doc.data() will be undefined in this case
-      console.log('No such document!');
+      //console.log('No such document!');
     }
   };
 
@@ -59,7 +59,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
     e.preventDefault();
     //Modelar nuevo objeto
     let input = e.target.inputToEdit.value;
-    console.log('input: ', input);
+    //console.log('input: ', input);
     //Referencia a post
     const postRef = doc(db, 'Posts', id);
     //Actualizar nuevo input
@@ -67,10 +67,10 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
       input: input,
     })
       .then(() => {
-        console.log('Documento actualizado'); // Documento actualizado
+        //console.log('Documento actualizado'); // Documento actualizado
       })
       .catch((error) => {
-        console.error('Error de actualización de doumento', error);
+        //console.error('Error de actualización de doumento', error);
       });
     //Actualizar DOM con nuevos cambios
     await getAllData();
@@ -82,7 +82,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
 
   //Traer nueva data actualizada
   const getAllData = async () => {
-    console.log('getting data');
+    //console.log('getting data');
     const data = await getDocs(postsCollectionRef);
     //Recuperar nueva data
     const getData = data.docs
@@ -95,7 +95,7 @@ export const Edit = ({ id, setPosts, avatar, closeMenu }) => {
       }))
       .slice()
       .sort((a, b) => b.date - a.date);
-    console.log(getData);
+    //console.log(getData);
     //Actualizar Estado
     setPosts(getData);
   };

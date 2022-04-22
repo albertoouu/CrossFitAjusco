@@ -27,14 +27,15 @@ const [link, setLink] = React.useState("");
 
 const handleChange = (e) => {
     setLink(e.target.value)
-    console.log(e.target.name)
-    console.log(e.target.value)
+    //console.log(e.target.name)
+    //console.log(e.target.value)
     return link
 };
 
 return (
     <div>
-    <IconButton onClick={handleOpen} style={{ marginTop: '17px', marginLeft: '20px' }}><AddLinkIcon sx={{ fontSize: 30 }}/></IconButton>
+    <IconButton onClick={handleOpen} style={{ marginTop: '17px', marginLeft: '20px' }}>
+      <AddLinkIcon sx={{ fontSize: 30 }}/></IconButton>
     <Modal
         open={open}
         onClose={handleClose}
@@ -42,8 +43,8 @@ return (
         aria-describedby="modal-modal-description"
     >
         <Box sx={style}>
-        <TextField fullWidth label="Agregar link" id="fullWidth" autoFocus name="link" type="text" placeholder="¡Agrega un link a tu post!" onChange={handleChange} sx={{ marginTop: "5%" }}/>
-        <button style={{backgroundColor: "transparent", borderStyle: "none", float: "right", marginTop: "15px"}}><AddLinkIcon color="primary" sx={{ fontSize: 35, boxShadow: '0px 5px 7px -7px', marginRight: "10%" }} onClick={async() => { await setUrl(link); setOpen(false) }} /></button>
+        <TextField fullWidth label="Agregar link" value={link} id="fullWidth" autoFocus name="link" type="text" placeholder="¡Agrega un link a tu post!" onChange={handleChange} sx={{ marginTop: "5%" }}/>
+        <button style={{backgroundColor: "transparent", borderStyle: "none", float: "right", marginTop: "15px", borderRadius:"50%"}}><AddLinkIcon color="primary" sx={{ fontSize: 35, boxShadow: '0px 5px 7px -7px', marginRight: "10%" }} onClick={async() => { await setUrl(link); setLink(""); setOpen(false) }} /></button>
         <Typography
             id="modal-modal-title"
             variant="h6"

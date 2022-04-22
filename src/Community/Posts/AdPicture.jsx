@@ -26,23 +26,29 @@ export const AdPicture = ({ setFile }) => {
   const handleClose = () => setOpen(false);
 
   const handleFile = async(e) => {
-    console.log('adding file');
     //detectar archivo
     const localFile = e.target.files[0]
-    console.log(localFile)
+    //console.log(localFile)
     //crear referencia de archivo
     const archRef = ref(storage, `filesCommunity/${localFile.name}`)
     //cargar archivo a firebase storage
     await uploadBytes(archRef, localFile)
     // obtener url de descarga
     const urlFile = await getDownloadURL(archRef)
-    console.log(urlFile)
+    //console.log(urlFile)
     await setFile(urlFile)
   };
 
+  const styleActive = {
+     
+  }  
+
+
   return (
     <div>
-      <IconButton onClick={handleOpen} style={{marginTop: '14px', marginLeft: '4px', marginBottom: '2px' }}><AddPhotoAlternateIcon sx={{ fontSize: 30 }} /></IconButton>
+      <IconButton onClick={handleOpen} style={{marginTop: '14px', marginLeft: '4px', marginBottom: '2px' }}>
+        <AddPhotoAlternateIcon sx={{ fontSize: 30 }} />
+      </IconButton>
       <Modal
         open={open}
         onClose={handleClose}
@@ -58,7 +64,9 @@ export const AdPicture = ({ setFile }) => {
               onChange={handleFile}
               style={{ color: "gray", paddingBottom: "7%", display: "block", margin: "auto", marginBottom: "2%" }}
             />
-          <button onClick={handleClose} style={{display: "block", margin: "auto", float: "right", borderStyle: "none", backgroundColor:"transparent", marginTop:"5px"}}><AddPhotoAlternateIcon color="primary" sx={{fontSize: 35, boxShadow: '0px 5px 7px -7px',}}/></button>
+          <button onClick={handleClose} style={{display: "block", margin: "auto", float: "right", borderStyle: "none", backgroundColor:"transparent", marginTop:"5px"}}>
+            <AddPhotoAlternateIcon color="primary" sx={{fontSize: 35, boxShadow: '0px 5px 7px -7px',}}/>
+          </button>
           <Typography
             id="modal-modal-title"
             variant="h6"
