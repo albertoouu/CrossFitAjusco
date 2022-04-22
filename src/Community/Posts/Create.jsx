@@ -9,6 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { AdPicture } from "./AdPicture"
 import { AdWebSite } from "./AdWebSite" 
+import CloseIcon from '@mui/icons-material/Close';
 
 export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
@@ -17,20 +18,19 @@ export const CreatePost = ({ setPosts }) => {
   const [url, setUrl] = useState('');
 
   const postsCollectionRef = collection(db, 'Posts');
-
-  console.log(url, file)
+  //console.log(url, file)
 
   const handleChange = (e) => {
-    console.log(e.target.name);
+    //console.log(e.target.name);
     setInput(e.target.value);
-    console.log(input);
+    //console.log(input);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL, file, url);
+    //console.log(input, user.email, user.displayName, date, user.photoURL, file, url);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -42,7 +42,7 @@ export const CreatePost = ({ setPosts }) => {
         file: file,
         url: url,
       });
-      console.log('Document written with ID: ', docRef.id);
+      //console.log('Document written with ID: ', docRef.id);
       //Limpiar form
       setInput(e.target.name=""); 
       setFile("")
@@ -50,7 +50,7 @@ export const CreatePost = ({ setPosts }) => {
       //Actualizar estado
       getAllData();
     } catch (e) {
-      console.error('Error adding document: ', e);
+      //console.error('Error adding document: ', e);
       //Limpiar Form
       setInput(e.target.name="");
       setFile("")
@@ -72,7 +72,7 @@ export const CreatePost = ({ setPosts }) => {
       }))
       .slice()
       .sort((a, b) => b.date - a.date);
-    console.log(getData);
+    //console.log(getData);
     //Actualizar Estado
     setPosts(getData);
   };
@@ -112,10 +112,21 @@ export const CreatePost = ({ setPosts }) => {
               autoFocus
             />
             </FloatingLabel>
-          <div style={{ display: 'flex', flexDirection: 'raw' }}>
+          <div style={{ display: 'flex', flexDirection: 'raw' }}>  
             <AdPicture setFile={ setFile }/>
             <AdPhoto />
             <AdWebSite setUrl={ setUrl }/>
+          </div>
+          <div>
+          { url ? (<div style={{backgroundColor: "lightGreen", fontSize:"12px", textAlign:"center", marginBottom: "5px"}}>
+            <button style={{borderStyle: "none", float: "right", backgroundColor: "transparent", marginRight: "5px", marginBottom: "2px"}} onClick={()=> setFile("")}>
+              <CloseIcon sx={{fontSize: 14 }}/>
+            </button>Link cargado</div>) : null}
+
+          { file ? (<div style={{backgroundColor: "lightBlue", display: "block", fontSize:"12px", textAlign:"center" }}>
+            <button style={{borderStyle: "none", display: "block", float: "right", backgroundColor: "transparent", marginRight: "3px", marginBottom: "2px"}}>
+              <CloseIcon sx={{fontSize: 15 }}/>
+            </button>Archivo cargado</div>) : null}
           </div>
           {input  === '' & file === '' ? null : (
             <div>
@@ -125,8 +136,7 @@ export const CreatePost = ({ setPosts }) => {
                   borderStyle: 'none',
                   float: 'right',
                   padding: '10px',
-                  marginTop: '-60px',
-                  position: 'sticky',
+                  position: 'relative',
                 }}
               >
                 <Fab color="primary" aria-label="add" size="small">

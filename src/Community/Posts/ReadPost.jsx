@@ -28,11 +28,11 @@ export const ReadPost = () => {
         }))
         .slice()
         .sort((a, b) => b.date - a.date);
-      console.log(getData);
+      //console.log(getData);
       //Pasar Data al Estado
       setPosts(getData);
     };
-    console.log(posts);
+    //console.log(posts);
     getPosts();
   }, []);
 

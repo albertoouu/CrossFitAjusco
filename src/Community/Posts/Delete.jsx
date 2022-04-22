@@ -7,15 +7,15 @@ export const Delete = ({ id, avatar, setPosts }) => {
   const postsCollectionRef = collection(db, 'Posts');
   //Eliminar Post
   const deletePost = async (id) => {
-    console.log(id);
+    //console.log(id);
     try {
       //Eliminar
       await deleteDoc(doc(db, 'Posts', id));
-      console.log('Document deleted with ID: ', id);
+      //console.log('Document deleted with ID: ', id);
       //Actualizar estado
       getAllData();
     } catch (error) {
-      console.error('Error adding document: ', error);
+      //console.error('Error adding document: ', error);
     }
   };
 
@@ -33,7 +33,7 @@ export const Delete = ({ id, avatar, setPosts }) => {
       }))
       .slice()
       .sort((a, b) => b.date - a.date);
-    console.log(getData);
+    //console.log(getData);
     //Actualizar Estado
     setPosts(getData);
   };
