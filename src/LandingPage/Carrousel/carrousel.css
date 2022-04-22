@@ -4,8 +4,7 @@
   display: block;
   justify-content: center;
   height: 80vh;
-  max-height: 100%;
-  width: auto;
+  width: 100%;
   color: #212529;
   background-color: #212529;
   font-family: "Saira Condensed", sans-serif;
@@ -13,10 +12,11 @@
 }
 
 .picture {
-  height: 100%;
-  width: auto;
-  padding-left: 13px;
-  margin-left: 13%;
+  height: auto;
+  width: 100%;
+
+  padding-right: 10px;
+  /* margin-left: 13%;*/
 }
 
 .carousel-label {
@@ -26,8 +26,9 @@
   color: #212529 !important;
 }
 
-@media only screen and (max-width: 1200px) {
+/*@media only screen and (max-width: 1200px) {
   .carousel-item {
     height: 90vh;
   }
 }
+*/
