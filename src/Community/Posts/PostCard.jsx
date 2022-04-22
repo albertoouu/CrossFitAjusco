@@ -139,7 +139,7 @@ export const PostCard = ({
           >
             {publication}
           </Typography> : null }
-        {link ? <a target="_blank" href={link}>{link}</a> : null }
+        {link ? <a target="_blank" rel="noreferrer" href={link}>{link}</a> : null }
         </CardContent>
           {file === imgPost ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
           {file === pdfPost ? <ViewerPDF pdfPost={pdfPost}/> : null}
