@@ -119,12 +119,12 @@ export const CreatePost = ({ setPosts }) => {
           </div>
           <div>
           { url ? (<div style={{backgroundColor: "lightGreen", fontSize:"12px", textAlign:"center", marginBottom: "5px"}}>
-            <button style={{borderStyle: "none", float: "right", backgroundColor: "transparent", marginRight: "5px", marginBottom: "2px"}} onClick={()=> setFile("")}>
+            <button style={{borderStyle: "none", float: "right", backgroundColor: "transparent", marginRight: "5px", marginBottom: "2px"}} onClick={()=> setUrl("")}>
               <CloseIcon sx={{fontSize: 14 }}/>
             </button>Link cargado</div>) : null}
 
           { file ? (<div style={{backgroundColor: "lightBlue", display: "block", fontSize:"12px", textAlign:"center" }}>
-            <button style={{borderStyle: "none", display: "block", float: "right", backgroundColor: "transparent", marginRight: "3px", marginBottom: "2px"}}>
+            <button style={{borderStyle: "none", display: "block", float: "right", backgroundColor: "transparent", marginRight: "3px", marginBottom: "2px"}} onClick={()=> setFile("")}>
               <CloseIcon sx={{fontSize: 15 }}/>
             </button>Archivo cargado</div>) : null}
           </div>
