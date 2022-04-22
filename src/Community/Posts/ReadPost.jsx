@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { CreatePost } from './Create';
 import { PostCard } from './PostCard';
-import { Sites } from './Sites';
+import { Sites } from '../SitiosInteres/Sites';
 import Avatar from '@mui/material/Avatar';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import './ReadPost.css';
 
 export const ReadPost = () => {
@@ -28,11 +28,11 @@ export const ReadPost = () => {
         }))
         .slice()
         .sort((a, b) => b.date - a.date);
-      console.log(getData);
+      //console.log(getData);
       //Pasar Data al Estado
       setPosts(getData);
     };
-    console.log(posts);
+    //console.log(posts);
     getPosts();
   }, []);
 
@@ -67,7 +67,8 @@ export const ReadPost = () => {
                 minute={post.minutes}
                 email={post.email}
                 avatar={post.avatar}
-                picture={post.picture}
+                file={post.file}
+                link={post.url}
                 setPosts={setPosts}
               />
             </div>

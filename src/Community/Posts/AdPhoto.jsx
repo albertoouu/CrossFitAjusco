@@ -4,10 +4,8 @@ import IconButton from '@mui/material/IconButton';
 
 export const AdPhoto = () => {
   const styles = {
-    cursor: 'pointer',
-    marginTop: '3%',
-    marginLeft: '2%',
-    marginBottom: '2%',
+    marginTop: '17px',
+    marginLeft: '20px',
   };
 
   const [photo, setPhoto] = useState('');
@@ -17,9 +15,9 @@ export const AdPhoto = () => {
   };
 
   return (
-    <div style={styles}>
-      <IconButton onClick={handlePhoto}>
-        <PhotoCameraIcon />
+    <div>
+      <IconButton onClick={handlePhoto} style={styles}>
+        <PhotoCameraIcon sx={{ fontSize: 27 }}/>
       </IconButton>
     </div>
   );

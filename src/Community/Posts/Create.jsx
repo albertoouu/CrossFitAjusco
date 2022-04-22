@@ -1,70 +1,36 @@
 import React, { useState } from 'react';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-//import { AdPicture } from './AdPicture';
 import { AdPhoto } from './AdPhoto';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import { AdPicture } from "./AdPicture"
+import { AdWebSite } from "./AdWebSite" 
+import CloseIcon from '@mui/icons-material/Close';
 
-
-import { PhotoLibrary } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from "../firebase"
-
-
-
-const CreatePost = ({ setPosts }) => {
+export const CreatePost = ({ setPosts }) => {
   const { user } = useAuth();
   const [input, setInput] = useState('');
+  const [file, setFile] = useState('');
+  const [url, setUrl] = useState('');
+
   const postsCollectionRef = collection(db, 'Posts');
+  //console.log(url, file)
 
   const handleChange = (e) => {
-    console.log(e.target.name);
+    //console.log(e.target.name);
     setInput(e.target.value);
-    console.log(input);
+    //console.log(input);
   };
-
-
-
-
-
- 
-    const [picture, setPicture] = useState('');
-  
-    const handlePicture = async(e) => {
-      console.log('adding picture');
-      //detectar archivo
-      const localPicture = e.target.files[0]
-      console.log(localPicture)
-      //crear referencia de archivo
-      const archRef = ref(storage, `picturesCommunity/${localPicture.name}`)
-      //cargar archivo a firebase storage
-      await uploadBytes(archRef, localPicture)
-      // obtener url de descarga
-      const urlPicture = await getDownloadURL(archRef)
-      console.log(urlPicture)
-      await setPicture(urlPicture)
-      console.log(picture)
-    };
-  
-  
-  
-
-
-
-
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
 
-    console.log(input, user.email, user.displayName, date, user.photoURL, picture);
+    //console.log(input, user.email, user.displayName, date, user.photoURL, file, url);
     //mandar values a objeto en firestore
     try {
       const docRef = await addDoc(collection(db, 'Posts'), {
@@ -73,25 +39,22 @@ const CreatePost = ({ setPosts }) => {
         date: date,
         author: user.displayName,
         avatar: user.photoURL,
-        picture: picture,
+        file: file,
+        url: url,
       });
-      console.log('Document written with ID: ', docRef.id);
+      //console.log('Document written with ID: ', docRef.id);
       //Limpiar form
-      setInput('');
-      e.target.entry.value = '';
-      //Limpiar input file picture
-      setPicture("")
-      e.target.picture.value=""
+      setInput(e.target.name=""); 
+      setFile("")
+      setUrl("")
       //Actualizar estado
       getAllData();
     } catch (e) {
-      console.error('Error adding document: ', e);
+      //console.error('Error adding document: ', e);
       //Limpiar Form
-      e.target.entry.value = '';
-      setInput('');
-      //Limpiar input file picture
-      setPicture("")
-      e.target.picture.value=""
+      setInput(e.target.name="");
+      setFile("")
+      setUrl("")
     }
   };
 
@@ -109,7 +72,7 @@ const CreatePost = ({ setPosts }) => {
       }))
       .slice()
       .sort((a, b) => b.date - a.date);
-    console.log(getData);
+    //console.log(getData);
     //Actualizar Estado
     setPosts(getData);
   };
@@ -123,15 +86,15 @@ const CreatePost = ({ setPosts }) => {
           margin: 'auto',
           flexDirection: 'column',
           backgroundColor: 'white',
-          borderRadius: '10px',
+          borderRadius: '7px',
           boxShadow: '0px 5px 7px -7px',
           padding: '1%',
           marginRight: '5%',
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <FloatingLabel
-            controlId="floatingTextarea1  "
+            controlId="floatingTextarea1"
             label="¡Comparte con la comunidad!"
             style={{ color: 'gray' }}
           >
@@ -145,31 +108,35 @@ const CreatePost = ({ setPosts }) => {
               type="text"
               placeholder="¡Comparte con la comunidad!"
               onChange={handleChange}
+              value={input}
               autoFocus
             />
-            <Form.Control
-              type='file'
-              name="picture"
-              placeholder='ad picture'
-              onChange={handlePicture}
-            />
-
-
-
-          </FloatingLabel>
-          <div style={{ display: 'flex', flexDirection: 'raw' }}>
+            </FloatingLabel>
+          <div style={{ display: 'flex', flexDirection: 'raw' }}>  
+            <AdPicture setFile={ setFile }/>
             <AdPhoto />
+            <AdWebSite setUrl={ setUrl }/>
           </div>
-          {input === '' ? null : (
+          <div>
+          { url ? (<div style={{backgroundColor: "lightGreen", fontSize:"12px", textAlign:"center", marginBottom: "5px"}}>
+            <button style={{borderStyle: "none", float: "right", backgroundColor: "transparent", marginRight: "5px", marginBottom: "2px"}} onClick={()=> setUrl("")}>
+              <CloseIcon sx={{fontSize: 14 }}/>
+            </button>Link cargado</div>) : null}
+
+          { file ? (<div style={{backgroundColor: "lightBlue", display: "block", fontSize:"12px", textAlign:"center" }}>
+            <button style={{borderStyle: "none", display: "block", float: "right", backgroundColor: "transparent", marginRight: "3px", marginBottom: "2px"}} onClick={()=> setFile("")}>
+              <CloseIcon sx={{fontSize: 15 }}/>
+            </button>Archivo cargado</div>) : null}
+          </div>
+          {input  === '' & file === '' ? null : (
             <div>
               <button
                 style={{
                   background: 'transparent',
                   borderStyle: 'none',
                   float: 'right',
-                  padding: '1%',
-                  marginTop: '-60px',
-                  position: 'sticky',
+                  padding: '10px',
+                  position: 'relative',
                 }}
               >
                 <Fab color="primary" aria-label="add" size="small">
@@ -178,9 +145,8 @@ const CreatePost = ({ setPosts }) => {
               </button>
             </div>
           )}
-        </form>
+        </Form>
       </div>
     </div>
   );
 };
-export { CreatePost };
