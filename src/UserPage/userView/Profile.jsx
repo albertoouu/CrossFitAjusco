@@ -24,7 +24,6 @@ const db = getFirestore(app);
     const [ users, setUsers ] = useState({});
     const [tipo, setTipo] = useState('');
     const  [data, setData] = useState('');
-
     const [modalUserData, setModalUserData] = useState({});
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -52,6 +51,7 @@ const db = getFirestore(app);
           info = doc.data()
           info.id = doc.id
           console.log('paso')
+
           return true
         }
       });
@@ -73,7 +73,7 @@ const db = getFirestore(app);
   //mostramos en pantalla los datos del usuario  
   return (
     <>
-          <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users} data={data}/>
+          <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users} data={data} />
 
     <div key={modalUserData.id} style={{ height: 500, margin: "50px", padding:"30px" }}>
     <h2>Mi Perfil</h2>
