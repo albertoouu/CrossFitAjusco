@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { useState }  from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -12,9 +12,13 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../../Context/authContext';
 import { MenuEditDelete } from './MenuEditDelete';
 import { Zoom } from './Zoom';
+import { ViewerPDF } from './ViewerPDF';
+import { Comments } from "../Comments/Comments"
+import { CatchLink } from "./CatchLink" 
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -38,17 +42,57 @@ export const PostCard = ({
   email,
   id,
   setPosts,
-  picture,
+  file,
   avatar,
   hour,
   minute,
+  link
 }) => {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
   const { user } = useAuth();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  //Diferenciador tipos de archivos
+  let pdfPost;
+  let imgPost
+  const checking = () => {
+    //console.log(file)
+    let regex = /pdf/;
+    let result = regex.test(file);
+    //console.log(result)
+    if(result === true){ 
+      //console.log("eres pdf")
+        pdfPost = file
+    }else{ 
+      //console.log("eres imagen")
+      imgPost = file
+      }
+  };
+  checking()
+  //console.log(pdfPost)
+  //console.log(imgPost)
+
+  //Diferenciador input Link
+  let regexLink = /^http/
+  let media;
+  let publicText;
+  const diferInput = () => {
+      //console.log(publication)
+      let resultMedia = regexLink.test(publication);
+      //console.log(resultMedia)
+      if(resultMedia === true){ 
+        media = publication
+      } else { 
+        publicText = publication
+      } 
+  }
+  diferInput()
+  //console.log(media)
+  //console.log(publicText)
+
 
   return (
     <div>
@@ -85,17 +129,21 @@ export const PostCard = ({
             ) : null
           }
           title={author}
-          subheader={date + ' a las: ' + hour + ':' + minute + ' hrs.'}
+          subheader={date + ' at ' + hour + ':' + minute + ' hrs.'}
         />
         <CardContent>
-          <Typography
+        { publication === media ? <CatchLink media={ media } /> : null }
+        { publication === publicText ? <Typography
             variant="body2"
             style={{ marginBottom: '1%', marginTop: '-1%' }}
           >
             {publication}
-          </Typography>
+          </Typography> : null }
+        {link ? <a target="_blank" rel="noreferrer" href={link}>{link}</a> : null }
         </CardContent>
-          {picture?<Zoom img={picture}></Zoom>: null}
+          {file === imgPost ? <Zoom imgPost={imgPost} alt="img post"></Zoom>: null}
+          {file === pdfPost ? <ViewerPDF pdfPost={pdfPost}/> : null}
+          {!file ? <div></div> : null }
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
@@ -115,7 +163,7 @@ export const PostCard = ({
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Comentarios:</Typography>
+            <Typography paragraph><Comments/></Typography>
           </CardContent>
         </Collapse>
       </Card>

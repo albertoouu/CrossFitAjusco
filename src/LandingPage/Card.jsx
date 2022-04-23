@@ -6,16 +6,17 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 export default function ActionAreaCard(props) {
-  console.log(props, props.title, props.content);
+  console.log(props, props.title, props.content, props.img);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="150"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image={props.img}
+          alt="mission"
         />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {props.title}

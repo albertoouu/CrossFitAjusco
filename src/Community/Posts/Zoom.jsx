@@ -8,24 +8,23 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '90%',
-  height: 'auto',
   bgcolor: 'background.paper',
   boxShadow: '0px 5px 7px -7px',
-  p: 2,
+  p: 1,
 };
 
-export const Zoom = ({ img }) => {
+export const Zoom = ({ imgPost }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+//console.log(imgPost)
 
   return (
     <div>
       <CardMedia
         component="img"
-        image={img}
-        alt="img post"
+        image={imgPost}
         onClick={handleOpen}
         style={{ cursor: 'crosshair' }}
       />
@@ -40,8 +39,7 @@ export const Zoom = ({ img }) => {
         <Box sx={style}>
           <CardMedia
             component="img"
-            image={img}
-            alt="img post"
+            image={imgPost}
             onClick={handleClose}
             style={{ cursor: 'crosshair' }}
           />
