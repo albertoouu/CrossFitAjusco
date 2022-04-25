@@ -11,6 +11,14 @@ import StraightenIcon from '@mui/icons-material/Straighten';
 import Button from 'react-bootstrap/Button';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import UserModal from "./UserModal";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import { UserRules} from "./UserRules.jsx"
+import ScrollableFeed from 'react-scrollable-feed'
+import "./UserView.css";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, query, onSnapshot} from "firebase/firestore";
 import app from "../../firebase";
@@ -46,11 +54,11 @@ const db = getFirestore(app);
     const q = query(collection(db,"Users"));
     const unsub = onSnapshot(q, (snap) => {
       const array = snap.docs.filter((doc) => {
-        if(user.email == doc.data().email) {
+        if(user.email === doc.data().email) {
           console.log(doc.id)
           info = doc.data()
           info.id = doc.id
-          console.log('paso')
+          console.log(doc.id)
 
           return true
         }
@@ -75,24 +83,42 @@ const db = getFirestore(app);
     <>
           <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users} data={data} />
 
-    <div key={modalUserData.id} style={{ height: 500, margin: "50px", padding:"30px" }}>
-    <h2>Mi Perfil</h2>
-    <h4>
-          { users.name} {users.last_name}
+    <div key={modalUserData.id} style={{ height: 200, margin: "10px", padding:"5px" }}>
+    <h2 id="title">Mi Perfil</h2>
+    <h4 id="subtitle">
+          {users.name} {users.last_name}
         </h4>
+
+        <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+          <Container maxWidth="lg" sx={{ mt: 6, mb: 5 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6} lg={3}>
+              <Paper
+                  sx={{
+                    p: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 635,
+                  }}
+                >   
     <List
       sx={{
         width: '100%',
-        maxWidth: 800,
+        maxWidth: 500,
         bgcolor: 'background.paper',
       }}
     >
+     
       <ListItem>
         <ListItemText primary="Edad:" secondary={users.age}/>
-        <Button variant="primary" onClick={()=> {
+        <Button 
+        variant="primary" 
+        onClick={()=> {
           handleShow()
           setTipo('Edad:')
           setData(users.age)
+          
         }} 
           onSelectEvent={handleClick}>
          <EditOutlinedIcon />
@@ -244,13 +270,33 @@ const db = getFirestore(app);
         </ListItemAvatar>
         <ListItemText primary="Cintura"  />
       </ListItem>
-    </List>      
+    </List>   
+    </Paper> 
+              </Grid>
+              <Grid item xs={15} md={2} lg={8}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 635,
+                  }}
+                >
+                  <ScrollableFeed>
+                    <UserRules />
+                  </ScrollableFeed>
+                </Paper>
+              </Grid>        
+            </Grid>
+          </Container>
+        </Box>   
       </div>
     </>
   );    
 };
-
 export default Profile; 
+
+
 /*
 import * as React from "react";
 import { useAuth } from "../../Context/authContext";
