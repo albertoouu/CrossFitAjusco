@@ -52,11 +52,12 @@ export const Navigation = () => {
               <NavDropdown.Item href="/Precios">Precio</NavDropdown.Item>
 
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Contacto</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className="navtext" href="/recomendaciones_de_salud">
-              Recomendaciones de salud
-            </Nav.Link>
+            {/* 
+              <Nav.Link className="navtext" href="/recomendaciones_de_salud">
+                Recomendaciones de salud
+              </Nav.Link>
+            */}
             {}
           </Nav>
           {/* Botones de inicio de sesión */}

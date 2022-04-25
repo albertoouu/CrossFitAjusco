@@ -83,10 +83,8 @@ const Carrousel = () => {
       <Carousel.Item>
         <img className="picture" src={img7} alt="Third slide" />
         <Carousel.Caption className="carousel-caption carousel-label">
-          <h3>Carrera</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Carrera en comunidad</h3>
+          <p>¡Serás capaz de enfrentar retos increíbles!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
