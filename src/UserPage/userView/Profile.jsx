@@ -21,6 +21,8 @@ import ScrollableFeed from 'react-scrollable-feed'
 import "./UserView.css";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, query, onSnapshot} from "firebase/firestore";
+
+
 import app from "../../firebase";
 const db = getFirestore(app);
 
@@ -82,13 +84,13 @@ const db = getFirestore(app);
   return (
     <>
           <UserModal show={show} setShow={setShow}  tipo={tipo} modalUserData={users} data={data} />
-
+          
     <div key={modalUserData.id} style={{ height: 200, margin: "10px", padding:"5px" }}>
     <h2 id="title">Mi Perfil</h2>
     <h4 id="subtitle">
           {users.name} {users.last_name}
         </h4>
-
+        
         <Box sx={{ display: "flex" }}>
         <CssBaseline />
           <Container maxWidth="lg" sx={{ mt: 6, mb: 5 }}>
@@ -102,6 +104,7 @@ const db = getFirestore(app);
                     height: 635,
                   }}
                 >   
+               
     <List
       sx={{
         width: '100%',
@@ -216,7 +219,7 @@ const db = getFirestore(app);
       </li>
       </li>
       <ListItem>
-        <ListItemText primary="Medidas:" secondary={users.email}  />
+        <ListItemText primary="Medidas:"/>
       </ListItem>
       <Divider component="li" variant="inset" />
       <li>
@@ -234,7 +237,7 @@ const db = getFirestore(app);
             <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Altura:"  />
+        <ListItemText primary="Altura:"  secondary="1.70 mts"/>
       </ListItem>
       <li>
         <Typography
@@ -251,7 +254,7 @@ const db = getFirestore(app);
            <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Peso"  />
+        <ListItemText primary="Peso" secondary="76 kg" />
       </ListItem>
       <li>
         <Typography
@@ -268,11 +271,13 @@ const db = getFirestore(app);
            <StraightenIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Cintura"  />
+        <ListItemText primary="Cintura" secondary="98 cm"  />
       </ListItem>
     </List>   
     </Paper> 
+   
               </Grid>
+              
               <Grid item xs={15} md={2} lg={8}>
                 <Paper
                   sx={{
