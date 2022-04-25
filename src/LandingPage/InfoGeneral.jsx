@@ -18,18 +18,18 @@ const InfoGeneral = () => {
   return (
     <div>
       <section className="Info">
-        <div>
-          <span className="Crossft">CrossFT Ajusco</span>
+        <div className="details">
+          <h4>
+            <i>Entrena para ser fuerte, no solo para parecerlo</i>
+          </h4>
           <br />
-          <i>Entrena para ser fuerte, no solo para parecerlo</i>
-          <br />
-          <h2>
+          <h5>
             Más que un centro de entrenamiento, somos una comunidad.
             <br />
-            ¿Qué es el Crossfit? Es entrenamiento funcional realizado a alta
-            intensidad. Se adapta a todos los niveles y está dirigido a
-            cualquier persona.
-          </h2>
+            En <strong>CrossFT Ajusco</strong> recibes un entrenamiento
+            funcional realizado a alta intensidad. Se adapta a todos los niveles
+            y está dirigido a cualquier persona.
+          </h5>
         </div>
         <CardMedia image={picture} />
         <CardActionArea title={`Misión`} content={mision} />
