@@ -30,7 +30,7 @@ export const UserView = () => {
           <Avatar
             alt="Perfil"
             src={user.photoURL}
-            sx={{ width: 76, height: 76 }}
+            sx={{width: 76, height: 76 }}
           />
         </Stack>
         <h5 id="welcome">Bienvenido: {user.displayName || user.email}</h5>

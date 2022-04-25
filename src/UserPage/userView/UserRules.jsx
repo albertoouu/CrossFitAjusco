@@ -295,7 +295,6 @@ export const UserRules = () => {
                 </p>      
       </div>          
     </>
-  )
-  }; 
+  )}; 
 
 

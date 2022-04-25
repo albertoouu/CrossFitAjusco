@@ -1,14 +1,17 @@
 import React from "react";
+import "./Precios.css";
+import mensualidad from "../assets/lp_imgs/mensualidad.png";
+import visita from "../assets/lp_imgs/visit.png";
+import focus from "../assets/lp_imgs/training.png";
+import nutri from "../assets/lp_imgs/nutri.png";
 
 const Precios = () => {
   return (
-    <div>
-      <ul>
-        <li>Mensualidad $300</li>
-        <li>Visita: $35</li>
-        <li>Entrenamiento enfocado: $750</li>
-        <li>Asesoramiento nutricional $500</li>
-      </ul>
+    <div className="cost">
+      <img src={mensualidad} alt="month" />
+      <img src={visita} alt="visit" />
+      <img src={focus} alt="focus" />
+      <img src={nutri} alt="nutrition" />
     </div>
   );
 };

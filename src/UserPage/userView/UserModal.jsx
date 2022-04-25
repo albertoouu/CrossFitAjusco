@@ -2,7 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import  { useState } from 'react';
-import {  updateDoc, doc, getFirestore } from 'firebase/firestore';
+import { updateDoc, doc, getFirestore } from 'firebase/firestore';
 import app from "../../firebase";
 const db = getFirestore(app);
 
@@ -11,19 +11,26 @@ const db = getFirestore(app);
   
 const UserModal = ({show, setShow, modalUserData, tipo, data}) => {
     const handleClose = () => setShow(false);
-    const [dataUser, setData] = useState({});
-    
-    
+    const [dataUser, setUserData] = useState({});
+    const [dataPhone, setPhone] = useState({});
+    const docRef = doc (db, `Users/${modalUserData.id}`);
     console.log(tipo)
     //creamos la funcion para actualizar los datos del modal
-    const update = async (e) => {
+    const updateA = async (e) => {
         e.preventDefault()
-        const age = parseInt(dataUser)
-        console.log(typeof(age))
-        let docRef = doc (db, `Users/${modalUserData.id}`);
-        await updateDoc(docRef, {
-            age: age,
-        }); 
+    const age = parseInt(dataUser)
+    console.log(typeof(age))
+    await updateDoc(docRef, {
+        age: age, 
+    }); 
+    console.log(data)
+    
+    const phone = parseInt(dataPhone)
+    await updateDoc(docRef, {
+        phone: phone,  
+    }); 
+        setUserData();
+        setPhone();
         handleClose();
     };
     
@@ -35,12 +42,12 @@ const UserModal = ({show, setShow, modalUserData, tipo, data}) => {
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className="mb-3" controlId={"exampleForm.ControlInput1"}>
             <Form.Label>{tipo}</Form.Label>
             <Form.Control
               placeholder={data}
-              autoFocus
-              onChange={(id) => setData (id.target.value)}
+              autoFocus 
+              onChange={(e) => setUserData (e.target.value)}
             />
           </Form.Group>
         </Form>
@@ -49,7 +56,7 @@ const UserModal = ({show, setShow, modalUserData, tipo, data}) => {
         <Button variant="secondary" onClick={handleClose}>
           Cancelar
         </Button>
-        <Button variant="primary" onClick={update}>
+        <Button variant="primary" onClick={updateA} tipo={tipo}>
           Guardar cambios
         </Button>
       </Modal.Footer>

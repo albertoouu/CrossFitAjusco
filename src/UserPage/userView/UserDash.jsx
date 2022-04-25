@@ -14,25 +14,21 @@ import UserCarousel from "./UserCarousel.jsx";
 import { UserRules} from "./UserRules.jsx"
 import ScrollableFeed from 'react-scrollable-feed'
 
-
-
-
-
 export function UserDash() {
   
   return (
-  
-    
+    <div>
+    <h2 id="title">Próximos Eventos</h2>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
 
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={8} lg={9}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={8} lg={12}>
               <Paper
                   sx={{
-                    p: 2,
+                    p: 1,
                     display: "flex",
                     flexDirection: "column",
                     height: 635,
@@ -43,24 +39,11 @@ export function UserDash() {
                 </ScrollableFeed>
                 </Paper>
               </Grid>   
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 635,
-                  }}
-                >
-                  <ScrollableFeed>
-                    <UserRules />
-                  </ScrollableFeed>
-                </Paper>
-              </Grid>    
+              
             </Grid>
           </Container>
         </Box>
-       
+        </div>
    
   );
 }
