@@ -66,6 +66,22 @@
   background-image: url("../../assets/lp_imgs/Login.jpg");
 }
 
-#title, #subtitle {
+#title, #subtitle, #welcome{
   color: white;
+}
+
+.middle-component,
+#muiBox {
+  background-color: #212529;
+}
+
+.css-12jn0w3-MuiContainer-root {
+  margin-top: 0;
+}
+
+.css-1um0a0q-MuiPaper-root{
+  padding:36;
+}
+.css-1atwg64-MuiPaper-root{
+  padding:30;
 }
