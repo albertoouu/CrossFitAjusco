@@ -42,7 +42,7 @@ export const Navigation = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="contenido">
         <img src={Logo} alt="logo" className="icon" />
-        <Nav.Link href="/">Cross Ft. Ajusco</Nav.Link>
+        <Nav.Link className="logoText" href="/">Cross Ft. Ajusco</Nav.Link>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -62,13 +62,13 @@ export const Navigation = () => {
           </Nav>
           {/* Botones de inicio de sesión */}
           {user ? (
-            <Button variant="link" onClick={handleLogout}>
+            <button onClick={handleLogout} className="login">
               Cerrar Sesión
-            </Button>
+            </button>
           ) : (
-            <Button variant="link" onClick={handleLogin}>
+            <button onClick={handleLogin} className="login">
               Iniciar Sesión
-            </Button>
+            </button>
           )}
 
           <Nav>{/* <Nav.Link href="#deets">More deets</Nav.Link> */}</Nav>
