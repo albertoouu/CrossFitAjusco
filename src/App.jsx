@@ -34,9 +34,15 @@ const App = () => {
               <Route path="/crossfit_ajusco" element={<Navigate to="/" />} />
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/Acerca_de" element={<InfoGeneral />} />
-              <Route path="/precios" element={<Precios />} />
-              <Route path="/recomendaciones_de_salud" element={<Health />} />
+              <Route
+                path="/crossfit_ajusco/Acerca_de"
+                element={<InfoGeneral />}
+              />
+              <Route path="/crossfit_ajusco/precios" element={<Precios />} />
+              <Route
+                path="/crossfit_ajusco/recomendaciones_de_salud"
+                element={<Health />}
+              />
 
               <Route
                 path="/admin/*"

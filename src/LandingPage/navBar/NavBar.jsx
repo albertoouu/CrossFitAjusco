@@ -48,13 +48,17 @@ export const Navigation = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="¿Quiénes somos?" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/Acerca_de">Acerca de</NavDropdown.Item>
-              <NavDropdown.Item href="/Precios">Precio</NavDropdown.Item>
+              <NavDropdown.Item href="/crossfit_ajusco/Acerca_de">
+                Acerca de
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/crossfit_ajusco/Precios">
+                Precio
+              </NavDropdown.Item>
 
               <NavDropdown.Divider />
             </NavDropdown>
             {/* 
-              <Nav.Link className="navtext" href="/recomendaciones_de_salud">
+              <Nav.Link className="navtext" href="/crossfit_ajusco/recomendaciones_de_salud">
                 Recomendaciones de salud
               </Nav.Link>
             */}
