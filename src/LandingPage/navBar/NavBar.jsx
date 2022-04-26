@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
-import ModalPrice from "../Precios";
 import Logo from "../../assets/lp_imgs/Logo.jpg";
 import "./NavBar.css";
 
