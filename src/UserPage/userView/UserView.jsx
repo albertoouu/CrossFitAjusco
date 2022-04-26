@@ -19,13 +19,13 @@ import Stack from "@mui/material/Stack";
 import { Outlet } from "react-router-dom";
 
 //Perfil del usuario logueado
-import { mainListItems, secondaryListItems } from "./UserNavBar.jsx";
+import { mainListItems } from "./UserNavBar.jsx";
 
 export const UserView = () => {
   const { user } = useAuth();
   return (
     <>
-      <div>
+      <div id="profileW">
         <Stack direction="row" spacing={6} margin="5">
           <Avatar
             alt="Perfil"
@@ -101,8 +101,6 @@ function UserContent() {
           <Divider />
           <List component="nav">
             {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
           </List>
         </Drawer>
         <Box

@@ -178,6 +178,7 @@ export const UserRules = () => {
                 </h6>
                 <p>
                 Los usuarios se obligan a abstenerse de:
+                </p>
                 <tr>
                 1. Circular por las áreas comunes del CROSS F T vestidos en forma no propia o adecuada.
                 </tr>
@@ -213,86 +214,7 @@ export const UserRules = () => {
                 </tr>
                 <tr>
                 12. Conducirse con falta de probidad o de forma violenta dentro de las instalaciones.
-                </tr>    
-
-                En caso de que se sorprenda a un usuario, llevando a cabo alguna de las conductas antes señaladas  CROSS F T AJUSCO podrá suspender temporal o definitivamente al mismo, dependiendo de la gravedad de su falta.
-                </p>
-                <h6>
-                DÉCIMA SEXTA.- SUSPENSIÓN TEMPORAL O DEFINITIVA
-                </h6>
-                <p>
-                CROSS F T AJUSCO, podrá suspender en forma temporal o definitiva a un usuario, en caso de que éste incumpla con alguna de las cláusulas establecidas en este reglamento. Será discrecional para CROSS F T AJUSCO suspender en forma temporal o definitiva a un usuario, dependiendo de la gravedad de la falta cometida por el usuario.
-                En caso que proceda una suspensión, CROSS F T AJUSCO le notificará al usuario de manera verbal, negándosele el acceso a las instalaciones de CROSS F T AJUSCO durante el periodo que dure la suspensión. La decisión de una suspensión es inapelable y surtirá efectos de inmediato.
-                La suspensión no da derecho al usuario a la devolución del dinero correspondiente al periodo de la suspensión, toda vez que la misma es consecuencia del actuar del usuario y de la inobservancia del presente reglamento.
-                </p>
-                <h6>
-                DÉCIMA SÉPTIMA.- CAUSALES DE SUSPENSIÓN DEFINITIVA
-                </h6>
-                <p>
-                Independientemente de lo señalado en la regla anterior, CROSS F T AJUSCO podrá suspender en forma definitiva la prestación de servicios a un usuario en los siguientes casos:
-                <tr>
-                1. Por la violación de alguna cláusula del reglamento.
-                </tr>
-                <tr>
-                2. Por la falta de pago oportuno de cualquier tipo de cuota, servicio adicional contratado o consumos realizados dentro de las instalaciones.
-                </tr>
-                <tr>
-                3. Por la agresión de palabra u obra que haga un usuario a cualquier otro usuario o personal de CROSS F T AJUSCO
-                </tr>
-                <tr> 
-                4. Cuando un usuario se vea envuelto en alguna riña o disputa con cualquier persona dentro de las instalaciones.
-                </tr>
-                <tr> 
-                5. Por la realización de alguna falta administrativa o delito dentro de las instalaciones.
-                </tr>
-                <tr> 
-                6. Por la realización o intervención de un usuario en conductas inmorales, conductas contra las buenas costumbres o impropias a juicio de CROSS F T AJUSCO.
-                </tr>
-                <tr> 
-                7. Por la realización de una falta grave que a juicio de CROSS F T AJUSCO amerite la suspensión definitiva.
-                </tr>
-
-                Lo anterior a reserva de las acciones civiles, penales o administrativas que CROSS F T AJUSCO pudiera emprender contra los usuarios que cometieran algún delito o infracción dentro de las instalaciones. 
-                </p>
-                <h6>
-                DÉCIMA SÉPTIMA.- MODIFICACIONES.
-                </h6>
-                <p>
-                CROSS F T AJUSCO podrá modificar este reglamento, en cualquier momento, con el objeto de dar un mejor servicio a sus usuarios. Toda modificación será publicitada en las instalaciones para conocimiento de los usuarios.
-                </p>
-                <h6>
-                DÉCIMA OCTAVA.- CONFIDENCIALIDAD DE DATOS PERSONALES.
-                </h6>
-                <p> 
-                CROSS F T AJUSCO, con domicilio en la calle Francisco Javier Mina # 6-C Pueblo Santo Tomás Ajusto, Delegación Tlalpan, México, D.F., es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección. Así mismo, el domicilio destinado para atención a clientes es el arriba mencionado.
-                </p>
-                <p>
-                Su información personal será utilizada para proveer los servicios y productos que ha solicitado, informarle sobre cambios en los mismos y evaluar la calidad del servicio que le brindamos. Para las finalidades antes mencionadas, requerimos obtener los siguientes datos que podrán incluir, entre otros, los siguientes:
-                <tr>
-                (i) Datos de identificación y de contacto: nombre completo, dirección, teléfono de casa, celular y/o de trabajo, estado civil, firma, correo electrónico, lugar y fecha de nacimiento, así como sus domicilios, entre otros.
-                </tr>
-                <tr>    
-                (ii)Datos laborales: ocupación, puesto, área o departamento, domicilio, teléfono.
-                </tr>
-                </p>
-                <p> 
-                Soy capaz tanto física como psicológicamente de participar en los ejercicios y entrenamientos o cualquier otra actividad proporcionada por CROSS F T AJUSCO y sus instructores. Entiendo que la actividad física, incluyendo clases, puede ser extenuante y que estoy sujeto al riesgo de lesiones serias. Entiendo que es mi obligación  consultar a un médico especialista antes de iniciar cualquier programa de entrenamiento. Renuncio a cualquier indemnización, económica o de otra índole, en caso de sufrir algún accidente, ya sea por causa imputable a CROSS F T AJUSCO, por actos a terceros, caso fortuito o de fuerza mayor, antes, durante o después de la práctica de cualquier actividad proporcionada por CROSS F T AJUSCO.
-                Estoy de acuerdo que al involucrarme en cualquier actividad física organizada por CROSS F T AJUSCO al usar las instalaciones de CROSS F T AJUSCO ya sea dentro o fuera, incluyendo mi participación en eventos, lo hago ENTERAMENTE BAJO MI PROPIO RIESGO. Cualquier recomendación de cambios en mi alimentación o el uso de suplementos o complementos alimenticios, incluyendo productos para reducir de peso es completamente mi responsabilidad y me comprometo a consultar a un médico especialista antes de iniciar cualquier cambio en mi alimentación o consumir cualquier producto suplementario o complementario a mi alimentación.
-                Estoy de acuerdo que CROSS F T AJUSCO no es responsable por la pérdida o daño de bienes de mi propiedad dentro o en las inmediaciones de las instalaciones o en eventos promovidos CROSS F T AJUSCO incluyendo dinero en efectivo y valores.
-                Entiendo que los ejercicios programados por  CROSS F T AJUSCO pueden ser extremadamente demandantes y toma absoluta responsabilidad por conocer, monitorear y actuar dentro de mis habilidades y entendimiento para incorporar cualquier modificación o adaptación necesarias para proceder con dichas actividades en forma segura y apropiada. Acepto seguir y aceptar las instrucciones y programas otorgados por CROSS F T AJUSCO durante el desarrollo de los ejercicios que llevaré a cabo. Acepto la responsabilidad de cubrir cualquier gasto que se realice en mi nombre o por mi causa como resultado de mis acciones. Declaro que estoy libre de la influencia del alcohol y otras drogas y que no usaré ninguna de estas sustancias durante mi participación en los ejercicios ni el entrenamiento en que estaré involucrado.
-                Entiendo que al participar en entrenamiento a alta intensidad, incluyendo clases, existe la posibilidad de padecer rabdomiólisis (“rabdo”). La rabdomiólisis es una condición potencialmente letal iniciada por la descomposición de las fibras musculares que ocasiona la liberación de los contenidos de dichas fibras (mioglobina) en el torrente sanguíneo. La mioglobina es tóxica para los riñones y con frecuencia causa daño renal. Existen muchas causas y diversos tipos de rabdomiólisis clasificadas por la causa de la descomposición de las fibras musculares, por actividades extenuantes.
-                Estoy de acuerdo que CROSS F T AJUSCO, sus empleados, miembros, instructores y contratistas no serán responsables por ningún daño o lesión que me pudiera ocurrir como resultado de: a) el uso de las instalaciones y equipo provisto por CROSS F T AJUSCO y mi participación en cualquier actividad, clase, programa o entrenamiento, b) la súbita e imprevista falta en cualquier equipo, c) cualquier instrucción, programación, entrenamiento, supervisión o recomendación nutricional provista por CROSS F T AJUSCO d) el tropezarme, caerme o accidentarme dentro de sus instalaciones, incluyendo la banqueta, entrada y calles cercanas, y e) cualquier choque o colisión en la que incurra yo con cualquier miembro o vehículo de cualquier tipo mientras visite las instalaciones de CROSS F T AJUSCO; por lo que los deslindo por este medio de toda responsabilidad.
-                Entiendo que CROSS F T AJUSCO no tiene ningún programa de guardería o de cuidado de infantes, ni provee el cuidado o seguridad de los mismos. Estoy de acuerdo que es mi responsabilidad el asegurarme de la seguridad, cuidado y protección de cualquier infante bajo mi cuidado que se encuentre presente dentro de las instalaciones de CROSS F T AJUSCO o en áreas aledañas, incluyendo la calle o la banqueta. También estoy de acuerdo que firmaré como tutor o responsable un documento que deslinde de responsabilidad por cualquier infante que se encuentre dentro de las instalaciones de CROSS F T AJUSCO conmigo para participar en actividades o programas de CROSS F T AJUSCO.
-                Autorizo el uso, explotación, publicación y distribución de cualquier imagen, fotografía, video en la que aparezca mi persona, renunciando a cualquier derecho que se pudiera obtener por la explotación de dichas obras, otorgando pleno uso de las mismas para los fines que mejor convengan a CROSS F T AJUSCO.
-                Acuerdo expresamente que la presente liberación de responsabilidades será obligada sobre mis herederos, representantes y albaceas.
-                Al firmar este documento de liberación de responsabilidad, estoy de acuerdo que he leído y que entiendo todos sus términos.  Lo firmo de forma voluntaria y consciente de su significado y de los riesgos que incurro.
-                Asimismo, en este acto libero de toda responsabilidad a CROSS F T AJUSCO, socios, personal e instructores, por cualquier lesión o enfermedad que me llegare a ocasionar dentro o por las instalaciones o equipo de CROSS F T AJUSCO, por cualquier uso indebido o irresponsable de las instalaciones o equipo, o por los ejercicios o clases que practique dentro del mismo; por lo que renunció a cualquier acción que pudiese ejercer en su contra.
-                Asimismo, en este acto libero de toda responsabilidad a CROSS F T AJUSCO, socios, personal e instructores, por cualquier lesión o enfermedad que el Usuario se llegare a ocasionar dentro o por las instalaciones o equipo del CROSS F T AJUSCO, por cualquier uso indebido o irresponsable de las instalaciones o equipo, o por los ejercicios o clases que practique dentro del mismo; por lo que renunció a cualquier acción que pudiese ejercer en su contra.
-                Ambas partes reconocen que no existe relación laboral alguna entre CROSS F T AJUSCO, socios y personal con sus INSTRUCTORES tanto de clases grupales o dirigidas e INSTRUCTORES o ENTRENADORES personales que brinden sus servicios en CROSS F T AJUSCO.
-                Los instructores de clases dirigidas o grupales, así como los instructores o entrenadores personales, aceptan que CROSS F T AJUSCO sea quien cobre a sus clientes por los servicios que cada uno de los instructores o entrenadores presten para posteriormente CROSS F T AJUSCO ser también que les pague a cada uno de los instructores por las horas brindadas tanto de clases dirigidas o grupales y/o entrenamientos personalizados mediante comisión pactada de mutuo acuerdo entre las partes por concepto de permiso de uso de sus instalaciones para la prestación independiente de sus servicios.
-                Las partes son totalmente independientes, por lo tanto no existe ningún nexo o relación obrero-patronal entre ellos.
-                Asimismo, en este acto libero de toda responsabilidad a CROSS F T AJUSCO, así como a sus socios, personal e instructores, por cualquier lesión o enfermedad que me llegare a ocasionar dentro o por las instalaciones o equipo del CROSS F T AJUSCO, por cualquier uso indebido o irresponsable de las instalaciones o equipo, o por los ejercicios o clases que practique o imparta dentro del mismo; por lo que renunció a cualquier acción que pudiese ejercer en su contra.    
-                </p>      
+                </tr>     
       </div>          
     </>
   )}; 

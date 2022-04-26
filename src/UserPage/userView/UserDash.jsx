@@ -7,11 +7,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-
 import UserCarousel from "./UserCarousel.jsx";
-
 // import UserCarousel from "./UserCarousel.jsx";
-import { UserRules} from "./UserRules.jsx"
 import ScrollableFeed from 'react-scrollable-feed'
 
 export function UserDash() {
@@ -21,7 +18,6 @@ export function UserDash() {
     <h2 id="title">Próximos Eventos</h2>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={1}>
