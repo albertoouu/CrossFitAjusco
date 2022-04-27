@@ -22,7 +22,8 @@
 .logoText{
   font-family: 'Anton', sans-serif;
   font-size: 1.7rem;
-  color: #ecc510fc;;
+  color: #ecc510fc;
+  font-style: italic;
 
 }
 
