@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { useAuth } from "../../Context/authContext";
 import { useNavigate } from "react-router-dom";
-import ModalPrice from "../Precios";
 import Logo from "../../assets/lp_imgs/Logo.jpg";
 import "./NavBar.css";
 
@@ -24,12 +23,12 @@ export const Navigation = () => {
   //una vez que cierra sesión se va navigate('direccón')
 
   const handleLogin = () => {
-    navigate("/login");
+    navigate("crossfit_ajusco/login");
   };
 
   const handleLogout = async () => {
     await logout();
-    navigate("/");
+    navigate("crossfit_ajusco/home");
   };
 
   // if (!user) {
@@ -42,16 +41,18 @@ export const Navigation = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="contenido">
         <img src={Logo} alt="logo" className="icon" />
-        <Nav.Link className="logoText" href="/">Cross Ft. Ajusco</Nav.Link>
+        <Nav.Link className="logoText" href="/">
+          <b>Cross Ft. Ajusco</b>
+        </Nav.Link>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="¿Quiénes somos?" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/crossfit_ajusco/Acerca_de">
+              <NavDropdown.Item href="/crossfit_ajusco/acerca_de">
                 Acerca de
               </NavDropdown.Item>
-              <NavDropdown.Item href="/crossfit_ajusco/Precios">
+              <NavDropdown.Item href="/crossfit_ajusco/precios">
                 Precio
               </NavDropdown.Item>
 
