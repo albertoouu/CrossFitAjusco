@@ -60,21 +60,27 @@ const Footer = () => {
             </div>
           </h4>
           <br />
-          <a href="https://www.facebook.com/YETIS14Ajusco12">
+          <a href="https://www.facebook.com/YETIS14Ajusco12" target="_blank">
             <FacebookIcon />
           </a>
           <h6>@YETIS14Ajusco12</h6>
 
-          <a href="mailto:axoscoyetizote@gmail.com">
+          <a href="mailto:axoscoyetizote@gmail.com" target="_blank">
             <EmailIcon />
           </a>
           <h6>Mail</h6>
 
-          <a href="https://api.whatsapp.com/send?phone=5569083741">
+          <a
+            href="https://api.whatsapp.com/send?phone=5569083741"
+            target="_blank"
+          >
             <WhatsAppIcon />
           </a>
           <h6>55-69-08-37-41</h6>
-          <a href="https://instagram.com/crossftajusco?utm_medium=copy_link">
+          <a
+            href="https://instagram.com/crossftajusco?utm_medium=copy_link"
+            target="_blank"
+          >
             <InstagramIcon />
           </a>
           <h6>Cross F T Ajusco</h6>
