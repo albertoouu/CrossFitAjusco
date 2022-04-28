@@ -275,21 +275,7 @@ const db = getFirestore(app);
     </Paper> 
    
               </Grid>
-              
-              <Grid item xs={15} md={2} lg={8}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 635,
-                  }}
-                >
-                  <ScrollableFeed>
-                    <UserRules />
-                  </ScrollableFeed>
-                </Paper>
-              </Grid>        
+             
             </Grid>
           </Container>
         </Box>   
