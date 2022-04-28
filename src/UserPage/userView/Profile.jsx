@@ -26,8 +26,6 @@ import { getFirestore, collection, query, onSnapshot} from "firebase/firestore";
 import app from "../../firebase";
 const db = getFirestore(app);
 
-
-
  const Profile = () => {
   const { user } = useAuth();
   // Traemos el id del usuario desde useAuth 

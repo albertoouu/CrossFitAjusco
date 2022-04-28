@@ -19,6 +19,7 @@ import Profile from "./UserPage/userView/Profile.jsx";
 import { UserPayments } from "./UserPage/userView/UserPayments.jsx";
 import { ReadPost } from "./Community/Posts/ReadPost";
 import { UserDash } from "./UserPage/userView/UserDash.jsx";
+import { UserRules } from "./UserPage/userView/UserRules.jsx";
 import InfoGeneral from "./LandingPage/InfoGeneral.jsx";
 import Precios from "./LandingPage/Precios.jsx";
 import Health from "./LandingPage/navBar/Health.jsx";
@@ -69,6 +70,7 @@ const App = () => {
                 <Route path="training" element={<UserTraining />} />
                 <Route path="comunidad" element={<ReadPost />} />
                 <Route path="eventos" element={<UserDash />} />
+                <Route path="reglamento" element={<UserRules />} />
               </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

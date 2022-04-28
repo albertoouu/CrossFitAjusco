@@ -1,5 +1,13 @@
 import * as React from "react";
 import { useAuth } from "../../Context/authContext";
+import "./UserView.css";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import ScrollableFeed from 'react-scrollable-feed'
 
 
 export const UserRules = () => {
@@ -18,14 +26,31 @@ export const UserRules = () => {
 
   //Función para actualizar datos 
   
-  return (
+  return ( 
+    <>
     
-    <>        
-      <div key={uD.id}>
-        <h4>{uD.name} {uD.last_name}</h4>
-        <h5>
-            ESTE ES TU REGLAMENTO DE USUARIO 
-        </h5>
+    
+    <h2 id="title">REGLAMENTO DE USUARIO</h2>
+    
+      <Box sx={{ display: "flex" }}>
+        
+         
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={8} lg={12}>
+              <Paper
+                  sx={{
+                    p: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 635,
+                  }}
+                >
+      
+        <ScrollableFeed>
+        <h3>{uD.name} {uD.last_name}</h3> 
+        <h4>Este es mi reglamento de usuario:</h4>
+        <div key={uD.id}>
           <p>
             Este reglamento está diseñado para informarle acerca de los servicios que proporciona CROSS F T AJUSCO, así como las reglas que deberá de respetar al asistir y hacer uso de las instalaciones, equipo y/o actividades de CROSS F T AJUSCO; ello con el objeto de proporcionarle un mejor servicio y lograr una convivencia armónica, agradable y de respeto para todos los que asisten. Por lo que el usuario se obliga a respetar las disposiciones contenidas en el presente reglamento:
           </p>
@@ -214,8 +239,16 @@ export const UserRules = () => {
                 </tr>
                 <tr>
                 12. Conducirse con falta de probidad o de forma violenta dentro de las instalaciones.
-                </tr>     
-      </div>          
+                </tr>    
+                </div> 
+                </ScrollableFeed>  
+                
+                </Paper>
+              </Grid>   
+            </Grid>
+          </Container>
+        </Box>  
+                  
     </>
   )}; 
 
