@@ -54,6 +54,14 @@ export const mainListItems = (
       <ListItemText primary="Eventos" />
     </ListItemButton>
      </NavLink>
+     <NavLink to='reglamento'>
+    <ListItemButton>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Reglamento" />
+    </ListItemButton>
+     </NavLink>
   </React.Fragment>
 );
 

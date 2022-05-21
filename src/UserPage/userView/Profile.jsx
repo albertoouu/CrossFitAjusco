@@ -26,8 +26,6 @@ import { getFirestore, collection, query, onSnapshot} from "firebase/firestore";
 import app from "../../firebase";
 const db = getFirestore(app);
 
-
-
  const Profile = () => {
   const { user } = useAuth();
   // Traemos el id del usuario desde useAuth 
@@ -277,21 +275,7 @@ const db = getFirestore(app);
     </Paper> 
    
               </Grid>
-              
-              <Grid item xs={15} md={2} lg={8}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 635,
-                  }}
-                >
-                  <ScrollableFeed>
-                    <UserRules />
-                  </ScrollableFeed>
-                </Paper>
-              </Grid>        
+             
             </Grid>
           </Container>
         </Box>   

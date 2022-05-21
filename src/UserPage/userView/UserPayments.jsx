@@ -71,7 +71,7 @@ export const UserPayments = () => {
 <br></br>
   <thead>
     <tr>
-      <th>Relaizar Pago #Cuenta:</th>
+      <th>Realizar Pago #Cuenta:</th>
      
     </tr>
   </thead>
